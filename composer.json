@@ -1,0 +1,7 @@
+{
+	"scripts": {
+		"compile": [
+			"gulp heroku"
+		]
+	}
+}
