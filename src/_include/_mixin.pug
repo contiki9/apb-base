@@ -18,7 +18,7 @@ mixin gnav(path,current)
 //- Header
 //--------------------------------------
 mixin header(path, current)
-	 + fbJs()
+    + fbJs()
     header.header
         .l-header
             - var a ='uk-navbar';
@@ -40,7 +40,7 @@ mixin header(path, current)
 //--------------------------------------
 mixin footer()
     footer.footor
-		 + shareBtn
+        + shareBtn
         p.copy Copyright &copy 2017 . All rights reserved
 
 
@@ -65,23 +65,23 @@ mixin breadcrumb(...items)
 //- SNS
 //--------------------------------------
 mixin shareBtn
-.c-social-button-block
-            ul
-                li
-                    .fb-like(data-href='https://www.facebook.com/GeekBearOsaka', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true')
-                li
-                    a.twitter-share-button(href='https://twitter.com/share', data-url='http://geekbear.jp/', data-lang='ja', data-related='geekbearosaka', data-hashtags='GeekBear') ツイート
-                    script.
-                        !function (d, s, id) {
-                            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                            if (!d.getElementById(id)) {
-                                js = d.createElement(s);
-                                js.id = id;
-                                js.src = p + '://platform.twitter.com/widgets.js';
-                                fjs.parentNode.insertBefore(js, fjs);
-                            }
-                        }(document, 'script', 'twitter-wjs');
-  
+    .c-social-button-block
+        ul
+            li
+                .fb-like(data-href='https://www.facebook.com/GeekBearOsaka', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true')
+            li
+                a.twitter-share-button(href='https://twitter.com/share', data-url='http://geekbear.jp/', data-lang='ja', data-related='geekbearosaka', data-hashtags='GeekBear') ツイート
+                script.
+                    !function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = p + '://platform.twitter.com/widgets.js';
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    }(document, 'script', 'twitter-wjs');
+
 //--------------------------------------
 //- facebookJS
 //--------------------------------------
@@ -96,4 +96,5 @@ mixin fbJs()
             js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+
 
