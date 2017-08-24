@@ -39,7 +39,8 @@ $ease-out-quint:cubic-bezier(.23,1,.32,1);
 // --------------------------------------------------
 //Setting
 // --------------------------------------------------
-$container:960px;//Containerサイズ
+$container:1200px;//Containerサイズ
+$global-radius:4px !default;//サイトで良く使う角丸
 
 //breakpointサイズ
 //breakpointが１津の場合は’brk’を使用しています。
