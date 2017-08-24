@@ -156,6 +156,12 @@ SASS mixin
   &:hover {
     color: $color;
   }
+  &:focus {
+    color: $color;
+  }
+  &:visited {
+    color: $color;
+  }
 }
 
 //position-center-middle

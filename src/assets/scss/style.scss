@@ -43,6 +43,7 @@
 @import "parts/bg";
 @import "parts/box";
 @import "parts/button";
+@import "parts/container";
 @import "parts/footer";
 @import "parts/form";
 @import "parts/header";
@@ -61,15 +62,11 @@
 
 /* block
    ---------------------------------------------------------- */
-//@import "block/";
+//@import "block/*";
 
 /* pages
    ---------------------------------------------------------- */
-@import "pages/layout";
 @import "pages/index";
-
-
-
 
 
 /*---------------------------------------------------------------------

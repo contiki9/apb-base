@@ -68,8 +68,15 @@
 }
 
 //コンテンツの余白
-.ex-sideSpace{
+.ex-side-space{
   @include padding(null 2%);
+}
+.ex-height-space {
+  @include padding(10px null);
+}
+
+.ex-transition-base {
+  transition: all 0.6s ease-in-out;
 }
 
 /* FONTS

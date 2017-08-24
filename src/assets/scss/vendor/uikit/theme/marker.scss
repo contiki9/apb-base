@@ -1,5 +1,5 @@
 //
-// Component: List
+// Component: Marker
 //
 // ========================================================================
 
@@ -7,33 +7,23 @@
 // Variables
 // ========================================================================
 
-//
-// New
-//
 
-$list-striped-border-width:                      $global-border-width !default;
-$list-striped-border:                            $global-border !default;
-
-
-// Style modifiers
+// Component
 // ========================================================================
 
-// @mixin hook-list-divider(){}
 
 
-
-// @mixin hook-list-bullet(){}
+// @mixin hook-marker-hover(){}
 
 
 // Miscellaneous
 // ========================================================================
 
-// @mixin hook-list-misc(){}
+// @mixin hook-marker-misc(){}
 
 
 // Inverse
 // ========================================================================
 
-// @mixin hook-inverse-list-divider(){}
-
-// @mixin hook-inverse-list-bullet(){}
+// @mixin hook-inverse-marker(){}
+// @mixin hook-inverse-marker-hover(){}

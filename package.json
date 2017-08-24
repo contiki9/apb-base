@@ -17,7 +17,7 @@
     "bourbon": "thoughtbot/bourbon",
     "browser-sync": "^2.11.2",
     "del": "^2.2.0",
-    "dlex": "https://github.com/contiki9/dlex/archive/1.tar.gz",
+    "dlex": "https://github.com/contiki9/dlex/archive/1.3.tar.gz",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
     "gulp-aigis": "^1.2.0",

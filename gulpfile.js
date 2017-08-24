@@ -262,8 +262,9 @@ gulp.task('copy-vendor', function () {
     var stream = gulp.src(paths.node + 'uikit/src/scss/**/*.scss')
         .pipe(gulp.dest(develop.assets + '/scss/vendor/uikit'))
 
-    gulp.src(paths.node + 'uikit/dist/js/uikit.js')
-        .pipe(gulp.dest(develop.assets + '/js/vendor/uikit'));
+    //UIKitのJSは基本CDNを利用
+    //gulp.src(paths.node + 'uikit/dist/js/uikit.js')
+    //    .pipe(gulp.dest(develop.assets + '/js/vendor/uikit'));
 
     // Copy Skeleton
     gulp.src(paths.node + 'skeleton-scss/scss/**/*.scss')
@@ -278,9 +279,9 @@ gulp.task('copy-vendor', function () {
         .pipe(gulp.dest(develop.assets + '/scss/vendor/bourbon-neat'));
 
     // Copy dlex
-    gulp.src(paths.node + 'dlex/docs/scss/**/*dlex.scss')
+    gulp.src(paths.node + 'dlex/src/scss/**/_dlex.scss')
         .pipe(gulp.dest(develop.assets + '/scss/vendor/dlex'));
-    gulp.src(paths.node + 'dlex/docs/scss/**/*mixin.scss')
+    gulp.src(paths.node + 'dlex/src/scss/**/_mixin.scss')
         .pipe(gulp.dest(develop.assets + '/scss/vendor/dlex'));
 
     return stream;
