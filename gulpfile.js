@@ -166,7 +166,7 @@ gulp.task('image-min', function () {
 gulp.task('uglify', function () {
     console.log('--------- uglify task ----------');
     return gulp.src(develop.assets + '**/*.js')
-        .pipe(uglify({preserveComments: 'some'}))
+        .pipe(uglify({output:{comments: /^!/}}))
         .pipe(gulp.dest(release.assets));
 });
 
