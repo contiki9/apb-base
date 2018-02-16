@@ -20,13 +20,6 @@
     &:last-child:after{
       content: '';
     }
-    //:first-child a:before{/*家アイコン*/
-    //  font-family: FontAwesome;
-    //  content: '\f015';
-    //  font-weight: normal;
-    //  font-size: 1.1em;
-    //  color: #f3948f;
-    //}
     a{
       text-decoration: none;
       color: $color-link;
@@ -49,7 +42,6 @@
   @include cnt-font-size(14);
   li{
     padding-left: 8*2px;
-    //padding-right: 8*3px;
     &:first-child{
       padding-left: 0;
     }
@@ -89,9 +81,7 @@
       @include cnt-font-size(20);
       color: $color-text-light;
     }
-
   }
-
   .step{
     @include cnt-circle;
     background: $color-text-light;

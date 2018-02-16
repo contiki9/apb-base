@@ -48,38 +48,3 @@
     margin-bottom:8*2px;
   }
 }
-
-.b-pager-search {
-  .w-pager-search {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    @include mq(pc){
-      @include flx-row;
-      @include flx-bottom;
-    }
-    .l-left {
-      margin-right: auto;
-    }
-    .b-pager {
-      background: none;
-      padding: 0;
-    }
-  }
-}
-
-.b-pager-search-number {
-  @include cnt-font-size(14);
-  @include mq(){
-    text-align: center;
-    margin-bottom:8*2px;
-    display: block;
-  }
-  span.point-text {
-    @include cnt-font-size(30);
-    color: $color-main;
-    display: inline-block;
-    padding-right: 4px;
-    padding-left: 4px;
-
-  }
-}

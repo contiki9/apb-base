@@ -83,6 +83,14 @@ var browserSyncOptions = {
        },
     open:false//オプション
 };
+var browserSyncOptionsStyle = {
+    notify: false,
+    server: {
+        baseDir: './styleguide/',
+        index: 'index.html'
+       },
+    open:false//オプション
+};
 
 var AUTOPREFIXER_BROWSERS = [
     // @see https://github.com/ai/browserslist#browsers
@@ -216,11 +224,15 @@ gulp.task('browser-sync', function () {
     browserSync.init(browserSyncWatchFiles, browserSyncOptions);
 });
 
+// browserSync スタイルガイド用
+gulp.task('browser-syncStyle', function () {
+    browserSync.init(browserSyncWatchFiles, browserSyncOptionsStyle);
+});
+
 gulp.task('bs-reload', function () {
     console.log('--------- bs-reload task ----------');
     browserSync.reload();
 });
-
 
 ////////////////////////////////////////////////
 // スタイルガイドを生成
@@ -251,11 +263,18 @@ gulp.task('styleguide', ['clean-styleguide'], function (callback) {
     );
 });
 gulp.task('re-styleguide', function (callback) {
+    gulp.watch('./**/*.html', ['bs-reload']);
     return runSequence(
         'styleguide',
         'bs-reload',
         callback
     );
+});
+
+
+// gulpのデフォルト
+gulp.task('guide', ['re-styleguide','browser-syncStyle'], function () {
+    gulp.watch(develop.assets + 'scss/**/*.scss', ['re-sass']);
 });
 
 
