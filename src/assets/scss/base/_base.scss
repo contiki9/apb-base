@@ -2,7 +2,7 @@
  * Base Style
 */
 body, html {
-  @extend .ex-font-family;
+  @extend %ex-font-family;
   @include cnt-font-size($font-nml,16);
   color: $color-text;
   min-height:100vh;
@@ -13,6 +13,7 @@ body {
   -moz-osx-font-smoothing: auto;
   font-kerning: normal;
   background-color: $color-bg;
+  position: relative;
   a {
     color: $color-link;
     &:hover{
@@ -23,7 +24,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @extend .ex-font-family;
+  @extend %ex-font-family;
   line-height: 1.5;
 }
 
@@ -35,8 +36,10 @@ p {
 
 ul,ol,li,dl,dd,dt{
   list-style: none;
-  @include margin(null 0);
-  @include padding(null 0);
+  padding-left: 0;
+  padding-right: 0;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 li {
@@ -98,7 +101,7 @@ pre {
 
 h1, h2, h3, h4, h5, h6,
 ul, ol, dl,
-blockquote, p, address,
+blockquote, address,
 hr,
 table,
 fieldset, figure,
@@ -244,6 +247,7 @@ input {
   &[type="text"],
   &[type="tel"],
   &[type="url"],
+  &[type="date"],
   &[type="password"] {
     height: 38px;
     padding: 6px 10px; // The 6px vertically centers text on FF, ignored by Webkit
@@ -253,6 +257,7 @@ input {
     box-shadow: none;
     box-sizing: border-box;
     border-color: $color-border;
+    font-weight: normal;
   }
 }
 
@@ -272,7 +277,7 @@ p,
 ul,
 ol,
 form {
-  margin-bottom: 2.5rem;
+	margin-bottom: 1.5rem;
 }
 
 textarea,
@@ -284,6 +289,7 @@ select {
   border-radius: $global-radius;
   box-shadow: none;
   box-sizing: border-box;
+  font-weight: normal;
 }
 
 // Removes awkward default styles on some inputs for iOS
@@ -294,6 +300,7 @@ input {
   &[type="text"],
   &[type="tel"],
   &[type="url"],
+  &[type="date"],
   &[type="password"] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -317,6 +324,7 @@ input {
   &[type="text"]:focus,
   &[type="tel"]:focus,
   &[type="url"]:focus,
+  &[type="date"]:focus,
   &[type="password"]:focus {
     border: 1px solid $color-link;
     outline: 0;

@@ -1,11 +1,22 @@
-// --------------------------------------------------
+﻿// --------------------------------------------------
 //Base Color
 // --------------------------------------------------
-$color-bg:#FFF !default;;//背景色
-$color-text: #3F3F3F !default;;//基本文字色
-$color-link: #03a9f4 !default;;//基本リンク色
-$color-accent: #fdd835 !default;//基本アクセント色
-$color-border:#cfd8dc!default;//基本線色
+$color-bg:#FFF !default;//背景色
+$color-bg-light:#FBFBFB !default;//色付き背景色
+$color-bg-light-dark:#EFF4F6 !default;//色付き背景色
+$color-text: #3F3F3F !default;//基本文字色
+$color-text-light-dark: #636970 !default;//基本文字明るめ色2
+$color-text-light: #AAB1B9 !default;//基本文字明るめ色
+$color-main: #FF9916 !default;//基本メイン色
+$color-link: #006ACF !default;//基本リンク色
+$color-required: #FF1A1A !default;//必須項目の色
+$color-alert: #DE3C3C !default;//アラート関係の色
+$color-accent: #12B3AA !default;//基本アクセント色
+$color-accent2: #32C94E !default;//基本アクセント色2
+$color-border:#cfd8dc !default;//基本線色
+$color-border-light:#B4B4B4 !default;//線色明るめ
+$color-disable:#c5c7c8 !default;//非選択・選択不可など
+$color-table:#EFF4F6 !default;//テーブルのth背景
 
 // --------------------------------------------------
 //Gray Color
@@ -56,6 +67,10 @@ $breakpoints: (
   'sp': 'screen and (max-width: 400px)',
   'tb': 'screen and (max-width: 768px)',
   'pc': 'screen and (min-width: 641px)',
+  'min800': 'screen and (min-width: 801px)',
+  'wrap': 'screen and (max-width: 1200px)',
+  'max1400': 'screen and (max-width: 1400px)',
+  'max2000': 'screen and (max-width: 2000px)',
 ) !default;
 
 
