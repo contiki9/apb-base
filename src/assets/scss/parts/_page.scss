@@ -1,0 +1,53 @@
+/*
+ * page Style
+*/
+
+.b-page-header{
+  .p-home--search & {
+    .w-page-title{
+      @include cnt-bg-fluid('/images/home/page-head-bg-search.jpg',cover)
+    }
+  }
+  .p-home--offer-detail & {
+    .w-page-title{
+      @include cnt-bg-fluid('/images/home/page-head-bg-offer-detal.jpg',cover)
+    }
+  }
+  .p-home--error & {
+    .w-page-title{
+      background: $color-bg-light-dark;
+      .page-title {
+        color: $color-text-light;
+      }
+    }
+  }
+  .w-page-title{
+    padding:8*5px 8*2px;
+    @include mq(){
+      padding:8*2px 8px;
+    }
+    .page-title{
+      @include cnt-font-size(60);
+      text-align: center;
+      color: #FFF;
+      letter-spacing:.1em;
+      @include mq(){
+        @include cnt-font-size(30);
+      }
+    }
+  }
+}
+
+.b-page-simple-title{
+  .w-page-simple-title{
+    .page-simple-title{
+      @include cnt-font-size(30);
+      text-align: center;
+      letter-spacing:.1em;
+      margin-bottom: 8*4px;
+      @include mq(){
+        @include cnt-font-size(20);
+      }
+    }
+  }
+}

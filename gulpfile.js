@@ -1,7 +1,8 @@
-var gulp = require('gulp');
+﻿var gulp = require('gulp');
 
 //scss
 var sass = require('gulp-sass');
+var sassGlob = require("gulp-sass-glob");
 var pleeease = require('gulp-pleeease');
 var plumber = require('gulp-plumber');
 
@@ -79,7 +80,8 @@ var browserSyncOptions = {
     server: {
         baseDir: release.root,
         index: 'index.html'
-    }
+       },
+    open:false//オプション
 };
 
 var AUTOPREFIXER_BROWSERS = [
@@ -108,7 +110,7 @@ gulp.task('sass', function () {
     return gulp.src([
         develop.assets + 'scss/**/*.scss',
         '!' + develop.assets + 'scss/vendor/**/*.scss'
-    ])
+    ]).pipe(sassGlob())
         .pipe(plumber({
             errorHandler: function (err) {
                 console.log(err.messageFormatted);
@@ -164,9 +166,13 @@ gulp.task('image-min', function () {
 
 // jsを圧縮
 gulp.task('uglify', function () {
-    console.log('--------- uglify task ----------');
+    console.log('--------- uglify task ----------')
     return gulp.src(develop.assets + '**/*.js')
-        .pipe(uglify({output:{comments: /^!/}}))
+        .pipe( uglify({
+            output:{
+                comments: /^!/
+            }
+        }))
         .pipe(gulp.dest(release.assets));
 });
 
@@ -229,7 +235,7 @@ gulp.task('aigis', function () {
 ////////////////////////////////////////////////
 gulp.task('clean-styleguide', function () {
     console.log('--------- clean-styleguide task ----------');
-    return del(paths.guide + '**/*', '!.gitkeep');
+    return del(paths.guide + '/styleguide/**/*', '!.gitkeep');
 });
 
 
@@ -259,8 +265,8 @@ gulp.task('re-styleguide', function (callback) {
 gulp.task('copy-vendor', function () {
     console.log('--------- copy-vender task ----------');
     // Copy uikit
-    var stream = gulp.src(paths.node + 'uikit/src/scss/**/*.scss')
-        .pipe(gulp.dest(develop.assets + '/scss/vendor/uikit'))
+    //var stream = gulp.src(paths.node + 'uikit/src/scss/**/*.scss')
+    //    .pipe(gulp.dest(develop.assets + '/scss/vendor/uikit'))
 
     //UIKitのJSは基本CDNを利用
     //gulp.src(paths.node + 'uikit/dist/js/uikit.js')
@@ -271,12 +277,12 @@ gulp.task('copy-vendor', function () {
         .pipe(gulp.dest(develop.assets + '/scss/vendor/skeleton-scss'));
 
     // Copy Bourbon
-    gulp.src(paths.node + 'bourbon/core/**/*.scss')
-        .pipe(gulp.dest(develop.assets + '/scss/vendor/bourbon'));
+    //gulp.src(paths.node + 'bourbon/core/**/*.scss')
+    //    .pipe(gulp.dest(develop.assets + '/scss/vendor/bourbon'));
 
     // Copy Neat
-    gulp.src(paths.node + 'bourbon-neat/core/**/*.scss')
-        .pipe(gulp.dest(develop.assets + '/scss/vendor/bourbon-neat'));
+    //gulp.src(paths.node + 'bourbon-neat/core/**/*.scss')
+    //    .pipe(gulp.dest(develop.assets + '/scss/vendor/bourbon-neat'));
 
     // Copy dlex
     gulp.src(paths.node + 'dlex/src/scss/**/_dlex.scss')

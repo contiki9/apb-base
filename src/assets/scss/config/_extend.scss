@@ -1,4 +1,4 @@
-
+﻿
 
 /* module
    ---------------------------------------------------------- */
@@ -21,6 +21,17 @@
     clear: both;
     content: "";
   }
+}
+%ex-ellipsis {//改行させない
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+%ex-break-word{ //改行させる
+  word-break : break-all;
+  word-wrap: break-word;
+  white-space: normal;
+  display: block;
 }
 %ex-notes{
   @include cnt-font-size($font-xsml);
@@ -59,7 +70,7 @@
 
 //Base Font
 %ex-font-family{
-  font-family: 'Robot','Noto Sans Japanese', sans-serif;
+   font-family: 'Robot','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3','Noto Sans Japanese', sans-serif;
 }
 %ex-font-aws{
    font-family: FontAwesome;
@@ -69,10 +80,12 @@
 
 //コンテンツの余白
 %ex-side-space{
-  @include padding(null 2%);
+  padding-left: 8px;
+  padding-right: 8px;
 }
 %ex-height-space {
-  @include padding(10px null);
+  padding-top:8*2px;
+  padding-bottom:8*2px;
 }
 
 %ex-transition-base {
@@ -103,3 +116,6 @@
   @include cnt-font-size($font-xsml*.5);
 }
 %ex-web-font{font-family: 'Inika', serif;}
+
+/* PARTS
+   ---------------------------------------------------------- */

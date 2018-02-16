@@ -4,8 +4,6 @@
 -----------------------------------------------------------------------*/
 /* mixIn
    ---------------------------------------------------------- */
-@import "vendor/bourbon/bourbon";
-@import "vendor/bourbon-neat/neat";
 //@import "assets/vendor/dlex/dlex";
 @import "vendor/dlex/mixin";
 @import "vendor/mixin";
@@ -14,15 +12,10 @@
 @import "vendor/buttons/main";
 //@import "vendor/buttons/buttons/mu";
 
-
-
 /* Framework
    ---------------------------------------------------------- */
-//@import "vendor/skeleton-scss/skeleton";
+@import "vendor/skeleton-scss/skeleton";//Normalize
 
-@import "vendor/uikit/variables";
-@import "vendor/uikit/mixins";
-@import "vendor/uikit/uikit";
 
 /*---------------------------------------------------------------------
 # Base
@@ -38,32 +31,13 @@
 
 /* Foundation
    ---------------------------------------------------------- */
-@import "base/font";
-@import "base/reset";
+//@import "base/font";
+//@import "base/reset";
 @import "base/base";
 
 /* parts
    ---------------------------------------------------------- */
-@import "parts/animation";
-@import "parts/base";
-@import "parts/bg";
-@import "parts/box";
-@import "parts/button";
-@import "parts/container";
-@import "parts/footer";
-@import "parts/form";
-@import "parts/header";
-@import "parts/icon";
-@import "parts/js";
-@import "parts/list";
-@import "parts/media_queries";
-@import "parts/modal";
-@import "parts/paragraph";
-@import "parts/search-form";
-@import "parts/separate";
-@import "parts/table";
-@import "parts/widget";
-
+@import "parts/**";
 
 /* block
    ---------------------------------------------------------- */
@@ -71,7 +45,8 @@
 
 /* pages
    ---------------------------------------------------------- */
-@import "pages/index";
+@import "page/**";
+
 
 
 /*---------------------------------------------------------------------
@@ -86,8 +61,5 @@
 # Pulugin
 -----------------------------------------------------------------------*/
 //@import "vendor/*";
-
-
-
 
 
