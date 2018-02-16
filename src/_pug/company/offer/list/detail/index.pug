@@ -1,0 +1,66 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+
+    block meta
+
+    block link
+
+    block script
+
+block body
+    body.p-company--offer-list-detail
+        .c-layout-full-height
+            .p-company-layout
+                .l-left
+                    +sidebar--company
+                .l-right
+                    .p-company-content
+                        +section-title--company('応募者一覧')
+                        .w-contents
+                            .w-offer-list-head
+                              .l-left
+                                  .w-offer-list-head-title
+                                      .title {{求人タイトル}}
+                              .l-right
+                                  .w-offer-list-head-btn
+                                      ul.c-list-flex-btn
+                                          li
+                                            a(href='#todo').c-button 一覧に戻る
+                            .w-offer-list-table.op-other
+                                .w-global-title
+                                    .c-title.op-table 追加情報
+                                form
+                                    table.c-table
+                                        tr
+                                            th ステータス
+                                            td
+                                                select.c-tag
+                                                    option 選考中
+                                        tr
+                                            th メモ
+                                            td
+                                                textarea.c-form-textarea
+                                                .c-text-notes ※メモの内容は応募者には見えません
+                                    .w-bottom-btn
+                                        input.c-button(type='sabmit',value='保存')
+                            +user-profile-result
+                            + global-pager
+            +footer--company()
+

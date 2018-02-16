@@ -1,0 +1,77 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+
+    block meta
+
+    block link
+
+    block script
+
+
+block body
+    body.p-registration.p-registration-top
+        .p-registration-layout
+            .c-container
+                form
+                    .w-login-layout
+                        .b-box-account
+                            .w-box-account-title
+                                .logo-block
+                                    img(src='/images/common/global-logo.svg',alt='メディキャリ')
+                            .w-box-account-main
+                                .l-left
+                                    .w-sns-account.w-box-content
+                                        .w-title-block SNSでアカウント作成
+                                        .w-sns-button-block
+                                            ul.b-list-sns
+                                                li.list-sns
+                                                    a(href="#todo").c-button.op-fb
+                                                        i
+                                                            img(src='/images/login/icon-fb.svg',alt='facebookログイン')
+                                                        span.button-text facebookでアカウント作成
+                                                li.list-sns
+                                                    a(href="#todo").c-button.op-tw
+                                                        i
+                                                            img(src='/images/login/icon-tw.svg',alt='twitterログイン')
+                                                        span.button-text twitterでアカウント作成
+                                                li.list-sns
+                                                    a(href="#todo").c-button.op-gp
+                                                        i
+                                                            img(src='/images/login/icon-gg.svg',alt='google+ログイン')
+                                                        span.button-text google+でアカウント作成
+                                .l-center
+                                    .l-middle
+                                        .w-icon-circle
+                                            .c-icon-circle
+                                                span or
+
+                                .l-right
+                                    .w-mail-account.w-box-content
+                                        .w-title-block メールアドレスでアカウント作成
+                                        .w-box-content-form
+                                            +layout-section-input-text('メールアドレス','mail',false)
+                                        .w-box-content-button
+                                            .button-block
+                                                input(type='submit', value='アカウント作成').c-button
+                            .w-box-account-bottom
+                                .link-block
+                                    a(href='/login/') アカウントをお持ちの方はこちら
+                        .w-login-cp
+                            .cp Copyright &copy MediCareer incorporated, All Rights Reserved.

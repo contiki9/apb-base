@@ -1,0 +1,48 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+
+    block meta
+
+    block link
+
+    block script
+
+
+block body
+    body.p-company--error
+            .c-layout-full-height
+                .p-company-layout
+                    .l-left
+                        +sidebar--company
+                    .l-right
+                        .p-company-content
+                            +section-title--company('未設定の項目があります')
+                            .w-contents
+                                //-.w-contents-section
+                                    .w-section-title-content--company
+                                        +section-title-content--company('求人一覧')
+                                .w-contents-message
+                                    p 未設定の項目があります。<br>下記リンクから未登録の項目を登録してから再度求人登録をお試しください。
+                                    a.c-button.op-alert(href='#todo') アカウント情報
+                                    a.c-button.op-alert(href='#todo') 勤務地登録
+                                    //-div
+                                      a.c-button.op-long.op-large button用のデザイン
+
+                +footer--company()

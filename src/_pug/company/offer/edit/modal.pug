@@ -1,0 +1,63 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+
+    block meta
+
+    block link
+
+    block script
+
+
+block body
+    body.p-company--offer.p-company--offer-edit
+            .c-layout-full-height
+                .p-company-layout
+                    .l-left
+                        +sidebar--company
+                    .l-right
+                        .p-company-content
+                            +section-title--company('求人リスト新規作成')
+
+
+                +footer--company()
+
+                //動画登録のモーダルウインドウ START
+                .p-modal-wrap--company-offer-eddit
+                    .b-modal-wrap
+                        .w-modal-bg-block
+                            .l-center-middle
+                                .b-window-add-url
+                                    .w-input
+                                        .c-form-input-block
+                                            .w-tag
+                                                span.name.op-bold URL
+                                            input(type='url').input
+                                            .w-note
+                                                .c-text-notes 埋め込みたいYoutubeの動画のURLを入力してください。
+                                                .c-text-notes 埋め込み方法は<a href="" onclick="javascript:window.open('/company/help/edit/movie/index.html', 'windowHelp', 'width=800, height=700, menubar=no, toolbar=no, scrollbars=yes');">こちら</a>をご確認ください。
+                                    .w-btn-bottom
+                                        .l-between
+                                            button.c-button(data-selector='.modal-wrap') 更新
+                                            button.c-button.op-alert(data-selector='.modal-wrap') 閉じる
+
+                //動画登録のモーダルウインドウ END
+
+
+

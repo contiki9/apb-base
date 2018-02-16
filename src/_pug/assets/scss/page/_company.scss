@@ -1,0 +1,183 @@
+/*
+ * company Page Style
+*/
+.p-company--offer {
+  @extend %ex-form-ids;
+}
+
+.p-company-layout {
+  @include flx-row;
+  > .l-left {
+    min-width: 300px;
+  }
+  > .l-right {
+    @include flx-col;
+    width: calc(100% - 300px);
+
+  }
+}
+
+.p-company-sidebar {
+  padding-top: 10px;
+  padding-right: 10px;
+  .w-logo--company {
+    margin-bottom: 45px;
+  }
+}
+
+.p-company-content {
+  width: 100%;
+  .w-contents {
+    margin-top: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    .w-contents-section {
+      margin-bottom: 120px;
+      &:last-child,&.op-last{
+        margin-bottom: 0;
+
+      }
+    }
+  }
+
+  .w-section-title-content--company {
+    margin-bottom: 20px;
+    //margin-top: 120px;
+  }
+  .w-contents-submit {
+    margin-top: 120px;
+    .w-button {
+      text-align: center;
+    }
+  }
+  .w-area-select {
+    margin-bottom: 50px;
+  }
+  .b-nav-area {
+    margin-bottom: 40px;
+  }
+  .w-offer--company {
+    padding-top: 15px;
+    margin-bottom: 30px;
+  }
+  .w-pager-offer {
+    //margin-top: 80px;
+    @extend .w-global-pager;
+  }
+
+  .w-list-offer {
+    .list-view{
+      .summary{
+        @include cnt-font-size(14);
+        color: $color-text-light;
+        margin-bottom: 10px;
+      }
+    }
+    .b-list-offer {
+      margin-bottom: 15px;
+    }
+  }
+  @extend %error-contents-message;
+}
+
+.p-company-bg-login {
+  @include cnt-bg-fluid('../images/company/login/bg.jpg', cover);
+  @include flx-row;
+  @include flx-center;
+  @include flx-middle;
+}
+
+/////////////////////
+//page毎
+/////////////////////
+.p-company--top {
+  //マイページTOP
+
+}
+
+.p-company--login {
+  //ログインページ
+
+}
+
+.p-company--account {
+  //アカウント登録ページ
+
+}
+
+.p-company--area {
+  //勤務地登録ページ
+
+}
+
+.p-company--offer {
+
+}
+
+.p-company--offer-edit {
+  //求人編集
+  .w-bottom-fixed-box {
+    height: 81px;
+  }
+  .w-offer-status{
+    @include flx-row;
+    @include flx-middle;
+    margin-bottom: 20px;
+  }
+  .l-left{}
+  .l-right{
+    @include flx-col;
+    margin-left:15px;
+  }
+  .w-tag-block{
+
+  }
+  .w-tag-text{
+    @include cnt-font-size(14);
+    background: $color-bg-light;
+    padding:10px 15px;
+  }
+}
+
+.p-company--offer-preview {
+  //プレビューページ
+  padding: 40px;
+  @extend %ex-offer-detail-page;
+}
+
+.p-company--error {
+
+}
+.p-company--offer-list,.p-company--offer-list-detail {
+  .w-offer-list-head {
+    @include flx-row;
+    flex-wrap:nowrap;
+    margin-bottom: 40px;
+    > .l-left {
+      @include flx-col;
+      margin-right: auto;
+    }
+    > .l-right {
+      padding-left: 15px;
+    }
+  }
+}
+
+.p-company--offer-list {
+
+  .w-offer-list-head-title {
+
+  }
+  .title {
+  }
+
+  .w-offer-list-head-btn {
+  }
+
+  .w-offer-list-list {
+  }
+}
+
+.p-company--offer-list-detail{
+  @extend %ex-offer-list-table;
+}

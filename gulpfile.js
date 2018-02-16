@@ -271,10 +271,9 @@ gulp.task('re-styleguide', function (callback) {
     );
 });
 
-
 // gulpのデフォルト
 gulp.task('guide', ['re-styleguide','browser-syncStyle'], function () {
-    gulp.watch(develop.assets + 'scss/**/*.scss', ['re-sass']);
+    gulp.watch(develop.assets + 'scss/**/*.scss', ['re-sass','re-styleguide']);
 });
 
 

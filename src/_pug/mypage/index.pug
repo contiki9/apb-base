@@ -1,0 +1,82 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+    block meta
+
+    block link
+
+    block script
+
+block body
+    body.js-drawer.drawer--right.p-mypage.p-mypage--top
+        .c-layout-full-height
+            .p-mypage-layout
+                +header(pageDir,'mypage')
+                +mypage-header-nav
+                +mypage-header-title('マイページTOP')
+
+                .w-mypage-content
+                    .c-container
+                        //content 開始
+                        .w-content-archives-wrap
+                            .l-flex-content
+                                .l-column-2
+                                    .b-list-content-archives-block
+                                        .w-content-archives-title
+                                            .archives-title 応募済み求人
+                                        .w-content-archives-list
+                                            ul.b-list-content-archives
+                                                +mypage-content-list('応募済','c-tag-status op-running',true)
+                                                +mypage-content-list('不採用','c-tag-status op-lock',true)
+                                                +mypage-content-list('応募済','c-tag-status op-running',true)
+                                                +mypage-content-list('不採用','c-tag-status op-lock',true)
+                                                +mypage-content-list('応募済','c-tag-status op-running',true)
+                                        .w-content-archives-button
+                                            .archives-button
+                                                a(href='#todo').c-button.op-block 一覧へ
+                                .l-column-2
+                                    .b-list-content-archives-block
+                                        .w-content-archives-title
+                                            .archives-title 検討中求人
+                                        .w-content-archives-list
+                                            ul.b-list-content-archives
+                                                +mypage-content-list('応募済','c-tag-status op-running',false)
+                                                +mypage-content-list('不採用','c-tag-status op-lock',false)
+                                                +mypage-content-list('応募済','c-tag-status op-running',false)
+                                                +mypage-content-list('不採用','c-tag-status op-lock',false)
+                                                +mypage-content-list('応募済','c-tag-status op-running',false)
+                                        .w-content-archives-button
+                                            .archives-button
+                                                a(href='#todo').c-button.op-block 一覧へ
+
+                        //content END
+
+            +footer()
+
+
+
+
+
+
+
+
+
+
+
+

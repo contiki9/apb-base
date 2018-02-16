@@ -1,0 +1,56 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+
+    block meta
+
+    block link
+
+    block script
+
+
+block body
+    body.p-company--login
+        .c-layout-full-height.p-company-bg-login
+            .b-login-box--company
+                .w-head
+                    .logo-block
+                        img(src=imgDir+'common/logo.svg',alt='メディキャリ')
+                    .name-block 企業様用ログイン
+                form
+                    .w-content-block
+                        .b-form-input-list
+                            label.label.c-form-input-block.op-name-light
+                                span.name メールアドレス
+                                input(type='email').input
+                            label.label.c-form-input-block.op-name-light
+                                span.name パスワード
+                                input(type='password').input
+                            .w-submit
+                                input(type='submit',value='ログイン').c-button
+                        //.b-form-input-list
+                .w-foot
+                    .b-login-box-footer--company
+                        .link-block
+                            a(href='#todo') パスワードをお忘れの方はこちら
+                    //.b-login-box-footer--company
+            //.b-login-box--company
+            +footer--company(true)
+        //.p-company-bg-login
+

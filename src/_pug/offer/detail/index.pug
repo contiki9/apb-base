@@ -1,0 +1,98 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+    block meta
+
+    block link
+
+    block script
+block body
+    body.js-drawer.drawer--right.p-home.p-home--offer-detail
+        +header(pageDir,'home')
+        +breadcrumb(
+            {pageName: '求人', dir: 'offer/', next: true},
+            {pageName: '{{求人名}}', dir: 'offer/detail/', next: false}
+        )
+        .w-page-header
+            .b-page-header
+                .w-page-title
+                    .page-title 求人詳細
+        main.p-home-content
+            .c-container.op-short
+                .w-offer-card
+                    //応募済み 検討中追加済み状態 START
+                    +list-offer-card(true,true)
+                    //応募済み 検討中追加済み状態 END
+
+                    //応募前 検討中追加前状態 START
+                    +list-offer-card(false,true)
+                    //応募前 検討中追加前状態 END
+
+            .c-container.op-short
+                +offer-detail-first
+            .w-intermediate-nav
+                .l-column
+                    .l-column-4
+                        a(href='#section-recruitment-information',uk-scroll).c-button.op-main 採用情報
+                    .l-column-4
+                        a(href='#section-offering-essential-point',uk-scroll).c-button.op-main 募集要項
+                    .l-column-4
+                        a(href='#section-enterprise_information',uk-scroll).c-button.op-main 企業情報
+                    .l-column-4
+                        a(href='#section-enterprise_information-other',uk-scroll).c-button.op-main この企業の他の求人
+            .c-container.op-short
+                +offer-detail-second
+            .c-container.op-short
+                .w-offer-infomation#section-enterprise_information-other
+                    .w-offer-infomation-title
+                        .c-section-title-border-bottom この企業の他の求人
+                    .w-offer-infomation-content
+                        +list-offer-card-simple(true)
+                        +list-offer-card-simple
+                        +list-offer-card-simple(true)
+                        +list-offer-card-simple
+                        +list-offer-card-simple(true)
+
+        +footer()
+        .w-bottom-fixed-box
+            .b-fixed-next-button-bottom
+                .l-column
+                    .l-column-4
+                        .w-buttons
+                            a(href='#todo').c-button 応募済み
+                            //応募済みの状態 START
+                            //a(href='#todo').c-button.op-active.op-disable 応募する
+                            //応募済みの状態 END
+
+                    .l-column-4
+                        .w-buttons
+                            //検討前の状態 START
+                            //a(href='#todo').c-button 検討中に追加する
+                            //検討前の状態 END
+
+                            a(href='#todo').c-button.op-active 現在検討中
+                    .l-column-4
+                        .w-buttons
+                            a(href='mailto:hoge@example.com').c-button.op-main お問い合わせ
+                    .l-column-4
+                        .w-buttons
+                            a(href='#todo',target='_blank').c-button.op-main 企業ホームページ
+
+
+

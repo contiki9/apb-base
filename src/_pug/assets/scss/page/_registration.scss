@@ -1,0 +1,24 @@
+/*
+ * registration Page Style
+*/
+
+.p-registration {
+  background: $color-main;
+}
+
+.p-registration-layout {
+  @extend %ex-login-layout;
+  > .c-container{
+    max-width:600px;
+  }
+  .w-icon-circle{
+    @include ex-box-account-w-icon-circle;
+  }
+}
+
+/////////////////////
+//page毎
+/////////////////////
+.p-registration-top {
+
+}

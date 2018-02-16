@@ -1,0 +1,32 @@
+/*
+SASS Minxin
+*/
+
+//ブレイクポイント管理
+@mixin mq($breakpoint:brk) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+//parts
+//////////////////////////////
+@mixin ex-box-account-w-icon-circle{
+  //ログイン・新規アカウントのorのレイアウト
+  top: -25px;
+  left:0;
+  right:0;
+  width: 50px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin ex-container-side-space{
+  //コンテナーの余白
+  padding-left: 8px;
+  padding-right: 8px;
+  @include mq(pc){
+    padding-left: 8*2px;
+    padding-right: 8*2px;
+  }
+}

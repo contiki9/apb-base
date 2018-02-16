@@ -1,0 +1,112 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+
+    block meta
+
+    block link
+
+    block script
+
+
+block body
+    body.p-company--offer
+            .c-layout-full-height
+                .p-company-layout
+                    .l-left
+                        +sidebar--company
+                    .l-right
+                        .p-company-content
+                            +section-title--company('求人一覧')
+                            form.w-contents
+                                .w-contents-section
+                                    .w-section-title-content--company
+                                        +section-title-content--company('求人一覧')
+                                    .w-offer--company
+                                        .w-btn-head
+                                            .c-button.op-block.op-large 新規求人登録
+
+                                    .w-list-offer
+                                        mixin list-offer(statesName,statesType)
+                                            //求人一覧Loop START
+                                            .b-list-offer
+                                                .w-offer-title
+                                                    .l-block
+                                                        .states
+                                                            div(class='c-tag-status ' + statesType) #{statesName}
+                                                        .title ここにタイトルが入ります。ここにタイトルが入ります。ここにタイトルが入ります。ここにタイトルが入ります。
+                                                .w-offer-content
+                                                    .l-left
+                                                        .w-offer-photo
+                                                            if statesName == '下書き'
+                                                                img(src=imgDir+'common/no-image.svg',alt='')
+                                                            else
+                                                                img(src='//placehold.jp/3d4070/ffffff/150x110.png?text=',alt='')
+                                                    .l-right
+                                                        .b-table-offer-list
+                                                            mixin table-list(title,text)
+                                                                //loop START
+                                                                dl.table-list
+                                                                    dt.title #{title}
+                                                                    dd.text #{text}
+                                                                //loop END
+
+                                                            +table-list('職種・業種','調剤薬局、ドラッグストア（調剤併設）')
+                                                            +table-list('勤務地','関西、関東')
+                                                            +table-list('給与','月給270,000円～')
+
+                                                .w-offer-btn
+                                                    .l-column
+                                                        mixin offer-btn-group(name,type,num)
+                                                            //loop START
+                                                            .l-column-4
+                                                                .offer-btn
+                                                                    a(href='#todo')
+                                                                        if num == true
+                                                                            .icon-block
+                                                                                .c-tag-badge 99
+                                                                        .c-button(class=type) #{name}
+                                                            //loop END
+                                                        +offer-btn-group('編集','','')
+                                                        +offer-btn-group('応募状況','',true)
+                                                        +offer-btn-group('複製','op-main','')
+                                                        +offer-btn-group('削除','op-alert','')
+                                            //求人一覧Loop END
+
+                                        +list-offer('公開','')
+                                        +list-offer('非公開','op-lock')
+                                        +list-offer('下書き','op-disable')
+                                        +list-offer('掲載終了','op-alert')
+
+                                .w-pager-offer
+                                    .b-pager
+                                        .w-pager
+                                            a(href='#todo').c-pager.op-current 1
+                                            a(href='#todo').c-pager 2
+                                            a(href='#todo').c-pager 3
+
+
+                                .c-tag-status.op-running 公開
+                                .c-tag-status.op-before 公開準備中
+                                .c-tag-status.op-after 公開終了
+                                .c-tag-status.op-inactive 非公開
+                                .c-tag-status.op-draft 下書き
+                                .c-tag-status.op-approval 審査中
+
+                +footer--company()
