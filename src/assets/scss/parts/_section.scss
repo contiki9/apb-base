@@ -72,33 +72,4 @@
     margin-top: 8*4px;
     text-align: center;
   }
-  .w-home-news {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background: $color-bg-light;
-    .w-content-block {
-      .c-news {
-        @include flx-center;
-        border-bottom: 1px solid rgba($color-border, .5);
-      }
-    }
-  }
-  .w-home-about {
-    .w-btn-block {
-      margin-top: 60px;
-    }
-  }
-
 }
-
-/////////////////////
-//company
-/////////////////////
-.b-section-title--company, .b-section-title {
-  @extend %ex-section-title;
-}
-
-.b-section-title-content--company, .b-section-title-content {
-  @extend %ex-section-title-content;
-}
-

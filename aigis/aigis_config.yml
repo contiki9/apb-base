@@ -1,5 +1,5 @@
 # プロジェクト名
-name: alyssa style guide
+name: style guide
 
 
 # スタイルガイドを生成するもとになるファイルを指定します
@@ -11,8 +11,7 @@ source_type: .scss
 # スタイルガイドに必要なファイルをコピーします
 dependencies:
   - ../aigis/assets/
-  - ../dist/assets/css/
-  - ../dist/assets/js/
+  - ../dist/css/
 
 # スタイルガイドを出力するディレクトリを指定します
 dest: ../styleguide/

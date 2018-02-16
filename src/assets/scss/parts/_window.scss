@@ -1,38 +1,12 @@
 /*
  * window Style
 */
-.b-window-add-url {
-  width: 100%;
-  max-width: 800px;
-  @include cnt-radius(6px);
-  padding: 25px 20px;
+
+
+.b-window-modal{
+  @include cnt-radius(4px);
   background: #FFF;
-  > .w-input {
-    input {
-      margin-bottom: 5px;
-    }
-    .w-note{
-      .c-text-notes{
-        margin-bottom: .8em;
-      }
-    }
-  }
-  > .w-btn-bottom {
-    margin-top: 35px;
-    .l-between {
-      @include flx-row;
-      @include flx-center;
-    }
-    .c-button {
-      min-width: 120px;
-      display: inline-block;
-      margin-right: 15px;
-    }
-  }
-
-}
-
-.b-window-pop-up,.b-window-modal{
+  padding:8*4px 8*2px;
   > .w-pop-up-page-title{
     @extend %ex-section-title;
     margin-bottom: 40px;
@@ -40,42 +14,6 @@
       text-align: center;
     }
   }
-
-  > .w-pop-up-sec{
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 40px;
-    margin-bottom: 40px;
-    border-bottom:1px solid $color-border;
-    &:last-child{
-      border: none;
-    }
-    .w-pop-up-sec-title{
-      @extend %ex-section-title-content;
-      margin-bottom: 30px;
-      .title{}
-    }
-    .w-pop-up-sec-content{
-      .w-captcha{
-        margin-bottom:30px;
-        text-align: center;
-      }
-    }
-
-  }
-  .w-pop-up-close{
-    margin-top: 60px;
-    @include flx-row;
-    @include flx-center;
-    @include flx-middle;
-  }
-
-}
-
-.b-window-modal{
-  @include cnt-radius(4px);
-  background: #FFF;
-  padding:8*4px 8*2px;
   .w-modal-sec{
     .w-modal-sec-sub-title{
       margin-bottom:8*4px;
@@ -107,3 +45,4 @@
     padding-top: 8*4px;
   }
 }
+

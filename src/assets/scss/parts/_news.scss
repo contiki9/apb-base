@@ -5,17 +5,12 @@
 /*
 ---
 name: news
-category:
-  - parts/news
 tag:
-  - latest
-  - base
+  - news
+  - list
 ---
 
-Button styles.
-
-* Base button style.
-* Use `a` or `button` tag.
+ニュース用
 
 ```jade
 ul.c-news
@@ -33,25 +28,26 @@ ul.c-news
   }
   .text{
   }
-
 }
+
 /*
 ---
-category:
-  - parts/news
+tag:
+  - news
+  - list
 ---
+
 ```jade
-ul.c-news
+ul.c-news-line
   li.day 2000/00/0000
   li.text: a(href='#todo') ここにニュースの内容が入ります。
 ```
 */
 
-.b-news--company{
+.b-news-line{
   @include flx-row;
   border-bottom:1px solid $color-border;
   padding:1.2em .5em;
-
   .day{
     margin-right:1.5em;
   }

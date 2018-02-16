@@ -1,24 +1,3 @@
 /*
  * logo Style
 */
-.b-logo--company{
-  text-align: center;
-  .logo-block{
-    margin-bottom: 15px;
-  }
-  .sub-block{
-    padding: 0 15px;
-    color: $color-text-light-dark;
-    letter-spacing: .1em;
-    &:after{
-      margin-top:25px;
-      content: '';
-      display: block;
-      height:10px;
-      width:80px;
-      background: $color-main;
-      margin-right: auto;
-      margin-left: auto;
-    }
-  }
-}
