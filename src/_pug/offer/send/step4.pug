@@ -1,0 +1,38 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+    block meta
+
+    block link
+
+    block script
+block body
+    body.js-drawer.drawer--right.p-home.p-home--offer-send
+        +header-simple
+        .w-breadcrumb-multi-steps
+            +breadcrumb-multi-steps('op-visited','op-visited','op-current','')
+        .w-offer-send-content
+            .c-container.op-short
+                .w-edit-title
+                    .title 内容確認
+                +user-profile-result
+        +footer-cp
+
+
+

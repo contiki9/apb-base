@@ -1,0 +1,92 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+    block meta
+
+    block link
+
+    block script
+
+block body
+    body.js-drawer.drawer--right.p-mypage.p-mypage--profile
+        .c-layout-full-height
+            .p-mypage-layout
+                +header(pageDir,'mypage')
+                +mypage-header-nav
+                +mypage-header-title('マイページTOP')
+                .w-mypage-content
+                        .c-container.op-short
+                            //content 開始
+                            .w-content-table-wrap
+                                .c-container.op-short
+                                    .w-content-table-list
+                                        .b-table-detail
+                                            .w-table-detail-title
+                                                .title 基本情報
+                                            .w-table-detail-table
+                                                table.c-table
+                                                    tr
+                                                        th 名前
+                                                        td {{名前}}
+                                                    tr
+                                                        th カナ
+                                                        td {{カナ}}
+                                                    tr
+                                                        th メールアドレス
+                                                        td
+                                                            a(href='mailto:#todo') {{メールアドレス}}
+                                                    tr
+                                                        th 電話番号
+                                                        td
+                                                            a(href='tel:#todo') {{電話番号}}
+                                                    tr
+                                                        th 現住所
+                                                        td {{現住所}}
+                                                    tr
+                                                        th 休暇連絡先
+                                                        td {{休暇連絡先}}
+                                            .w-table-detail-button
+                                                a(href='#todo').c-button.op-submit 編集する
+
+                                    .w-content-table-list
+                                        .b-table-detail
+                                            .w-table-detail-title
+                                                .title 詳細情報
+                                            .w-table-detail-table
+                                                table.c-table
+                                                    tr
+                                                        th 大学（院）名
+                                                        td {{大学（院）名}}
+                                                    tr
+                                                        th 学部（研究科）・学科（専攻）
+                                                        td {{学部（研究科）・学科（専攻）}}
+                                                    tr
+                                                        th 卒業年（見込み）
+                                                        td {{卒業年（見込み）}}
+                                                    tr
+                                                        th 薬剤師免許
+                                                        td {{取得済み}}
+                                                    tr
+                                                        th 実習スケジュール
+                                                        td {{実習スケジュール}}
+                                            .w-table-detail-button
+                                                a(href='#todo').c-button.op-submit 編集する
+
+                            //content END
+            +footer()

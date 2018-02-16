@@ -1,0 +1,42 @@
+/*
+ * banner Style
+*/
+.b-banner-flating{
+  cursor: pointer;
+  z-index: 2;
+  position: absolute;
+  .w-banner-close{
+    position: relative;
+    text-align: right;
+    .close-item{
+      position: absolute;
+      top:- 8*3px;
+      right:0;
+    }
+  }
+  .w-banner-registration{
+    border: 2px solid $color-main;
+    padding:8px;
+    background: #FFF;
+    a{
+      @include cnt-hover;
+      img{
+        @include cnt-hover;
+      }
+    }
+    .banner-title{
+      text-align: center;
+      margin-bottom: 8px;
+      img{
+
+      }
+    }
+    .banner-button{
+      .c-button{
+        @include cnt-font-size(18);
+        display: block;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,76 @@
+/*
+ * Footer Style
+*/
+
+%ex-footer {
+  width:100%;
+  margin-top:8*12px;
+  align-self: flex-end;
+  @include mq(){
+    margin-top:8*4px;
+  }
+  .w-footer-in {
+    @include mq(pc){
+      @include flx-row;
+    }
+    padding-top: 8*2px;
+    padding-bottom: 8*2px;
+    .l-left {
+      margin-right: auto;
+      .w-content-list {
+
+      }
+    }
+    .l-right {
+      >.w-logo-block{
+        @include mq(){
+          margin-top: 8*3px;
+        }
+      }
+    }
+  }
+  .w-copy-wrap {
+
+  }
+
+  .logo-block {
+    text-align: center;
+    img{
+      @include mq(){
+        max-width:150px;
+      }
+    }
+  }
+  .l-bottom {
+  }
+  .copy-block {
+    text-align: center;
+    background: $color-text-light;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    color: #FFF;
+  }
+  .copy {
+    @include cnt-font-size(10);
+    margin-bottom: 0;
+  }
+}
+
+.b-footor {
+  @extend %ex-footer;
+  border-top: 1px solid $color-border;
+}
+.b-footer-global-cp{
+  @extend %ex-footer;
+}
+
+.b-footer-global--company {
+  @extend %ex-footer;
+  margin-top: auto;
+  &.op-fixed{
+    position: fixed;
+    bottom: 0;
+    width:100%;
+  }
+
+}

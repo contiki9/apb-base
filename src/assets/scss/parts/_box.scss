@@ -1,7 +1,22 @@
 /*
  * Box Style
 */
+/*
+---
+name: box
+tag:
+  - box
+  - error
+---
 
+
+```jade
+.c-box-error
+  .error-message
+    p ここにエラーメッセージが入ります。
+    p ここにエラーメッセージが入ります。
+```
+*/
 .c-box-error{
   @include cnt-radius(4px);
   background: #f8d7da;

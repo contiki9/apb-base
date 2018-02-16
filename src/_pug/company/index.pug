@@ -1,0 +1,58 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+
+    block meta
+
+    block link
+
+    block script
+
+
+block body
+    body.p-company--top
+        .c-layout-full-height
+            .p-company-layout
+                .l-left
+                    +sidebar--company
+                .l-right
+                    .p-company-content
+                        +section-title--company('企業様専用マイページTOP')
+                        .w-contents
+                            .w-section-title-content--company
+                                +section-title-content--company('新着情報')
+                            .w-news--company
+                                - for (var i = 0; i < 5; i++)
+                                    .b-news--company
+                                        .day 0000/00/00
+                                        .message
+                                            a(href='#todo',target='_blank') 「(株)◯◯薬局【薬剤師採用】」に応募がありました。
+
+            +footer--company()
+
+
+
+
+
+
+
+
+
+
+

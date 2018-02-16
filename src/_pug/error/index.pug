@@ -1,0 +1,42 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+    block meta
+
+    block link
+
+    block script
+block body
+    body.js-drawer.drawer--right.p-home.p-home--error
+        +header(pageDir,'home')
+        +breadcrumb(
+            {pageName: 'エラー', dir: 'error/', next: false}
+        )
+        .w-page-header
+            .b-page-header
+                .w-page-title
+                    .page-title エラー
+        main.p-home-content
+            .c-container.op-short
+                +error-contents-message
+
+        +footer()
+
+
+

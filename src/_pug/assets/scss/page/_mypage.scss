@@ -1,0 +1,71 @@
+/*
+ * mypage Page Style
+*/
+
+.p-mypage {
+  .w-nav-header-sab {
+    width: 100%;
+  }
+  .w-title-page-name {
+    margin-bottom: 8*4px;
+  }
+  .c-container .w-content-archives-wrap {
+    margin-bottom: 8*4px;
+    .l-flex-content {
+      @include mq(pc) {
+        @include flx-row;
+      }
+      .l-column-2 {
+        @include mq(pc) {
+          @include flx-col-6;
+          padding-left: 8*4px;
+          padding-right: 8*4px;
+        }
+        @include mq() {
+          margin-bottom:8*5px;
+          &:last-child{
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.p-mypage-layout {
+  width: 100%;
+  //min-height:calc(100vh - 148px);
+}
+
+/////////////////////
+//page毎
+/////////////////////
+.p-mypage--top {
+
+}
+
+.p-mypage--profile {
+
+  .w-content-table-wrap{
+    margin-bottom: 8*5px;
+    .w-content-table-list{
+      margin-bottom:8*12px;
+      .c-table{
+        th{
+          width:220px;
+        }
+      }
+    }
+  }
+
+}
+
+.p-mypage--profile-edit{
+  @extend %ex-user-profile-edit;
+}
+
+.p-mypage--error{
+  @extend %error-contents-message;
+}
+

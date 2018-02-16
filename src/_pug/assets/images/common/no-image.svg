@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="110" viewBox="0 0 150 110">
+  <g fill="none" fill-rule="evenodd">
+    <rect width="150" height="110" fill="#EFEFEF"/>
+    <text fill="#C8C8C8" font-family="LucidaGrande, Lucida Grande" font-size="18">
+      <tspan x="50" y="58">No</tspan> <tspan x="74.354" y="58" font-family="AlTarikh, Al Tarikh"> </tspan> <tspan x="77.158" y="58">Image</tspan>
+    </text>
+    <g transform="translate(21 41)">
+      <rect width="24" height="24" fill="#DFE0E0"/>
+      <path fill="#CDCECE" d="M2.7,15.3 L8.4,9.3 L17.1,14.4 L20.1,11.1 L21.6,15.3 L2.7,15.3 Z M16.2,12 C15.3715729,12 14.7,11.3284271 14.7,10.5 C14.7,9.67157288 15.3715729,9 16.2,9 C17.0284271,9 17.7,9.67157288 17.7,10.5 C17.7,11.3284271 17.0284271,12 16.2,12 Z"/>
+    </g>
+  </g>
+</svg>

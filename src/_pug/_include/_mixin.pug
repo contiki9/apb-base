@@ -1,0 +1,911 @@
+include /_include/_mixin-ui
+//--------------------------------------
+//- GlobalNav
+//--------------------------------------
+mixin gnav(path,current)
+    nav.b-nav-menu
+        .w-drawer
+            button.drawer-toggle.drawer-hamburger(type='button')
+                span.drawer-hamburger-icon
+        .drawer-nav
+            ul.b-nav-global.drawer-menu
+                if current == 'home'
+                    li(class='op-current'): span Home
+                else
+                    li: a(href=path + '/') Home
+
+                if current == 'search'
+                    li(class='op-current'): span 企業検索
+                else
+                    li: a(href=path + '/search/') 企業検索
+
+                if current == 'register'
+                    li(class='op-current op-special'): span 会員登録
+                else
+                    li.op-special: a(href=path + '/register/') 会員登録
+
+                if current == 'login'
+                    li(class='op-current op-special'): span ログイン
+                else
+                    li.op-special: a(href=path + '/login/') ログイン
+    //-nav.uk-offcanvas-bar.b-nav-menu
+        ul.p-nav-global-sp
+            if current == 'home'
+                li(class='op-current'): span Home
+            else
+                li: a(href=path + '/') Home
+
+            if current == 'search'
+                li(class='op-current'): span 企業検索
+            else
+                li: a(href=path + '/search/') 企業検索
+
+            if current == 'register'
+                li(class='op-current op-special'): span 会員登録
+            else
+                li.op-special: a(href=path + '/register/') 会員登録
+
+            if current == 'login'
+                li(class='op-current op-special'): span ログイン
+            else
+                li.op-special: a(href=path + '/login/') ログイン
+
+//--------------------------------------
+//- Header
+//--------------------------------------
+mixin header(path, current)
+    //+ fbJs()
+    header.b-header
+        .l-fixed
+            .w-header
+                .l-left
+                    .logo-block
+                        h1
+                            img(src='/images/common/logo-new.svg',alt='メディセレ新卒',width='271')
+                .l-right
+                    .w-gnav
+                        +gnav(path, current)
+
+mixin header-simple
+    header.b-header
+        .w-header-simple
+            .logo-block
+                h1
+                    img(src='/images/common/logo-new.svg',alt='メディセレ新卒',width='271')
+
+
+//--------------------------------------
+//- nav-maypage
+//--------------------------------------
+
+
+
+//--------------------------------------
+//- Footer
+//--------------------------------------
+mixin footer()
+    footer.b-footor
+        //+ shareBtn
+        .c-container.w-footer-in
+            .l-left
+                .w-content-list
+                    .b-nav-content-list-loop
+                        .l-wrap
+                            .b-nav-content-list
+                                .l-left
+                                    .title コンテンツ
+                                .l-right
+                                    ul.nav
+                                        li: a(href='/') HOME
+                                        li: a(href='/search/') 企業検索
+                                        li: a(href='/register/') 会員登録
+                        .l-wrap
+                            .b-nav-content-list
+                                .l-left
+                                    .title その他
+                                .l-right
+                                    ul.nav
+                                        li: a(href='/contact/') お問い合わせ
+                                        li: a(href='/company/') 会社概要
+                                        li: a(href='/register/') 個人情報保護法
+                                        li: a(href='/rule/') 会員規約
+            .l-right
+                .w-logo-block
+                    .logo-block
+                        img(src='/images/common/logo.svg',alt='メディセレ')
+        .w-copy-wrap
+            .l-bottom
+                .copy-block
+                    p.copy Copyright &copy MediCareer incorporated, All Rights Reserved.
+
+
+mixin footer--company(fixed)
+    if fixed == true
+        //postionのフッター固定用
+        - var option = 'op-fixed'
+    else
+        - var option = ''
+    div(class="b-footer-global--company "+option)
+        .w-copy-wrap
+            .copy-block
+                p.copy Copyright &copy MediCareer incorporated, All Rights Reserved.
+
+mixin footer-cp
+    .w-global-footer-global-cp
+        .b-footer-global-cp
+            .w-copy-wrap
+                .copy-block
+                    p.copy Copyright &copy MediCareer incorporated, All Rights Reserved.
+
+//--------------------------------------
+//-  sidebar
+//--------------------------------------
+
+mixin sidebar--company
+    .p-company-sidebar
+        .w-logo--company
+            .b-logo--company
+                .logo-block
+                    img(src=imgDir + 'common/logo.svg',alt='メディキャリ',width=229)
+                .sub-block 企業様専用ページ
+        .w-nav--company
+            nav.b-nav--company
+                ul.nav-list-block
+                    li.list
+                        a( href='#todo') 求人リスト
+                    li.list
+                        a( href='#todo') アカウント情報
+                    li.list
+                        a( href='#todo') 勤務地登録
+                //.b-nav--company
+    //.p-company-sidebar
+
+
+
+//--------------------------------------
+//-  breadcrumb
+//--------------------------------------
+mixin breadcrumb(...items)
+        .b-breadcrumb
+            .w-breadcrumb
+                ul.c-breadcrumb
+                    li
+                        a(href='/') Home
+                    each item in items
+                        if(item.next)
+                            li
+                                a(href='/#{item.dir}') #{item.pageName}
+                        else
+                            li.is-current
+                                span #{item.pageName}
+
+//--------------------------------------
+//-  breadcrumb-multi-steps
+//--------------------------------------
+mixin breadcrumb-multi-steps(step1,step2,step3,step4)
+    ol.b-breadcrumb-multi-steps
+        li(class=step1)
+            .w-multi-steps-wrap
+                .w-multi-steps
+                    span.step 1
+                    span.stage 基本情報
+        li(class=step2)
+            .w-multi-steps-wrap
+                .w-multi-steps
+                    span.step 2
+                    span.stage 詳細情報
+        li(class=step3)
+            .w-multi-steps-wrap
+                .w-multi-steps
+                    span.step 3
+                    span.stage アンケート
+        li(class=step4)
+            .w-multi-steps-wrap
+                .w-multi-steps
+                    span.step 4
+                    span.stage 内容確認
+
+//--------------------------------------
+//- SNS
+//--------------------------------------
+mixin shareBtn
+    .c-social-button-block
+        ul
+            li
+                .fb-like(data-href='https://www.facebook.com/ここは変更', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true')
+            li
+                a.twitter-share-button(href='https://twitter.com/share', data-url='ここは変更', data-lang='ja', data-related='ここは変更', data-hashtags='ここは変更') ツイート
+                script.
+                    !function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = p + '://platform.twitter.com/widgets.js';
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    }(document, 'script', 'twitter-wjs');
+
+//--------------------------------------
+//- facebookJS
+//--------------------------------------
+mixin fbJs()
+    #fb-root
+    script.
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+//--------------------------------------
+//- fixed Banner
+//--------------------------------------
+mixin fixedBanner()
+    .p-fixed-banner
+        .box-block
+            .banner-block
+                img(src='//placehold.jp/3d4070/ffffff/150x150.png?text=',alt='')
+            .btn-block
+                a.c-btn(href='/login/') 会員登録無料
+        .close-block
+            img(src='//placehold.jp/3d4070/ffffff/150x150.png?text=',alt='')
+
+
+//--------------------------------------
+//-  title
+//--------------------------------------
+
+mixin section-title--company(title)
+    .b-section-title--company
+        .title #{title}
+
+mixin section-title-content--company(title)
+    .b-section-title-content--company
+        .title #{title}
+
+
+//--------------------------------------
+//-  checkbox
+//--------------------------------------
+mixin form-input-check(id,name)
+    label(for=id).c-form-input-block.op-check
+        input(id=id type='checkbox').input
+        span.check-icon
+        span.name.op-bold #{name}
+
+//--------------------------------------
+//-  ラジオボタン
+//--------------------------------------
+mixin form-input-radio(id,name,inputName)
+    label(for=id).c-form-input-block.op-radio
+        input(id=id type='radio' name=inputName).input
+        span.radio-icon
+        span.name.op-bold #{name}
+
+//--------------------------------------
+//-  登録用フォーム関係
+//--------------------------------------
+
+mixin layout-section-input-textarea(name,required)
+    //-namaは項目名
+    //-requiredは必須の有無
+
+    //w-layout-section-input START
+    .w-layout-section-input
+        .b-form-input-list
+            label.c-form-input-block
+                .w-tag
+                    if required == true
+                        .tag 必須
+                        span.name.op-bold #{name}
+                    else
+                        span.name.op-bold #{name}
+            .w-textarea
+                .texatea-block
+                    textarea.input
+    //w-layout-section-input END
+
+mixin layout-section-input-text(name,type,required)
+    //-namaは項目名
+    //-typeはinputのタイプ
+    //-requiredは必須の有無
+
+
+    //w-layout-section-input START
+
+    if 'email' == type
+        - var type = 'email'
+    else if 'password' == type
+        - var type = 'password'
+    else if 'date' == type
+        - var type = 'date'
+    else
+        - var type = 'text'
+
+    .w-layout-section-input
+        .b-form-input-list
+            label.c-form-input-block
+                .w-tag
+                    if required == true
+                        .tag 必須
+                        span.name.op-bold #{name}
+                    else
+                        span.name.op-bold #{name}
+
+                if 'date' == type
+                    .l-column
+                        .l-column-6
+                            input(type='date').input
+                        .l-column-6
+                            input(type='date').input
+                else
+                    input(type=type).input
+    //w-layout-section-input END
+//--------------------------------------
+//-  ページャー 単独
+//--------------------------------------
+mixin pager
+    .b-pager
+        .w-pager
+            a(href='#todo').c-pager 前へ
+            a(href='#todo').c-pager.op-current 1
+            a(href='#todo').c-pager 2
+            a(href='#todo').c-pager 3
+            a(href='#todo').c-pager 4
+            a(href='#todo').c-pager 5
+            a(href='#todo').c-pager 次へ
+
+//--------------------------------------
+//-  ページャー
+//--------------------------------------
+mixin global-pager
+    .w-global-pager
+        +pager
+    //.w-global-pager END
+
+
+//--------------------------------------
+//-  マイページ用のナビゲーション
+//--------------------------------------
+mixin mypage-header-nav
+    .w-nav-header-sab
+        .b-nav-header-sab
+            .w-nav-mypage
+                ul.nav-mypage
+                    mixin navMypage(img,text)
+                        li.navs
+                            a(href='/todo')
+                                span.icon
+                                    img(src='/images/mypage/' + img + '.svg',alt='').op-pc
+                                    img(src='/images/mypage/' + img + '-sp.svg',alt='').op-sp
+                                span.text #{text}
+                    +navMypage('icon-home','マイページ')
+                    +navMypage('icon-profile','プロフィール')
+                    +navMypage('icon-send','応募済み')
+                    +navMypage('icon-fav','検討中')
+
+//--------------------------------------
+//-  マイページ用のタイトル
+//--------------------------------------
+
+mixin mypage-header-title(name)
+    .w-title-page-name
+        .b-title-page-name
+            .w-page-name
+                .name #{name}
+    //.w-title-page-name END
+
+//--------------------------------------
+//-  求人の一覧
+//--------------------------------------
+mixin mypage-content-list(text,tag,tagFlag)
+    li.w-content-list
+        a(href='#todo').content-wrap
+            .l-left
+                .w-img
+                    img(src='//placehold.jp/3d4070/ffffff/160x120.png?text=サムネイル',alt='')
+            .l-right
+                if tagFlag == true
+                    .w-tag
+                        div(class=tag) #{text}
+                .w-name
+                    .name {{応募企業名}}
+
+
+//--------------------------------------
+//-  フロントページの会員登録button（ページ下部固定）
+//--------------------------------------
+mixin fixed-bottom-page-sp
+    .b-fixed-bottom-page-sp
+        .w-bottom-page
+            a(href='./registration/',target='_blank').c-button 会員登録（無料）
+
+//--------------------------------------
+//-  求人リストの一覧
+//--------------------------------------
+mixin list-offer-card(active,detail)
+    //activeは検討中と応募済みのフラグ
+    //detailは求人詳細用の切り替え
+    .b-list-offer-card
+        .w-offer-card-name
+            .l-left
+                .l-flex
+                    .w-label
+                        .c-tag.op-new NEW
+                    .w-title
+                        .title 株式会社◯◯◯
+            .l-right
+                .w-tag
+                    .c-tag.op-square 正社員
+                    .c-tag.op-square 契約社員
+        .w-offer-card-head
+            .w-title
+                .title ここにタイトルが入ります。ここにタイトルが入ります。
+            .w-tag
+                ul.b-tag-loop
+                    li.list
+                        .c-tag-status 転勤なし
+                    li.list
+                        .c-tag-status 残業10h以下
+                    li.list
+                        .c-tag-status 住宅補助あり
+        .w-offer-card-body
+            .l-left
+                .w-photo
+                    .photo
+                        img(src='//placehold.jp/3d4070/ffffff/160x120.png?text=',alt='')
+            .l-right
+                .w-table
+                    table.b-table-none-border.op-th-accent
+                        tr
+                            th 職種・業種
+                            td ここに職種・業種が入ります。
+                        tr
+                            th 勤務地
+                            td ここに勤務地が入ります。
+                        tr
+                            th 給与
+                            td ここに給与が入ります。
+                        tr
+                            th 勤務時間
+                            td ここに勤務時間が入ります。ここに勤務時間が入ります。<br>ここに勤務時間が入ります。ここに勤務時間が入ります。ここに勤務時間が入ります。ここに勤務時間が入ります。
+        .w-offer-card-sub
+            .w-title
+                .title ここにアピールタイトルが入ります。
+            .w-text
+                .text ここに詳細文が入ります。ここに詳細文が入ります。ここに詳細文が入ります。ここに詳細文が入ります。<br>ここに詳細文が入ります。ここに詳細文が入ります。ここに詳細文が入ります。
+        .w-offer-card-bottom-button
+            if detail == true
+                .l-column
+                    .l-special
+                        if active == true
+                            a.c-button-push.op-active.op-disable(href="#todo") 応募済み
+                        else
+                            a.c-button-push(href="#todo") 応募する
+                    .l-normal
+                        if active == true
+                            a.c-button-push-line.op-active(href="#todo") 現在検討中
+                        else
+                            a.c-button-push-line(href="#todo") 検討中に追加する
+            else
+                .l-column
+                    .l-special
+                        a.c-button-push(href="#todo") 求人詳細を見る
+                    .l-normal.op-grow3
+                        if active == true
+                            a.c-button-push-line.op-active.op-disable(href="#todo") 応募済み
+                        else
+                            a.c-button-push-line(href="#todo") 応募する
+                    .l-normal
+                        if active == true
+                            a.c-button-push-line.op-active(href="#todo") 現在検討中
+                        else
+                            a.c-button-push-line(href="#todo") 検討中に追加する
+mixin list-offer-card-simple(active)
+    //activeは検討中と応募済みのフラグ
+    .b-list-offer-card-simple
+        .w-offer-card-head
+            .w-title
+                .title ここにタイトルが入ります。ここにタイトルが入ります。
+        .w-offer-card-body
+            .l-left
+                .w-table
+                    table.b-table-none-border.op-th-accent
+                        tr
+                            th 職種・業種
+                            td ここに職種・業種が入ります。
+                        tr
+                            th 勤務地
+                            td ここに勤務地が入ります。
+                        tr
+                            th 給与
+                            td ここに給与が入ります。
+                        //tr
+                            th 勤務時間
+                            td ここに勤務時間が入ります。ここに勤務時間が入ります。<br>ここに勤務時間が入ります。ここに勤務時間が入ります。ここに勤務時間が入ります。ここに勤務時間が入ります。
+            .l-right
+                .w-offer-card-bottom-button
+                    if detail == true
+                        .l-column
+                            .l-special
+                                if active == true
+                                    a.c-button-push-line.op-active.op-disable(href="#todo") 応募済み
+                                else
+                                    a.c-button-push-line(href="#todo") 応募する
+                            .l-normal
+                                if active == true
+                                    a.c-button-push-line.op-active(href="#todo") 現在検討中
+                                else
+                                    a.c-button-push-line(href="#todo") 検討中に追加する
+                    else
+                        .l-column
+                            .l-special
+                                a.c-button-push(href="#todo") 求人詳細を見る
+                            .l-normal.op-grow3
+                                if active == true
+                                    a.c-button-push-line.op-active.op-disable(href="#todo") 応募済み
+                                else
+                                    a.c-button-push-line(href="#todo") 応募する
+                            .l-normal
+                                if active == true
+                                    a.c-button-push-line.op-active(href="#todo") 現在検討中
+                                else
+                                    a.c-button-push-line(href="#todo") 検討中に追加する
+
+mixin offer-detail-first(card)
+    //card プレビュー時の求人詳細のカードを表示させるか否か
+    if card == true
+        .w-offer-card
+            .b-list-offer-card
+                .w-offer-card-name
+                    .l-left
+                        .l-flex
+                            .w-label
+                                .c-tag.op-new NEW
+                            .w-title
+                                .title 株式会社◯◯◯
+                    .l-right
+                        .w-tag
+                            .c-tag.op-square 正社員
+                            .c-tag.op-square 契約社員
+            .w-offer-card-head
+                .w-title
+                    .title ここにタイトルが入ります。ここにタイトルが入ります。
+                .w-tag
+                    ul.b-tag-loop
+                        li.list
+                            .c-tag-status 転勤なし
+                        li.list
+                            .c-tag-status 残業10h以下
+                        li.list
+                            .c-tag-status 住宅補助あり
+            .w-offer-card-body
+                .l-left
+                    .w-photo
+                        .photo
+                            img(src='//placehold.jp/3d4070/ffffff/160x120.png?text=',alt='')
+                .l-right
+                    .w-table
+                        table.b-table-none-border.op-th-accent
+                            tr
+                                th 職種・業種
+                                td ここに職種・業種が入ります。
+                            tr
+                                th 勤務地
+                                td ここに勤務地が入ります。
+                            tr
+                                th 給与
+                                td ここに給与が入ります。
+                            tr
+                                th 勤務時間
+                                td ここに勤務時間が入ります。ここに勤務時間が入ります。<br>ここに勤務時間が入ります。ここに勤務時間が入ります。ここに勤務時間が入ります。ここに勤務時間が入ります。
+            .w-offer-card-sub
+                .w-title
+                    .title ここにアピールタイトルが入ります。
+                .w-text
+                    .text ここに詳細文が入ります。ここに詳細文が入ります。ここに詳細文が入ります。ここに詳細文が入ります。<br>ここに詳細文が入ります。ここに詳細文が入ります。ここに詳細文が入ります。
+        //.b-list-offer-card
+
+    .w-offer-description-movie
+        .b-description-thumbnail
+            .l-left
+                .w-movie
+                    iframe(width="560" height="315" src="https://www.youtube.com/embed/RJVQVP1PRP8?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen)
+            .l-right
+                .w-text
+                    .text ここに動画説明の文章が入ります。ここに動画説明の文章が入ります。ここに動画説明の文章が入ります。ここに動画説明の文章が入ります。ここに動画説明の文章が入ります。
+
+    .w-offer-description-image
+        //-loop
+        .l-column-2
+            .b-description-thumbnail.op-none-column
+                .l-left
+                    .w-image
+                        img(src='//placehold.jp/3d4070/ffffff/380x250.png?text=',alt='')
+
+                .l-right
+                    .w-text ここに画像説明の文章が入ります。ここに画像説明の文章が入ります。ここに画像説明の文章が入ります。ここに画像説明の文章が入ります。
+
+        .l-column-2
+            .b-description-thumbnail.op-none-column
+                .l-left
+                    .w-image
+                        img(src='//placehold.jp/3d4070/ffffff/380x250.png?text=',alt='')
+
+                .l-right
+                    .w-text ここに画像説明の文章が入ります。ここに画像説明の文章が入ります。ここに画像説明の文章が入ります。ここに画像説明の文章が入ります。
+
+        .l-column-2
+            .b-description-thumbnail.op-none-column
+                .l-left
+                    .w-image
+                        img(src='//placehold.jp/3d4070/ffffff/380x250.png?text=',alt='')
+
+                .l-right
+                    .w-text ここに画像説明の文章が入ります。ここに画像説明の文章が入ります。ここに画像説明の文章が入ります。ここに画像説明の文章が入ります。
+
+        .l-column-2
+            .b-description-thumbnail.op-none-column
+                .l-left
+                    .w-image
+                        img(src='//placehold.jp/3d4070/ffffff/380x250.png?text=',alt='')
+
+                .l-right
+                    .w-text ここに画像説明の文章が入ります。ここに画像説明の文章が入ります。ここに画像説明の文章が入ります。ここに画像説明の文章が入ります。
+
+mixin offer-detail-second
+    .w-offer-infomation#section-recruitment-information
+        .w-offer-infomation-title
+            .c-section-title-border-bottom 採用情報
+        .w-offer-infomation-content
+            table.c-table
+                tr
+                    th 卒業予定
+                    td ここにテキストが入ります。
+                tr
+                    th 応募資格
+                    td ここにテキストが入ります。
+                tr
+                    th 応募方法
+                    td ここにテキストが入ります。
+                tr
+                    th 提出書類
+                    td ここにテキストが入ります。
+                tr
+                    th 選考方法
+                    td ここにテキストが入ります。
+                tr
+                    th 募集職種・分野
+                    td ここにテキストが入ります。
+                tr
+                    th 仕事内容
+                    td ここにテキストが入ります。
+                tr
+                    th 採用予定人数
+                    td ここにテキストが入ります。
+                tr
+                    th 採用予定人数
+                    td ここにテキストが入ります。
+                tr
+                    th 採用実績
+                    td ここにテキストが入ります。
+                tr
+                    th 採用実績校
+                    td ここにテキストが入ります。
+
+            .w-offer-infomation-box-notes
+                .c-box-notes
+                    p ここに備考の文言が入ります。<br>ここに備考の文言が入ります。
+                    p ここに備考の文言が入ります。ここに備考の文言が入ります。ここに備考の文言が入ります。ここに備考の文言が入ります。ここに備考の文言が入ります。ここに備考の文言が入ります。ここに備考の文言が入ります。
+
+    //END .w-offer-infomation
+
+    .w-offer-infomation#section-offering-essential-point
+        .w-offer-infomation-title
+            .c-section-title-border-bottom 募集要項
+        .w-offer-infomation-content
+            table.c-table
+                tr
+                    th 基本給
+                    td ここにテキストが入ります。
+                tr
+                    th 諸手当
+                    td ここにテキストが入ります。
+                tr
+                    th 昇給
+                    td ここにテキストが入ります。
+                tr
+                    th 賞与
+                    td ここにテキストが入ります。
+                tr
+                    th 社会保険
+                    td ここにテキストが入ります。
+                tr
+                    th 勤務時間
+                    td ここにテキストが入ります。
+                tr
+                    th 休日休暇
+                    td ここにテキストが入ります。
+                tr
+                    th 待遇・福利厚生・社内制度
+                    td ここにテキストが入ります。
+                tr
+                    th 教育・研修制度
+                    td ここにテキストが入ります。
+            .w-offer-infomation-box-notes
+                .c-box-notes
+                    p ここに備考の文言が入ります。<br>ここに備考の文言が入ります。
+                    p ここに備考の文言が入ります。ここに備考の文言が入ります。ここに備考の文言が入ります。ここに備考の文言が入ります。ここに備考の文言が入ります。ここに備考の文言が入ります。ここに備考の文言が入ります。
+    //END .w-offer-infomation
+
+    .w-offer-infomation#section-enterprise_information
+        .w-offer-infomation-title
+            .c-section-title-border-bottom 企業情報
+        .w-offer-infomation-content
+            table.c-table
+                tr
+                    th 法人概要
+                    td ここにテキストが入ります。
+                tr
+                    th 設立
+                    td ここにテキストが入ります。
+                tr
+                    th 従業員数
+                    td ここにテキストが入ります。
+                tr
+                    th 住所
+                    td ここにテキストが入ります。
+    //END .w-offer-infomation
+
+
+
+mixin profile-edit-basic
+    //content 開始
+    .w-edit-title
+        .title 基本情報
+    .w-edit-form
+        .b-layout-form-registration
+            .w-layout-section-input
+                .b-form-input-list
+                    label.c-form-input-block
+                        .w-tag
+                            .tag 必須
+                            span.name.op-bold 名前
+                    .l-column
+                        .l-column-6
+                            input(type='text',placeholder='姓').input
+                        .l-column-6
+                            input(type='text',placeholder='名').input
+            .w-layout-section-input
+                .b-form-input-list
+                    label.c-form-input-block
+                        .w-tag
+                            .tag 必須
+                            span.name.op-bold カナ
+                    .l-column
+                        .l-column-6
+                            input(type='text',placeholder='セイ').input
+                        .l-column-6
+                            input(type='text',placeholder='メイ').input
+            +layout-section-input-text('メールアドレス','email',true)
+            +layout-section-input-text('パスワード','password',true)
+            +layout-section-input-text('パスワードを再入力','password',true)
+            +layout-section-input-textarea('現住所',true)
+            +layout-section-input-textarea('休暇連絡先')
+
+
+mixin profile-edit-detail
+    //content 開始
+    .w-edit-title
+        .title 詳細情報
+    .w-edit-form
+        .b-layout-form-registration
+                +layout-section-input-text('大学（院）名','text',true)
+                +layout-section-input-text('学部（研究科）・学科（選考）','text',true)
+                +layout-section-input-text('パスワードを再入力','password',true)
+                .b-form-input-list
+                    .c-form-input-block
+                        .w-tag
+                            .tag 必須
+                            span.name.op-bold 卒業年度
+                    .w-form-item
+                        .l-checkbox
+                            +form-input-check('卒業年度1','2017年度')
+                            +form-input-check('卒業年度2','2018年度')
+                            .l-section-block
+                                label(for='卒業年度3').c-form-input-block.op-check
+                                    input(id='卒業年度3' type='checkbox').input
+                                    span.check-icon
+                                    span.name.op-bold 既卒
+                                    span.item
+                                        input(type='number',placeholder='西暦で卒業年を入力してください。').input
+
+
+                .b-form-input-list
+                    .c-form-input-block
+                        .w-tag
+                            .tag 必須
+                            span.name.op-bold 薬剤師免許
+                    .w-form-item
+                        .l-checkbox
+                            +form-input-check('薬剤師免許1','取得済み')
+                            +form-input-check('薬剤師免許2','未取得')
+
+
+mixin user-profile-result
+    .w-offer-list-table
+        .w-global-title
+            .c-title.op-table 基本情報
+        table.c-table
+            tr
+                th 名前
+                td {{ユーザー名}}
+            tr
+                th カナ
+                td {{ユーザー名カナ}}
+            tr
+                th メールアドレス
+                td
+                    a(href='mail:example@example.com') {{メールアドレス}}
+            tr
+                th 電話番号
+                td {{電話番号}}
+            tr
+                th 現住所
+                td {{現住所}}
+            tr
+                th 休暇連絡先
+                td {{休暇連絡先}}
+    //.w-offer-list-table END
+
+    .w-offer-list-table
+        .w-global-title
+            .c-title.op-table 詳細情報
+        table.c-table
+            tr
+                th 大学（院）名
+                td {{大学（院）名}}
+            tr
+                th 学部（研究科）・学科（専攻）
+                td {{学部（研究科）・学科（専攻）}}
+            tr
+                th 卒業年（見込み）
+                td {{卒業年（見込み）}}
+            tr
+                th 薬剤師免許
+                td {{薬剤師免許}}
+            //tr
+                th 実習スケジュール
+                td
+                    | {{実習スケジュール}}
+                    br
+                    | {{実習スケジュール}}
+    //.w-offer-list-table END
+
+    .w-offer-list-table
+        .w-global-title
+            .c-title.op-table アンケート
+        table.c-table
+            tr
+                th アンケート内容
+                td {{アンケート内容}}
+    //.w-offer-list-table END
+
+
+//--------------------------------------
+//-  errorのサンプル用の文言
+//--------------------------------------
+mixin error-contents-message
+    .w-contents-message
+        p ここにエラーのメッセージがはいります。ここにエラーのメッセージがはいります。ここにエラーのメッセージがはいります。
+        p ここにエラーのメッセージがはいります。ここにエラーのメッセージがはいります。ここにエラーのメッセージがはいります。<br>ここにエラーのメッセージがはいります。ここにエラーのメッセージがはいります。
+        a.c-button(href="#todo") button用のデザイン
+        a.c-button.op-alert(href="#todo") button用のデザイン
+        div
+            a.c-button.op-long.op-large(href="#todo")  button用のデザイン
+            a.c-button.op-long.op-large.op-alert(href="#todo")  button用のデザイン

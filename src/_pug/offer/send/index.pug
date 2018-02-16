@@ -1,0 +1,65 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+    block meta
+
+    block link
+
+    block script
+block body
+    body.js-drawer.drawer--right.p-home.p-home--offer-send
+        +header-simple
+        .w-breadcrumb-multi-steps
+            +breadcrumb-multi-steps('op-current','','','')
+
+            //ol.b-breadcrumb-multi-steps
+                li.op-visited
+                    .w-multi-steps-wrap
+                        .w-multi-steps
+                            span.step 1
+                            span.stage 基本情報
+                li.op-visited
+                    .w-multi-steps-wrap
+                        .w-multi-steps
+                            span.step 2
+                            span.stage 詳細情報
+                li.op-current
+                    .w-multi-steps-wrap
+                        .w-multi-steps
+                            span.step 3
+                            span.stage アンケート
+                li
+                    .w-multi-steps-wrap
+                        .w-multi-steps
+                            span.step 4
+                            span.stage 確認
+
+
+        .w-offer-send-content
+            .c-container.op-short
+                +profile-edit-basic
+                .w-next-button
+                    .l-column
+                        .l-column-2
+                            a(href='#todo').c-button-full-radius 次の項目へ
+                                i.fa.fa-angle-right.op-right
+        +footer-cp
+
+
+

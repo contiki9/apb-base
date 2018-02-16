@@ -1,0 +1,247 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+    block meta
+
+    block link
+
+    block script
+block body
+    body.js-drawer.drawer--right.p-home.p-home--top
+        +header(pageDir,'home')
+        .b-banner-flating#js-float-box(style='display:none;')
+            .w-banner-close
+                div(data-select='#js-float-box').close-item.js-float-box-close
+                    img(src=imgDir + 'common/close-banner.svg',alt='閉じる')
+            .w-banner-registration
+                a(href='/registration',target='_blank')
+
+                    .banner-title
+                        img(src=imgDir + 'common/logo.svg',alt='メディキャリ新卒')
+                    .banner-button
+                        .c-button 会員登録無料
+        .p-home-mv
+            .w-home-mv-in
+                .w-mv
+                    .mv-block
+                        img(src=imgDir + 'home/mv.jpg',alt='')
+                .w-character
+                    .character-block
+                        img(src=imgDir + 'home/character.png',alt='')
+        main.p-home-content
+            section.b-section-lp
+                .c-container.op-short
+                    .w-section-head-block
+                        h2.c-section-title-icon-left
+                            .icon: img(src=imgDir + 'icon/icon-title-search.svg',alt='')
+                            .title 企業検索
+                    .w-section-content-block
+                        .w-search-form-wrap
+                            form.b-search-form-base
+                                .w-search-form-area
+                                    .w-layout-section-input
+                                        .b-search-form-area
+                                            .l-left
+                                                .w-form-area-select
+                                                    ul.b-list-change-button
+                                                        li.list.op-active
+                                                            a(href='#todo') 本社所在地
+                                                        li.list
+                                                            a(href='#todo') 勤務所在地
+                                            .l-right
+                                                .b-form-input-list
+                                                    .b-layout-form-area
+                                                        .w-area-selector-select
+                                                            .l-column-select
+                                                                .l-column-2
+                                                                    .w-area-selector
+                                                                        .title 地域選択
+                                                                        select(name='').selectbox
+                                                                            - for (var i = 0; i < 6; i++)
+                                                                                option(value=val) 地域名#{i}
+                                                                .l-column-2
+                                                                    .w-area-selector
+                                                                        .title 都道府県選択
+                                                                        select(name='').selectbox
+                                                                            - for (var i = 0; i < 8; i++)
+                                                                                option(value=val) 都道府県名#{i}
+
+                                                        .w-area-selector-check
+                                                            .b-button-toggle
+                                                                .w-button
+                                                                    button.c-button-line.op-mini すべて選択
+                                                                    button.c-button-line.op-mini すべて解除
+                                                            .l-checkbox
+                                                                +form-input-check('北海道','北海道','県名')
+                                                                +form-input-check('青森','青森','県名')
+                                                                +form-input-check('岩手','岩手','県名')
+                                                                +form-input-check('宮城','宮城','県名')
+                                                                +form-input-check('秋田','秋田','県名')
+                                                                +form-input-check('山形','山形','県名')
+                                                                +form-input-check('福島','福島','県名')
+
+
+                                hr.c-line
+
+                                .w-search-form-submit
+                                    .input(typeof='submit', value='検索').c-button.op-submit 検索
+
+                                .w-search-form-word
+                                    +layout-section-input-text('企業名検索','text')
+
+                                .w-layout-section-input
+                                    .b-form-input-list
+                                        .c-form-input-block
+                                            .w-tag
+                                                //.tag 必須
+                                                span.name.op-bold 募集資格
+                                        .l-checkbox
+                                            +form-input-check('募集対象1','2017年度卒業予定者（既卒者含む）','募集')
+                                            +form-input-check('募集対象2','2018年度卒業予定者','募集')
+
+                                .w-layout-section-input
+                                    .b-form-input-list
+                                        .c-form-input-block
+                                            .w-tag
+                                                //.tag 必須
+                                                span.name.op-bold 雇用形態
+                                        .l-checkbox
+                                            each val in ["正社員", "契約社員", "パート・アルバイト", "業務委託・その他"]
+                                                +form-input-check(val,val)
+
+                                .w-layout-section-input
+                                    .b-form-input-list
+                                        .c-form-input-block
+                                            .w-tag
+                                                //.tag 必須
+                                                span.name.op-bold 職種・業種
+                                        .l-checkbox
+                                            each val in ["調剤薬局", "ドラッグストア（調剤併設）", "ドラッグストア（OTCのみ）", "CRO/SMO", "医薬品メーカー（研究開発・生産技術）","医薬品卸（学術・管理薬剤師等）","医薬品メーカー（MR）","病院・クリニック","教育","化学メーカー","化粧品メーカー","食品メーカー","公務員","その他"]
+                                                +form-input-check(val,val)
+                                .w-search-form-submit
+                                    .input(typeof='submit', value='検索').c-button.op-submit 検索
+            //- .pg-home-form
+
+            section.b-section-lp
+                .w-home-news
+                    .c-container.op-short
+                        .w-section-head-block
+                            h2.c-section-title インフォメーション
+                        .w-section-content-block
+                            - for (var i = 0; i < 5; i++)
+                                ul.c-news
+                                    li.day 2000/00/00
+                                    li.text: a(href='#todo') ここにニュースの内容が入ります。
+                        .w-bottom-button
+                            a(href='#todo').c-button.op-long もっと見る
+
+            section.b-section-lp
+                .w-home-about
+                        .w-section-head-block
+                            h2.c-section-title-icon-top
+                                .icon: img(src=imgDir + 'icon/icon-title-question.svg',alt='')
+                                .title メディキャリとは
+                        .w-section-content-block
+                            .c-container.op-short
+                                .section-text-block.op-text-center
+                                    p 当サービスは2018年度卒業予定者を対象とした、薬剤師就職サポートサイトです。<br>単なる求人情報、セミナー情報の提供だけでなく、各企業内や局内の雰囲気までを学生の皆さんに感じていただくため、様々なコンテンツをご提供しています。
+                                    p 会員登録いただくと、企業エントリーやセミナーエントリーなど多機能なマイページをご使用いただくことができます。また、これらの機能はすべて無料でご利用いただくことができますので、ぜひご登録いただき、あなたの就職活動が実りあるものになるようお役立てください。
+                            .w-home-point
+                                .b-box-point-list
+                                    .w-box-point-list
+                                        .l-column
+                                            .l-column-4
+                                                .c-box-point-list
+                                                    .title 業界初！
+                                                    .text 薬学生に特化した薬剤師就職サポートサイト。<br>厳選した情報だけをお届けします。
+                                            .l-column-4
+                                                .c-box-point-list
+                                                    .title 優良企業が集う！
+                                                    .text 様々な職種の企業が集まり、あなたからのエントリーを待っています。<br>充実した検索機能であなたにマッチする企業を見つけてよう！
+                                            .l-column-4
+                                                .c-box-point-list
+                                                    .title 簡単登録！
+                                                    .text facebookやtwitterのIDからも登録可能です。<br>就職サイト メディキャリに登録して将来を優位に進めよう。
+                                            .l-column-4
+                                                .c-box-point-list
+                                                    .title 完全スマホ対応！
+                                                    .text 外出先からも気になる情報をチェックできます。<br>エントリーもできますので、場所を選ばずご利用いただけます。
+                            //.p-point-list
+                        .w-btn-block
+                            .c-container
+                                .b-button-block.op-center
+                                    a(href='/login/').c-button.op-long 会員登録（無料）
+                                    .note 本サービスは無料でご利用いただけます。
+                //-.pg-home-about
+
+        +footer()
+        +fixed-bottom-page-sp
+
+        script.
+            if ($(window).width() > 640) {//PCのときのみ
+                //フローティングバナー
+                //////////////////////////////
+                var setBoxId = '#js-float-box'; // スクロールさせる要素
+                var initOffsetTop = null;   // 要素の初期位置
+                var closeFlag = false;//閉じるbuttonを押したかの判定
+                $(document).ready(function() {
+                    // 初期位置取得
+                    initOffsetTop = $(setBoxId).offset().top;
+                });
+                //スクロールしたらこの処理が走る
+                $(window).scroll(function() {
+                    scrollbox();
+                });
+                // スクロール処理
+                function scrollbox(){
+                    // 初期位置が取れていなければ処理を抜ける
+                    if(initOffsetTop == null) return;
+                    // 現在のスクロール位置を取得
+                    var scrollTop = $(document).scrollTop();
+                    // スクロールさせる要素の初期位置と現在のスクロールの位置を比較
+                    //初期位置より下にスクロールした時
+                    if(initOffsetTop < scrollTop) {
+                        // positionを設定
+                        $(setBoxId).css('position', 'fixed');
+                        // topの位置を設定
+                        $(setBoxId).animate({top: '40'}, {duration: 0});
+                    } else {
+                        // 設定したスタイルを持とに戻す
+                        $(setBoxId).css('position', 'absolute');
+                        $(setBoxId).animate({top: initOffsetTop}, {duration: 0});
+                    }
+
+
+                    if (!closeFlag){//閉じるbuttonを押していない時に作動
+                        if (scrollTop > 200) {
+                            //scroll後表示
+                            $(setBoxId).fadeIn(400);
+                        } else {
+                            //scroll後非表示
+                            $(setBoxId).fadeOut(400);
+                        }
+                    }
+                }
+                $('.js-float-box-close').on('click',function () {
+                    //閉じるbutton
+                    $(setBoxId).fadeOut(400);
+                    closeFlag = true;//閉じてもまた表示されないようにする
+                })
+            }
+

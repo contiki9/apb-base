@@ -1,0 +1,253 @@
+/*
+ * Form Style
+*/
+%ex-input {
+  &.input {
+    margin-bottom: 0;
+    width: 100%;
+  }
+}
+
+%ex-input-select-style {
+
+  //radioとchecxbox用
+  &.op-check, &.op-radio {
+    @include flx-row;
+    @include flx-middle;
+    height: auto;
+    width: auto;
+    margin-right: 1em;
+    vertical-align: middle;
+    margin-bottom: 1.2em;
+    .name {
+      display: inline-block;
+      margin-bottom: 0;
+      font-weight: normal;
+    }
+    @extend %ex-input-check-radio;
+  }
+}
+
+.c-form-input-block {
+  @extend %ex-input-select-style;
+  .name, .form-group label {
+    @include cnt-font-size(14);
+    display: block;
+    margin-bottom: .5em;
+    text-align: left;
+    font-weight: normal;
+    &.op-name-light {
+      color: $color-text-light;
+    }
+    &.op-bold {
+      font-weight: bold;
+    }
+  }
+  textarea {
+    @extend %ex-textarea;
+  }
+  .input {
+    width: 100%;
+    margin-bottom: 4px;
+  }
+
+  .form-group {
+    .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+      width: 100%;
+      float: none;
+    }
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+      width: 100%;
+      float: none;
+      margin: 0;
+      padding: 0;
+    }
+    input, textarea {
+      @extend %ex-input;
+      margin-bottom: 0;
+    }
+  }
+}
+
+input[type=submit], input[type=reset], input[type=button] {
+  &.c-form-button {
+    min-width: 200px;
+  }
+}
+
+.b-form-input-list {
+  input, textarea {
+    @extend %ex-input;
+  }
+  label {
+    margin-bottom: 8px;
+    display: block;
+    @extend %ex-input-select-style;
+    .name {
+      color: $color-text;
+    }
+  }
+  .b-button-toggle {
+    @extend %ex-button-toggle;
+  }
+  > .w-submit {
+    margin-top: 8*4px;
+  }
+  .w-tag {
+    @include flx-row;
+    @include flx-middle;
+    margin-bottom: 8px;
+    .tag {
+      @extend .c-tag;
+      @extend .c-tag.op-required;
+      margin-right: 1em;
+    }
+    .name {
+      margin-bottom: 0;
+    }
+  }
+  > .w-area,
+  .b-layout-form-area .w-area-selector-check {
+    margin-bottom: 8*2px;
+    padding-bottom: 8px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .l-section-block {
+      margin-top: 8*2px;
+    }
+
+  }
+  > .w-area {
+    border-bottom: 1px solid $color-border;
+  }
+  .b-layout-form-area .w-area-selector-check {
+    > .l-checkbox {
+      @include flx-row;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+  > .w-area {
+    border-bottom: 1px solid $color-border;
+    > .w-form-item {
+      .l-checkbox {
+        @include flx-row;
+      }
+      .l-section-block {
+        width: 100%;
+      }
+    }
+    > .w-add {
+      .link-block {
+        padding: 1em 10px;
+      }
+    }
+    > .w-add-button {
+      img {
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+    }
+    > .w-notes {
+      padding-top: 10px;
+    }
+    .texatea-block {
+      textarea {
+        @extend %ex-textarea;
+        width: 100%;
+      }
+    }
+    textarea {
+      @extend %ex-textarea;
+      width: 100%;
+    }
+    .w-block {
+      margin-bottom: 20px;
+    }
+  }
+
+  > .l-column, > .w-calendar .l-column, .w-block .l-column {
+    @include flx-row;
+    width: calc(100% + 8 * 3px);
+    .l-column-6 {
+      @include flx-col-6;
+      //margin-right:8*3px;
+      //padding-left: 10px;
+      padding-right: 8*3px;
+    }
+    > .w-image-pickup {
+      margin-bottom: 60px;
+      .l-middle-center {
+        @include cnt-radius(5px);
+        padding-top: 40px;
+        padding-bottom: 40px;
+        height: 320px;
+        width: 100%;
+        background: $color-bg-light;
+        margin-bottom: 30px;
+        .w-button {
+          padding: 15px;
+        }
+        img {
+          width: auto;
+          max-height: 220px;
+          margin-bottom: 20px;
+        }
+      }
+
+    }
+    .w-preview-movie {
+      @include cnt-iframe-rwd-16-9;
+    }
+    .w-preview-image {
+      width: 100%;
+    }
+    .w-edit {
+      margin-top: 15px;
+    }
+  }
+  > .l-middle-center, > .l-column .l-middle-center {
+    @include flx-row;
+    @include flx-middle;
+    @include flx-center;
+    height: 100%;
+  }
+  > .l-checkbox, > .l-radio, .w-area > .l-checkbox, .w-area > .l-radio, > .w-block .l-checkbox, > .w-block .l-radio {
+    @include flx-row;
+  }
+  .l-checkbox, .l-radio {
+    padding-left: 10px;
+    padding-right: 10px;
+    .item {
+      margin-left: 8*2px;
+      .input {
+        display: block;
+      }
+    }
+  }
+  .form-group {
+    padding: 0;
+    margin: 0;
+  }
+  .field-loginform-username {
+    padding: 0;
+    margin: 0;
+  }
+  .field-loginform-rememberme {
+    padding: 0;
+    margin: 0;
+    input {
+      display: inline-block;
+      margin-right: .3em;
+    }
+    label {
+      display: inline-block;
+      margin-bottom: 0;
+      font-weight: normal;
+    }
+
+  }
+}
+
+

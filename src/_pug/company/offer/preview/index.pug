@@ -1,0 +1,41 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+
+    block meta
+
+    block link
+
+    block script
+
+block body
+
+    body.p-company--offer.p-company--offer-preview
+            .c-notification-status これはプレビュー画面です。
+            .c-container.op-single
+                +offer-detail-first(true)
+                +offer-detail-second
+
+
+
+
+
+
+
+

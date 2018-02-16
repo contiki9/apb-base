@@ -1,0 +1,45 @@
+//- inlide file
+extends /_include/_layout
+include /_include/_mixin
+
+append variables
+    //- Required
+    - var pageTitle= "";
+    - var pageDescription= site.description.home;
+    - var pageKeywords= site.keywords;
+    //- Optional
+    - var pageOgpTitle= "site.name";
+    - var pageOgpImage= site.ogpImage
+    - var pageLang= "ja";
+    - var pageOgpType= "website";
+    //- Not modified
+    - var pageUrl= relativePath;
+    - var pageDir= './';
+    - var imgDir= '/images/';
+
+    block meta
+
+    block link
+
+    block script
+block body
+    body.js-drawer.drawer--right.p-home.p-home--offer-send
+        +header-simple
+        .w-breadcrumb-multi-steps
+            +breadcrumb-multi-steps('op-visited','op-current','','')
+        .w-offer-send-content
+            .c-container.op-short
+                +profile-edit-detail
+                .w-next-button
+                    .l-column
+                        .l-column-2
+                            a(href='./step1.html').c-button-full-radius.op-border
+                                i.fa.fa-angle-left.op-left
+                                | 前の項目へ
+                        .l-column-2
+                            a(href='./step3.html').c-button-full-radius 次の項目へ
+                                i.fa.fa-angle-right.op-right
+
+        +footer-cp
+
+

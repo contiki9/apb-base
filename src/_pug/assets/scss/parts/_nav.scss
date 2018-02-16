@@ -1,0 +1,236 @@
+/*
+ * nav Style
+*/
+.b-nav-menu {
+  .drawer-toggle {
+    @include mq(pc) {
+      display: none;
+    }
+    .drawer-hamburger-icon {
+
+    }
+  }
+}
+
+.b-nav-global {
+  margin-bottom: 0;
+  @include mq(pc) {
+    @include flx-row;
+    @include flx-middle;
+  }
+
+  > li {
+    color: darken($color-main, 20%);
+
+    margin-bottom: 0;
+    &:last-child {
+      margin-right: 0;
+    }
+    @include mq(pc) {
+      margin-right: 2em;
+    }
+    @include mq() {
+      border-bottom: 1px solid lighten($color-border-light, 20%);
+    }
+
+    a,span {
+      @include cnt-link(#FFF);
+      display: block;
+      @include mq() {
+        padding: .8em 1em;
+        @include cnt-link($color-link);
+      }
+    }
+    &.op-special {
+      @include mq(pc) {
+        @include cnt-radius(2px);
+        background: #FFF;
+        a {
+          @include cnt-link($color-main);
+          padding: .6em 2em;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.b-nav-content-list-loop {
+  > .l-wrap {
+    margin-bottom: 8px;
+    @include mq{
+      margin-bottom: 8*4px;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.b-nav-content-list {
+  @include mq(pc) {
+    @include flx-row;
+    @include flx-middle;
+  }
+  > .l-left {
+    margin-right: 1em;
+    @include mq() {
+      margin-right: 0;
+    }
+
+  }
+  > .l-right {
+
+  }
+  .title {
+    @include cnt-font-size(16);
+    color: $color-text-light;
+    min-width: 6em;
+    text-align: right;
+    @include mq() {
+      text-align: center;
+    }
+  }
+  .nav {
+    @include flx-row;
+    @include flx-middle;
+
+    margin-bottom: 0;
+    li {
+      margin-right: 1em;
+      @include mq() {
+        @include flx-col-6;
+        margin-right: 0;
+        text-align: center;
+        padding: 8px;
+      }
+      a {
+        @include cnt-link($color-main);
+        display: block;
+        @include mq() {
+          border: 1px solid $color-main;
+          @include cnt-font-size(12);
+        }
+      }
+    }
+  }
+}
+
+.b-nav-area {
+  .w-notes-head {
+    margin-bottom: 10px;
+  }
+  .w-select-list {
+
+  }
+}
+
+.b-nav-area-tag {
+  @include flx-row;
+  padding: 25px 30px 10px;
+  background: $color-bg-light;
+  overflow: hidden;
+  .area-tag {
+    margin-right: 1em;
+    .tag {
+      @extend %ex-tag;
+      @extend %ex-tag.op-main;
+      @extend %ex-tag.op-btn;
+      margin-bottom: 1em;
+    }
+  }
+}
+
+.b-nav-header-sab {
+  //今のところマイページ用
+  width: 100%;
+  .w-nav-mypage {
+    .nav-mypage {
+      @include flx-row;
+      @include flx-middle;
+      @include mq(pc) {
+        @include flx-center;
+      }
+      @include mq() {
+        @include flx-between;
+      }
+      width: 100%;
+      padding-top: 8*3px;
+      padding-bottom: 8*3px;
+      margin-bottom: 0;
+      .navs {
+        @include mq(pc) {
+          margin-right: 8*6px;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+        @include mq() {
+          //padding-left:8*2px;
+          //padding-right:8*2px;
+          min-width: 25%;
+        }
+        a {
+          text-align: center;
+          @include mq(pc) {
+            @include flx-row;
+            @include flx-middle;
+          }
+        }
+        span {
+          display: block;
+          line-height: 1;
+        }
+        .icon {
+          @include mq(pc) {
+            margin-right: 8px;
+            img {
+              &.op-sp {
+                display: none;
+              }
+            }
+          }
+          @include mq() {
+            display: block;
+            margin-bottom: 8px;
+            img {
+              height: 30px;
+              &.op-pc {
+                display: none;
+              }
+            }
+          }
+        }
+        .text {
+          @include mq() {
+            @include cnt-font-size(12);
+
+          }
+        }
+      }
+    }
+  }
+}
+
+///////////////////
+//company
+///////////////////
+.b-nav--company {
+  .nav-list-block {
+    .list {
+      border-bottom: 1px solid $color-border;
+      a {
+        @include cnt-link($color-text-light-dark);
+        display: block;
+        vertical-align: middle;
+        padding: .8em 1em;
+
+        &:before {
+          content: '';
+          display: inline-block;
+          @extend %ex-font-aws;
+        }
+      }
+    }
+  }
+}
