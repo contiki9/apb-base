@@ -194,8 +194,9 @@ gulp.task('copy', function () {
             '!' + develop.root + '**/_include',
             '!' + develop.root + '**/_data/*',
             '!' + develop.root + '**/_data',
-            '!' + develop.assets + '**/scss/*',
+            '!' + develop.assets + '**/scss/**',
             '!' + develop.assets + '**/scss/',
+            '!' + develop.assets + '**/*.scss',
             develop.assets + '**/*.html',
             develop.assets + '**/*.css'
         ],
@@ -210,7 +211,8 @@ gulp.task('copy', function () {
     gulp.src(
         [develop.assets + '**',
             '!' + develop.assets + '**/scss/**',
-            '!' + develop.assets + '**/scss/'
+            '!' + develop.assets + '**/scss/',
+            '!' + develop.assets + '**/*.scss',
         ],
         {base: develop.root}
     )
@@ -293,14 +295,6 @@ gulp.task('copy-vendor', function () {
     // Copy Skeleton
     gulp.src(paths.node + 'skeleton-scss/scss/**/*.scss')
         .pipe(gulp.dest(develop.assets + '/scss/vendor/skeleton-scss'));
-
-    // Copy Bourbon
-    //gulp.src(paths.node + 'bourbon/core/**/*.scss')
-    //    .pipe(gulp.dest(develop.assets + '/scss/vendor/bourbon'));
-
-    // Copy Neat
-    //gulp.src(paths.node + 'bourbon-neat/core/**/*.scss')
-    //    .pipe(gulp.dest(develop.assets + '/scss/vendor/bourbon-neat'));
 
     // Copy dlex
     gulp.src(paths.node + 'dlex/src/scss/**/_dlex.scss')
