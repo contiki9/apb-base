@@ -16,17 +16,47 @@ $ npm install
 $ gulp
 ```
 
+## gulp コマンド
+
+### ブラウザシンク
+
+```
+$ gulp sync 
+```
+コマンド後下記URLにアクセスしてください（意図的にブラウザが立ち上がらないようにしています）
+http://localhost:3000/
+
+### 納品データの作成
+```
+$ gulp output
+```
+### スタイルガイド作成
+
+#### ただコンパイルする場合
+```
+$ gulp style
+```
+
+#### ブラウザシンク＆watch
+編集する時用。
+
+コマンド後下記URLにアクセスしてください（意図的にブラウザが立ち上がらないようにしています）
+http://localhost:3000/
+```
+$ gulp guide
+```
+ 
 # ディレクトリ構成
 ##dist
 コンパイル後のディレクトリ。
-※コンパイルするためこのディレクトリはバージョン管理しない
+※コンパイルするためこのディレクトリは原則バージョン管理しない
 
 ##src
 コンパイル用のファイルディレクトリ。
 画像やpugなどはこちらをつかう。
 
 ###***src/assets***
-SASS/images/js/font/など読み込むファイルはこのディレクトリにまとめる。
+scss/images/js/font/など読み込むファイルはこのディレクトリにまとめる。
 
 ***src/assets/fonts***
 
@@ -36,50 +66,11 @@ WEBfontを格納
 
 ***src/assets/js***
 
- 汎用的なJSの関数を格納
+汎用的なJSの関数を格納
  
 ***src/assets/scss***
 
 SCSSを格納
-
-***src/assets/scss/assets***
-- _ggc_palette.scss
-    - マテリアルカラーを変数化したファイル
-    - 別に使わなくても良い
-- _mixin.scss
-    - 汎用的なMixin
-    - 接頭語にcnt-を付けます
-- _mixin_thme.scss
-    - サイト独自のミックスイン
-_ _extend
-    - extendをまとめたもの
-    - 接頭語にex-を付けます
-- _variable
-    - 設定値
-- style
-    - まとめのファイル
-
-***src/assets/scss/assets/vendor***
-外部で制作されたライブラリなどをまとめて置く場所※汎用的にいつも使うものを格納
-個々のプロジェクト単位でディレクトリで区切る。
-
-- [bourbon](http://neat.bourbon.io/)
-    - MIXIN集
-
-- [neat](http://neat.bourbon.io/)
-    - GlidのMIXIN集
-
-- [dlex](https://contiki9.github.io/dlex/)
-    - FlexboxのCSSフレームワーク
-
-- [skeleton](http://getskeleton.com/)
-    - シンプルなレスポンシブ対応のフレームワーク。
-    - 主にhtmlのみ見栄えとして活用
-    
-- [UIKIT](https://getuikit.com/)
-    - なんでも揃ったCSSフレームワーク。
-    - 接頭語に`uk-*`がつくのが特徴
-     
 
 ***src/assets/images***
 
@@ -94,19 +85,32 @@ _ _extend
 
 ## プロジェクト用CSS構成
 
-[Atomic Parts Base CSS](http://apbcss.com/)に準ずる
+### src/assets/scss/base
+htmlの基本設定のファイルの置き場
 
 
-以下は例外
-### src/assets/scss/vendor
+### src/assets/scss/config
 
-外部で制作されたライブラリなどをまとめて置く場所。
-個々のプロジェクト単位でディレクトリで区切る。
-```
-//jqueryの場合
+設定値などサイト全体で共通化して読み込むファイルの置き場
 
-/jquery/jquery.js
-```
+### src/assets/scss/pages
+
+ページタイプ毎に使い分けるscssの置き場
+
+基本的には`parts`のclassやラップ用のclass（`.w-*`）、レイアウト用のclass（`.l-*`）などの調整の範囲を限定する目的で使う。
+
+原則接頭語に`.p-*`をつける
+
+### src/assets/scss/parts
+
+component集。
+
+最小のcomponentには`.c-*`をつける。(cはcomponentの略です)
+汎用性のあるcomponent群には`.b-*`を接頭語につける。(bはBlockの略です)
+
+### src/assets/scss/vender
+
+外部ライブラリーやフレームワークの置き場。
 
 ### src/assets/scss/other
 
@@ -120,7 +124,7 @@ PHPなどがなくてもコードの共通化が可能になるので積極的�
  - index.pug
     - TOPページの.pug。構成のサンプル用
  
-### src/_include/c
+### src/_include/
 
 - _layout.pug
     - ページの構成をまとめるベースの.pug
@@ -131,5 +135,54 @@ PHPなどがなくてもコードの共通化が可能になるので積極的�
 ### src/_data/
 
 サイト共通の情報を登録するjson
+
+## CSSの名称ルール
+
+まだ選定中。ころころ変わりそうですが基本概要は下記になります。
+
+### .p-*
+ページ単位でセレクターをスコープさせます。
+原則body,またはbodyの直下に付けます。
+
+そのタイプの下層ページには`--`を付けてからそのページの名称をいれます。
+例)
+
+`.p-home` 通常ページ用
+`.p-home--category` 通常ページの1階層目用
+`.p-home--category-subcategory` 通常ページの2階層目用
+
+`.p-blog` ブログページ用
+`.p-blog--search` ブログページの検索用
+`.p-blog--single-postname` 特定の記事用
+
+### .l-*
+
+レイアウト用の名称です。
+原則レイアウトはすべてflexboxを使います。
+
+`.l-*`はあくまでレイアウトをつくるためのものなので、背景色や線のCSSを当てないでください。
+基本、flexboxとmargenとpaddingのみです。（緩めの規約でOKです）
+
+
+### .w-*
+
+wrap用の名称です
+原則、`.c-*``.b-*``.l-*`を囲います。
+主に余白をつけるものです。
+
+
+### .c-* .b-*
+
+UIのパーツ群です。
+使いまわす前提で作ります。
+
+`.*-list-*`などモジュールの名前を必ず入れてください。
+そのモジュール名毎のscssで管理します。
+
+margenとpaddingの値は入れないでください。
+※margenとpaddingを使う場合は必ず`.w-*`に挟んで使ってください。
+
+
+
 
     
