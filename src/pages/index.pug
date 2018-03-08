@@ -6,9 +6,8 @@ append variables
     //- Required
     - var pageTitle= "";
     - var pageDescription= site.description;
-    - var pageKeywords= site.keywords;
     //- Optional
-    - var pageOgpTitle= "";
+    - var pageOgpTitle= site.name;
     - var pageOgpImage= site.ogpImage
     - var pageLang= "ja";
     - var pageOgpType= "website";
@@ -32,6 +31,7 @@ block body
             include /_include/test/_wordpress
 
         +footer()
+        +commonJs
 
 
 
