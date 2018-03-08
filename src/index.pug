@@ -6,9 +6,8 @@ append variables
     //- Required
     - var pageTitle= "";
     - var pageDescription= site.description.home;
-    - var pageKeywords= site.keywords;
     //- Optional
-    - var pageOgpTitle= "site.name";
+    - var pageOgpTitle= site.name;
     - var pageOgpImage= site.ogpImage
     - var pageLang= "ja";
     - var pageOgpType= "website";
@@ -24,7 +23,7 @@ append variables
     block script
 
 block body
-    body#home
+    body.p-home
         +header(pageDir,'home')
 
         +breadcrumb(
@@ -36,6 +35,7 @@ block body
             include /_include/test/_html_tag
             include /_include/test/_wordpress
         +footer()
+        +commonJs
 
 
 
