@@ -236,6 +236,12 @@ gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
+//styleguide自動監視のタスクを作成
+gulp.task('watch-style', ['sass','aigis'], function() {
+    var watcher = gulp.watch(browserSyncWatchFiles, ['sass','aigis']);
+    watcher.on('change', function(event) {});
+});
+
 ////////////////////////////////////////////////
 // スタイルガイドを生成
 ////////////////////////////////////////////////
@@ -249,7 +255,7 @@ gulp.task('aigis', function () {
 ////////////////////////////////////////////////
 gulp.task('clean-styleguide', function () {
     console.log('--------- clean-styleguide task ----------');
-    return del(paths.guide + '/styleguide/**/*', '!.gitkeep');
+    return del('./styleguide/**/*', '!.gitkeep');
 });
 
 
@@ -257,25 +263,27 @@ gulp.task('clean-styleguide', function () {
 //スタイルガイドを生成
 ////////////////////////////////////////////////
 
-gulp.task('styleguide', ['clean-styleguide'], function (callback) {
+gulp.task('style', function (callback) {
     return runSequence(
+        'clean-styleguide',
         'sass',
         'aigis',
+        'browser-sync',
         callback
     );
 });
-gulp.task('re-styleguide', function (callback) {
-    gulp.watch('./**/*.html', ['bs-reload']);
+gulp.task('re-style', function (callback) {
+    //gulp.watch('./**/*.html', ['bs-reload']);
     return runSequence(
-        'styleguide',
-        'bs-reload',
+        'style',
+        'watch-style',
         callback
     );
 });
 
-// gulpのデフォルト
-gulp.task('guide', ['re-styleguide','browser-syncStyle'], function () {
-    gulp.watch(develop.assets + 'scss/**/*.scss', ['re-sass','re-styleguide']);
+
+gulp.task('guide', ['re-style','browser-syncStyle'], function () {
+    gulp.watch(develop.assets + 'scss/**/*.scss', ['re-sass','re-style']);
 });
 
 
