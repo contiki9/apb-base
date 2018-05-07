@@ -66,8 +66,8 @@ var browserSyncWatchFiles = [
     develop.assets + '**/scss/*.scss',
     release.root + '**/css/*.css',
     release.root + '**/js/*.js',
-    release.root + '**/*.php',
-    release.root + '**/*.html'
+    //release.root + '**/*.php',
+    //release.root + '**/*.html'
 ];
 
 
@@ -339,7 +339,7 @@ gulp.task('release-clean', function () {
     console.log('--------- clean task ----------');
     return del(release.root + '**/*', '!.gitkeep');
 });
-gulp.task('output', function (callback) {
+gulp.task('dist', function (callback) {
     return runSequence(
         'release-clean',
         'copy',
@@ -361,20 +361,20 @@ gulp.task('heroku', function(callback) {
 
 
 // gulpのデフォルト
-gulp.task('default', ['output'], function () {
+gulp.task('default', ['dist'], function () {
     gulp.watch(develop.root + '**/*.pug', ['re-pug']);
     gulp.watch(develop.assets + 'scss/**/*.scss', ['re-sass']);
     gulp.watch(develop.assets + 'images/**/*', ['image-min']);
     gulp.watch(develop.assets + 'js/**/*', ['uglify']);
-    gulp.watch('./**/*.html', ['bs-reload']);
-    gulp.watch('./**/*.php', ['bs-reload']);
+    //gulp.watch('./**/*.html', ['bs-reload']);
+    //gulp.watch('./**/*.php', ['bs-reload']);
 });
-// gulpのデフォルト
+// ブラウザシンクで実行
 gulp.task('sync', ['browser-sync'], function () {
     gulp.watch(develop.root + '**/*.pug', ['re-pug']);
     gulp.watch(develop.assets + 'scss/**/*.scss', ['re-sass']);
     gulp.watch(develop.assets + 'images/**/*', ['image-min']);
     gulp.watch(develop.assets + 'js/**/*', ['uglify']);
-    gulp.watch('./**/*.html', ['bs-reload']);
-    gulp.watch('./**/*.php', ['bs-reload']);
+    //gulp.watch('./**/*.html', ['bs-reload']);
+    //gulp.watch('./**/*.php', ['bs-reload']);
 });
