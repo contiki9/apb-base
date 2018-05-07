@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Base Style
 */
 body, html {
@@ -9,10 +9,8 @@ body, html {
 }
 
 body {
-  /* アンチエイリアスを指定する */
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
-  /* メトリクスカーニングを指定する */
   font-kerning: normal;
   background-color: $color-bg;
   a {
@@ -41,14 +39,13 @@ ul,ol,li,dl,dd,dt{
   @include padding(null 0);
 }
 
-//ネストされたリストのマージンをリセットします。
 li {
   > ul, > ol {
     margin-bottom: 0;
   }
 }
 
-//`dt`と`dd`の左端を揃えます。
+
 dd {
   margin-left: 0;
 }
@@ -76,7 +73,7 @@ a {
 
 }
 
-//フルードイメージにします。
+
 img {
   max-width: 100%;
   height: auto;
@@ -125,8 +122,6 @@ figure{
 
 // Forms
 //––––––––––––––––––––––––––––––––––––––––––––––––––
-
-
 button {
   display: inline-block;
   padding: 10px 30px;
