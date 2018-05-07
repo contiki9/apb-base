@@ -294,6 +294,33 @@ SASS mixin
   }
 }
 
+//keyfkames
+///////////////////////////////////////////////
+
+//@keyframesを生成する
+@mixin cnt-keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+//animationプロパティを作る
+@mixin cnt-animation($animation-name) {
+  -webkit-animation: $animation-name;
+  -moz-animation: $animation-name;
+  animation: $animation-name;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
 //iflame
 ///////////////////////////////////////////////
 @mixin cnt-iframe-rwd-4-3 {
