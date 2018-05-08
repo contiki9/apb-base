@@ -91,6 +91,14 @@
 %ex-transition-base {
   transition: all 0.6s ease-in-out;
 }
+%ex-p-bottom{
+  p{
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
+
 
 /* FONTS
    ---------------------------------------------------------- */
@@ -198,3 +206,4 @@
     }
   }
 }
+
