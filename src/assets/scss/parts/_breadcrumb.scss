@@ -2,10 +2,30 @@
  * breadcrumb Style
 */
 
+/*
+---
+name: パンくず
+tag:
+  - breadcrumb
+---
+
+```jade
+.w-breadcrumb
+  .c-breadcrumb
+      li ぺージ名
+      li ぺージ名
+```
+*/
 .c-breadcrumb{
   margin-bottom: 0;
   padding-left: 0;
   @include cnt-font-size(12);
+
+  .w-breadcrumb &{
+    @extend .c-container;
+    padding-top: 8*2px;
+    padding-bottom: 8*2px;
+  }
   li{
     display:inline;
     list-style: none;
@@ -29,19 +49,48 @@
     }
   }
 }
-.b-breadcrumb{
-  .w-breadcrumb{
-    @extend .c-container;
-    padding-top: 8*2px;
-    padding-bottom: 8*2px;
-  }
-}
+
+/*
+---
+name: ステップ
+tag:
+  - breadcrumb
+  - step
+---
+
+```jade
+ol.b-breadcrumb-multi-steps
+    li.op-visited
+        .w-multi-steps-wrap
+            .w-multi-steps
+                span.step 1
+                span.stage 基本情報
+    li.op-current
+        .w-multi-steps-wrap
+            .w-multi-steps
+                span.step 2
+                span.stage 詳細情報
+    li
+        .w-multi-steps-wrap
+            .w-multi-steps
+                span.step 3
+                span.stage アンケート
+    li
+        .w-multi-steps-wrap
+            .w-multi-steps
+                span.step 4
+                span.stage 内容確認
+
+```
+*/
+
 .b-breadcrumb-multi-steps{
   @include flx-row;
   @include flx-center;
   @include cnt-font-size(14);
-  li{
+  > li{
     padding-left: 8*2px;
+    margin-bottom: 0;
     &:first-child{
       padding-left: 0;
     }
@@ -69,7 +118,6 @@
       }
     }
   }
-
   .w-multi-steps-wrap{
     @include flx-row;
     @include flx-middle;
@@ -82,18 +130,18 @@
       color: $color-text-light;
     }
   }
-  .step{
+  span.step{
     @include cnt-circle;
     background: $color-text-light;
     color: #FFF;
     padding:3px;
     height:24px;
     width:24px;
-    margin-bottom: 8px;
     display: inline-block;
   }
-  .stage{
+  span.stage{
     display: block;
+    margin-top: 8px;
     color: $color-text-light;
   }
 }
