@@ -188,7 +188,7 @@
   transform: translateY(4px);
   opacity:1;
 }
-%ex-button-status-now{
+%ex-button-status{
   &.op-active{
     @extend %ex-button-push-active;
     opacity:.5;

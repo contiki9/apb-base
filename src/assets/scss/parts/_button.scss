@@ -63,17 +63,69 @@
   &.op-gp {
     background: $brand-google-plus;
   }
+
+  .fa {
+    display: inline-block;
+    font-weight: bold;
+    &.op-right {
+      padding-left: 8*2px;
+    }
+    &.op-left {
+      padding-right: 8*2px;
+    }
+  }
+}
+%ex-button-border{
+  @include cnt-link($color-link);
+  background: #FFF;
+  border: 1px solid $color-link;
+  &:hover, &:focus, &:visited, &:active {
+    border: 1px solid $color-link;
+  }
 }
 
-.b-button-block {
-  &.op-center {
-    text-align: center;
-  }
-  .note {
-    @include cnt-font-size(14);
-    margin-top: .5em;
-  }
-}
+/*
+---
+name: ボタン
+tag:
+  - button
+---
+
+```jade
+a.c-button button
+
+```
+```jade
+a.c-button-line button-line
+
+```
+```jade
+a.c-button-round button-round
+
+```
+```jade
+a.c-button-round-line button-round-line
+
+```
+```jade
+a.c-button-push button-push
+
+```
+```jade
+a.c-button-push-line button-push-line
+
+```
+```jade
+a.c-button-text button-text
+
+```
+```jade
+a.c-button-circle 11
+
+```
+
+
+*/
 
 .c-button {
   @extend %ex-button;
@@ -89,13 +141,9 @@ input[type=submit], input[type=reset], input[type=button] {
 .c-button-line, .c-button-line:hover {
   @extend %ex-button;
   @include cnt-radius(4px);
-  @include cnt-link($color-link);
-  background: #FFF;
-  border: 1px solid $color-link;
-  &:hover, &:focus, &:visited, &:active {
-    border: 1px solid $color-link;
-  }
+  @extend %ex-button-border;
 }
+
 .c-button-push-line, .c-button-push {
   @extend %ex-button-push;
   &:hover, &:active, &:focus {
@@ -126,7 +174,7 @@ input[type=submit], input[type=reset], input[type=button] {
 
 .c-button-push-line {
   @extend .c-button-line;
-  @extend %ex-button-status-now;
+  @extend %ex-button-status;
 }
 
 .c-button-text {
@@ -140,23 +188,26 @@ input[type=submit], input[type=reset], input[type=button] {
   padding: 0;
 }
 
-.c-button-full-radius {
+.c-button-round {
   @extend %ex-button;
   @include cnt-radius(2em);
-  &.op-border{
+  &.op-border {
     background: #FFF;
     color: $color-link;
-    border:1px solid $color-link;
+    border: 1px solid $color-link;
   }
-  .fa {
-    display: inline-block;
-    font-weight: bold;
-    &.op-right {
-      padding-left: 8*2px;
-    }
-    &.op-left {
-      padding-right: 8*2px;
-    }
-
-  }
+}
+.c-button-round-line {
+  @extend .c-button-round;
+  @extend %ex-button-border;
+}
+.c-button-circle {
+  @extend %ex-button;
+  @extend %ex-button-status;
+  @include flx-row;
+  @include flx-middle;
+  @include flx-center;
+  @include cnt-circle;
+  height: 60px;
+  width: 60px;
 }
