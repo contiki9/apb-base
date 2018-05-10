@@ -2,11 +2,36 @@
  * window Style
 */
 
+/*
+---
+name: モーダルウインドウ
+tag:
+  - modal
+  - window
+---
 
+
+```jade
+.b-window-modal
+   .w-modal-sec
+    .w-modal-sec-title
+      .title タイトル
+    .w-modal-sec-content
+      .w-text-block
+        p ここにテキストが入ります。
+    .w-modal-button
+      ul.c-list-flex-btn.op-center
+        li
+          a(href='#todo').c-button.op-close button1
+        li
+          a(href='#todo').c-button button1
+
+```
+*/
 .b-window-modal{
   @include cnt-radius(4px);
   background: #FFF;
-  padding:8*4px 8*2px;
+  padding:8*2px 8*2px;
   > .w-pop-up-page-title{
     @extend %ex-section-title;
     margin-bottom: 40px;
@@ -15,8 +40,8 @@
     }
   }
   .w-modal-sec{
-    .w-modal-sec-sub-title{
-      margin-bottom:8*4px;
+    .w-modal-sec-title{
+      margin-bottom:8*2px;
       .title{
         @include cnt-font-size(20);
         text-align: center;
@@ -29,9 +54,9 @@
       .w-text-block{
         margin-bottom: 8*2px;
       }
-      .l-column{
+      .l-flex{
         .l-column-2{
-          margin-bottom:8*4px;
+          margin-bottom:8*2px;
           &:last-child{
             margin-bottom: 0;
           }
@@ -39,10 +64,13 @@
       }
     }
   }
-  .w-modal-close{
+  .w-modal-button{
     border-top: 1px solid $color-border;
-    margin-top: 8*4px;
-    padding-top: 8*4px;
+    margin-top: 8*2px;
+    padding-top: 8*2px;
+    a,button{
+      margin-bottom: 0;
+    }
   }
 }
 

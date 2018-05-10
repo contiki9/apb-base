@@ -14,19 +14,42 @@ tag:
 
 ```jade
 ul.c-news
-  li.day 2000/00/00
-  li.text: a(href='#todo') ここにニュースの内容が入ります。
+  li
+    .day 2000/00/00
+    .text: a(href='#todo') ここにニュースの内容が入ります。
+  li
+    .day 2000/00/00
+    .text: a(href='#todo') ここにニュースの内容が入ります。
 ```
 */
 
+%ex-news{
+  margin-bottom: 0;
+  li{
+    @include cnt-font-size(14);
+    border-bottom:1px solid $color-border;
+    padding-bottom: 8*2px;
+    margin-bottom: 8*2px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+    a{
+      @include cnt-link($color-link);
+      @include cnt-hover;
+    }
+  }
+}
+
 .c-news{
-  @include flx-row;
-  padding-bottom: .6em;
-  margin-bottom: .6em;
+  @extend %ex-news;
+  li{
+    @include flx-row;
+  }
   .day{
     margin-right: .5em;
   }
   .text{
+
   }
 }
 
@@ -39,21 +62,23 @@ tag:
 
 ```jade
 ul.c-news-line
-  li.day 2000/00/0000
-  li.text: a(href='#todo') ここにニュースの内容が入ります。
+  li
+    .day 2000/00/0000
+    .text: a(href='#todo') ここにニュースの内容が入ります。
 ```
 */
 
-.b-news-line{
-  @include flx-row;
-  border-bottom:1px solid $color-border;
-  padding:1.2em .5em;
-  .day{
-    margin-right:1.5em;
+.c-news-line{
+  @extend %ex-news;
+  li{
+
   }
-  .message{
-    @include flx-col;
+  .day{
+
+  }
+  .text{
     a{
+      @include cnt-font-size(16);
       display: block;
       line-height: 1.5;
     }

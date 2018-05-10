@@ -101,7 +101,7 @@ tag:
   &.op-select-item { //ラジオボタンやチェックボックス用
     label {
       display: inline-block;
-      margin-right: 8*2px;
+      margin-right: 8*3px;
       font-weight: normal;
       &:last-child {
         margin-right: 0;
@@ -177,7 +177,7 @@ tag:
       border-right: 3px solid $color-link;
     }
     &:checked + .form-item-radio::after {
-      top: 9px;
+      top: 8px;
       left: 3px;
       width: 11px;
       height: 11px;
@@ -190,7 +190,7 @@ tag:
     @include flx-row;
     @include flx-middle;
     position: relative;
-    padding-left: 28px;
+    padding-left: 20px;
     &::before {
       content: "";
       display: block;

@@ -9,29 +9,55 @@
   background: #FFF;
   color: $color-link;
   display: inline-block;
-  min-width: 2em;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 4px;
-  padding-right: 4px;
-  &:hover,&:active,&:focus {
-    text-decoration: none;
-    color: $color-link;
-    border:1px solid #FFF;
+  min-width: 1.8em;
+  padding: 4px;
+  a, span {
+    &:hover, &:active, &:focus {
+      text-decoration: none;
+      color: $color-link;
+      border: 1px solid #FFF;
+    }
   }
   &.op-current {
     background: $color-link;
-    color: #FFF;
-    &:hover,&:active,&:focus {
-      border:1px solid $color-link;
-      cursor: default;
+    a, span {
+      color: #FFF;
+      @include cnt-link;
+      &:hover, &:active, &:focus {
+        border: 1px solid $color-link;
+        cursor: default;
+      }
     }
+
   }
 }
 
+/*
+---
+name: ページャー
+tag:
+  - nav
+  - pager
+---
+
+```jade
+.b-pager
+    ul.w-pager
+      li.c-pager 1
+        a(href='#todo')
+      li.c-pager.op-current
+        span(href='#todo') 2
+      li.c-pager
+        a(href='#todo') 3
+      li.c-pager
+        a(href='#todo') 4
+```
+
+*/
 .b-pager {
   padding: 8px;
   background: $color-bg-light-dark;
+  margin-bottom: 0;
   .w-pager {
     @include flx-row;
     @include flx-center;
@@ -45,6 +71,6 @@
     }
   }
   .c-pager {
-    margin-bottom:8*2px;
+    margin-bottom: 8*2px;
   }
 }

@@ -14,6 +14,7 @@
 %ex-table{
   margin-bottom: 0;
   border:1px solid $color-border;
+  width: 100%;
   tr{
     border: none;
     border-bottom:1px solid $color-border-light;
@@ -38,7 +39,7 @@
     text-align: left;
     font-weight: normal;
     vertical-align: top;
-    font-weight: normal;
+    font-weight: bold;
     background: $color-table;
     color: $color-text-light-dark;
   }
@@ -46,6 +47,7 @@
     @include cnt-font-size(14);
     vertical-align: top;
     width:100%;
+    background: #FFF;
   }
   select,input,textarea,button{
     margin-bottom: 0;
@@ -61,7 +63,6 @@
   margin-bottom: 0;
   tr{
     border: none;
-    border-bottom:8*2px solid #FFF;
     &:last-child{
       margin-bottom: 0;
       border-bottom: none;
@@ -73,51 +74,52 @@
   th,td{
     display:table-cell;
     margin-bottom: 0;
+    padding:8px;
+    vertical-align: top;
+    background: #FFF;
   }
   th{
     @extend %ex-ellipsis;
     @include cnt-font-size(14);
-    text-align: center;
-    font-weight: normal;
-    padding:.3em 10px;
-    vertical-align: top;
-    //display: block;
-    font-weight: normal;
+    font-weight: bold;
   }
   td{
     @extend %ex-break-word;
     @include cnt-font-size(14);
-    padding:.3em 10px;
-    vertical-align: top;
     width:100%;
   }
 }
+/*
+---
+name: テーブル
+tag:
+  - table
+---
+
+```jade
+table.c-table
+  tr
+    th タイトル
+    td ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+  tr
+    th タイトル
+    td ここにテキストが入ります。ここにテキストが入ります。
+
+```
+```jade
+table.b-table-none-border
+  tr
+    th タイトル
+    td ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+  tr
+    th タイトル
+    td ここにテキストが入ります。ここにテキストが入ります。
+
+```
+*/
 
 .c-table{
   @extend %ex-table;
-}
-
-.b-table-offer-list {
-  dl.table-list {
-    @include flx-row;
-    @include cnt-font-size(14);
-    margin-bottom: 0;
-    .title {
-      margin-right: 5px;
-      text-align: center;
-      min-width:120px;
-      padding:.4em;
-      background: $color-accent;
-      color: #FFF;
-      font-weight: normal;
-      margin-bottom: 10px;
-    }
-    .text {
-      @include flx-col;
-      padding:.5em;
-      @extend %ex-break-word;
-    }
-  }
 }
 
 table.b-table-none-border{
@@ -129,21 +131,32 @@ table.b-table-none-border{
     }
   }
 }
-table.b-table-offer-list-user{
-  @extend %ex-table;
-  border: none;
-  margin-bottom: 0;
-  thead{
-    background: $color-text;
-    color: #FFF;
-  }
-  tr,th,td{
-    vertical-align: middle;
-  }
-  .w-status-block{
-    width:100px;
-  }
-}
+
+/*
+---
+name: テーブル
+tag:
+  - table
+  - box
+---
+
+```jade
+.b-table-detail
+  .w-table-detail-title
+    .title タイトル
+  .w-table-detail-table
+    table.c-table
+      tr
+        th タイトル
+        td テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+      tr
+        th タイトル
+        td テキストテキストテキストテキスト
+  .w-table-detail-button
+    a(href='#todo').c-button-round ボタン
+
+```
+*/
 
 .b-table-detail{
   .w-table-detail-title{

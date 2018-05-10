@@ -1,46 +1,86 @@
 /*
  * login Style
 */
+/*
+---
+name: ログイン
+tag:
+  - form
+  - login
+---
 
-.b-login-box{
-  @include cnt-radius(15px);
-  border: 2px solid $color-main;
+```jade
+.b-login-box
+  .w-head-block
+    .logo-block
+      img(src='//placehold.jp/3d4070/ffffff/150x40.png?text=')
+    .name-block
+      p ログイン情報を入力してください。
+  .w-content-block
+    .b-form-input-block
+      label
+        span.name メールアドレス
+        input(type='email')
+        .w-error-message ここにエラーメッセージが入ります。
+    .b-form-input-block
+      label
+        span.name パスワード
+        input(type='password')
+        .w-error-message ここにエラーメッセージが入ります。
+  .w-footer
+    .link-block
+      a(href='#todo') パスワードを忘れた方
+      a(href='#todo') アカウント作成
+
+```
+
+*/
+.b-login-box {
+  @include cnt-radius(8px);
+  border: 2px solid $color-border;
   background: #FFF;
-  padding-top: 20px;
+  padding-top: 8*3px;
   min-width: 450px;
-  margin-bottom: 120px;
-  .w-head {
-    margin-bottom: 25px;
+  > .w-head-block {
+    margin-bottom: 8*3px;
+    text-align: center;
     .logo-block {
-      margin-bottom: 25px;
+      margin-bottom: 8*3px;
+    }
+    .name-block{
+      @include cnt-font-size(14);
+      color: $color-text-light;
     }
   }
-  .w-content-block {
-    margin-bottom: 30px;
-    padding-left: 80px;
-    padding-right: 80px;
+  > .w-content-block {
+    margin-bottom: 8*4px;
+    padding-left: 8*10px;
+    padding-right: 8*10px;
+    .b-form-input-block{
+      margin-bottom: 8*2px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
   }
-  .w-foot{
-
-  }
-  .logo-block {
-
-  }
-  .name-block {
-    @include cnt-font-size(14);
+  .w-footer {
+    .link-block {
+      border-top: 1px solid $color-border;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      text-align: center;
+      > a {
+        @include cnt-font-size(12);
+        display: inline-block;
+        color: $color-link;
+        text-decoration: underline;
+        margin-right: 8*2px;
+        &:last-child{
+          margin-right: 0;
+        }
+      }
+    }
   }
 }
 
-.b-login-box-footer{
-  .link-block{
-    border-top: 1px solid $color-border;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    a{
-      @include cnt-font-size(12);
-      color: $color-main;
-      text-decoration: underline;
-    }
-  }
-}
 

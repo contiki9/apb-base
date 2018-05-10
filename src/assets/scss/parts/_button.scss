@@ -10,10 +10,11 @@
   @extend %ex-button-hover;
   @include cnt-link(#FFF);
   @include cnt-radius(2px);
+  @include cnt-font-size(14);
   text-align: center;
   background: $color-link;
   border: 1px solid $color-link;
-  padding: .6em 1.5em;
+  padding: .4em 1.5em;
   display: inline-block;
   border: none;
   font-weight: normal;
@@ -51,7 +52,7 @@
   &.op-alert {
     background: $color-alert;
   }
-  &.op-lock {
+  &.op-close {
     background: $color-text;
   }
   &.op-fb {

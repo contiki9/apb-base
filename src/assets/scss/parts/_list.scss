@@ -1,44 +1,83 @@
 /*
  * List Style
 */
+
+/*
+---
+name: リスト
+tag:
+  - list
+  - button
+---
+
+```jade
+ul.c-list-flex-btn
+  li
+    a(href='#todo').c-button button1
+  li
+    a(href='#todo').c-button button1
+
+```
+```jade
+ul.c-list-flex-btn.op-center
+  li
+    a(href='#todo').c-button button1
+  li
+    a(href='#todo').c-button button1
+
+```
+*/
+
+
 ul.c-list-flex-btn {
   @include flx-row;
-  margin-bottom: 0;
-  li {
-    margin-right: 15px;
-    margin-bottom: 0;
+  &.op-center{
+    @include flx-center;
+  }
+  margin-bottom: -8px;
+  > li {
+    margin-right: 8*2px;
+    margin-bottom: 8px;
     &:last-child {
       margin-right: 0;
     }
   }
 }
 
-ul.b-list-sns {
+/*
+---
+name: アイコン用のリスト
+tag:
+  - list
+  - icon
+---
+
+```jade
+ul.c-list-flex-btn
+  li
+    a(href='#todo')
+      img(src='//placehold.jp/3d4070/ffffff/15x15.png?text=')
+  li
+    a(href='#todo')
+      img(src='//placehold.jp/3d4070/ffffff/15x15.png?text=')
+  li
+    a(href='#todo')
+      img(src='//placehold.jp/3d4070/ffffff/15x15.png?text=')
+```
+*/
+
+ul.c-list-icons {
   margin-bottom: 0;
-  li.list-sns {
-    @include flx-row;
-    @include flx-middle;
-    margin-bottom: 15px;
-    .c-button {
-      line-height: 1;
-      width: 100%;
-      color: #FFF;
-      min-height: 47px;
-      text-decoration: none;
-      @include flx-row;
-      @include flx-middle;
-      i {
-        position: relative;
-        left: -10px;
-        margin-bottom: 0;
-        padding-bottom: 0;
-        line-height: 1;
-        margin-right: 5px;
-      }
-      span.button-text {
-        position: relative;
-        //    top:3px;
-      }
+  @include flx-row;
+  @include flx-middle;
+  &.op-center{
+    @include flx-center;
+  }
+  > li.list {
+    margin-bottom: 0;
+    margin-right: 8px;
+    &:last-child{
+      margin-right: 0;
     }
   }
 }

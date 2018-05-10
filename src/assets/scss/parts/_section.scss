@@ -2,6 +2,38 @@
  * section Style
 */
 
+/*
+---
+name: セクション
+tag:
+  - section
+  - title
+---
+
+```jade
+.c-section-title タイトル
+
+```
+```jade
+.c-section-title-border-bottom  タイトル
+
+```
+```jade
+.c-section-title-icon-left
+   .icon
+    img(src='//placehold.jp/3d4070/ffffff/30x30.png?text=')
+   .title タイトル
+
+```
+```jade
+.c-section-title-icon-top
+   .icon
+    img(src='//placehold.jp/3d4070/ffffff/30x30.png?text=')
+   .title タイトル
+
+```
+*/
+
 .c-section-title {
   @include cnt-font-size(30);
   text-align: center;
@@ -55,9 +87,6 @@
     margin-bottom: 8*4px;
     @include mq(){
       margin-bottom: 8*2px;
-    }
-    &.op-icon-top {
-      margin-bottom: 20px;
     }
   }
   .w-section-content-block {

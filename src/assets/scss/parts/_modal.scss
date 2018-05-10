@@ -18,24 +18,6 @@
 // Block
 //////////////////////
 
-.b-modal-wrap {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index:500;
-  .w-modal-bg-block {
-    width: 100vw;
-    height: 100vh;
-    background: rgba(#000, .6);
-  }
-  .l-center-middle {
-    @include flx-row;
-    @include flx-middle;
-    @include flx-center;
-    width: 100%;
-    height: 100vh;
-  }
-}
 
 
 

@@ -1,19 +1,30 @@
 /*
  * Title Style
 */
+
+/*
+---
+name: 注釈
+tag:
+  - title
+---
+
+
+```jade
+.c-title タイトル
+
+```
+*/
+
 .c-title{
   @include cnt-font-size(24);
-  &.op-table{
-    padding-left: 10px;
-  }
-}
-
-.b-title-page-name{
-  @include cnt-font-size(30);
-  background: $color-bg-light;
-  padding-top:24px;
-  padding-bottom:24px;
-  .w-page-name{
-    @extend .c-container;
+  text-align: center;
+  &:after{
+    height: 4px;
+    width: 240px;
+    display: block;
+    background: $color-accent;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

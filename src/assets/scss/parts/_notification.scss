@@ -1,9 +1,41 @@
 /*
 notification Style
 */
+
+
+/*
+---
+name: 通知
+tag:
+  - alert
+  - notification
+---
+
+```jade
+.c-notification-status 1
+
+```
+```jade
+.c-notification-badge 00
+```
+*/
+
 .c-notification-status{
   background: $color-alert;
   padding:.5em ;
   text-align: center;
   color: #FFF;
+}
+.c-notification-badge{
+  @include flx-row;
+  @include flx-middle;
+  @include flx-center;
+  @include cnt-circle;
+  @include cnt-font-size(12);
+  background: $color-alert;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: #FFF;
+  line-height: 1;
 }
