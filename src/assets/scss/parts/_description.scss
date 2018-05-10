@@ -1,3 +1,54 @@
 /*
  * description Style
 */
+
+
+/*
+---
+name: ボタン
+tag:
+  - description
+---
+
+```jade
+dl.b-description
+  dt.title タイトル
+  dd.text テキスト
+
+```
+```jade
+- for (var i = 0; i < 3; i++)
+  dl.b-description.op-line-bottom
+    dt.title タイトル
+    dd.text テキスト
+```
+```jade
+- for (var i = 0; i < 3; i++)
+  dl.b-description.op-line-bottom.op-flex
+    dt.title タイトル
+    dd.text テキスト
+```
+*/
+
+dl.b-description{
+  dt.title{
+    margin-bottom: .5em;
+  }
+  dd.text{
+    padding-left: .5em;
+    @extend %ex-p-bottom;
+  }
+  &.op-line-bottom{
+    padding-bottom: 8*2px;
+    margin-bottom: 8*2px;
+    border-bottom: 1px solid $color-border;
+  }
+  &.op-flex{
+    @include flx-row;
+    dt{
+      margin-right: 1em;
+      margin-bottom: 0;
+    }
+  }
+}
+

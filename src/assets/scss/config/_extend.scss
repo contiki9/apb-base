@@ -132,53 +132,6 @@
   min-height: 110px;
   margin-bottom: 0;
 }
-%ex-input-check-radio{
-  .input {
-    display: none;
-    &:checked {
-      //チェックされたときのデザイン
-      & + .check-icon, & + .radio-icon {
-        color: #FFF;
-        background: $color-link;
-        text-align: center;
-        &:before {
-          @extend %ex-font-aws;
-          @extend %ex-pos-center;
-          width: 9px;
-        }
-      }
-      & + .check-icon{
-        border: 3px solid $color-link;
-        content: url('/images/common/input-check.svg');
-        display: inline-block;
-      }
-      & + .radio-icon{
-        border: 6px solid $color-link;
-        content: url('/images/common/input-radio.svg');
-        display: inline-block;
-      }
-
-    }
-  }
-  > .check-icon, > .radio-icon {
-    position: relative;
-    vertical-align: middle;
-    display: inline-block;
-    width: auto;
-    margin-right: .5em;
-    height: 22px;
-    width: 22px;
-    border: 1px solid $color-border;
-    background: #FFF;
-  }
-  > .check-icon{
-    @include cnt-radius(4px);
-  }
-
-  > .radio-icon {
-    @include cnt-circle;
-  }
-}
 %ex-button-push{
   box-shadow: 0 4px 0 darken($color-link,20%);
   transition: .2s;

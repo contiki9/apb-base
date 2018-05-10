@@ -1,3 +1,43 @@
 /*
  * fixed Style
 */
+
+/*
+---
+name: 固定
+tag:
+  - fixed
+---
+
+```jade
+.b-fixed-bar
+  a.c-button ボタン
+```
+```jade
+.b-fixed-bar.op-center
+  a.c-button ボタン上中央
+```
+```jade
+.b-fixed-bar.op-center.op-bottom
+  a.c-button ボタン下中央
+```
+*/
+
+.b-fixed-bar{
+  position: fixed;
+  width: 100%;
+  top:0;
+  left: 0;
+  z-index: 50;
+  &.op-center{
+    @include flx-row;
+    @include flx-middle;
+    @include flx-center;
+  }
+  &.op-bottom{
+    top:auto;
+    bottom: 0;
+    left: 0;
+  }
+
+}

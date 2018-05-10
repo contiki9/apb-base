@@ -178,7 +178,6 @@ li {
 }
 
 dl {
-
   dt {
     font-weight: bold;
     margin-bottom: .3rem;
@@ -186,6 +185,9 @@ dl {
   dd {
     margin-left: 0;
     margin-bottom: 1.2rem;
+    &:last-child{
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -612,8 +614,8 @@ textarea {
 label,
 legend {
   display: block;
-  margin-bottom: .5rem;
-  font-weight: 600;
+  margin-bottom: 8px;
+  //font-weight: 600;
 }
 
 fieldset {
