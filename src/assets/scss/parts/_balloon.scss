@@ -1,0 +1,190 @@
+/*
+ * balloon Style
+*/
+
+/*
+---
+name: 吹き出し
+tag:
+  - balloon
+  - Blog
+---
+
+```jade
+.c-balloon-type1-right
+    p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+```
+```jade
+.c-balloon-type1-bottom
+    p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+```
+```jade
+.c-balloon-type1-left
+    p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+```
+```jade
+.c-balloon-type1-top
+    p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+```
+
+*/
+
+%ex-balloon-type1 {
+  padding: 8*2px;
+  background: #fff;
+  display: inline-block;
+  position: relative;
+  min-width: 120px;
+  border: 1px solid $color-border;
+  @include cnt-radius($global-radius);
+
+  &:before, &:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+  }
+  &:before {
+    border: 12px solid transparent;
+  }
+  &:after {
+    border: 11px solid transparent;
+  }
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.c-balloon-type1 {
+  @extend %ex-balloon-type1;
+  &:before, &:after {
+    display: none;
+  }
+}
+
+.c-balloon-type1-right {
+  @extend %ex-balloon-type1;
+  &:before {
+    right: -24px;
+    top: 50%;
+    margin-top: -13px;
+    border-left-color: $color-border;
+  }
+  &:after {
+    right: -21px;
+    top: 50%;
+    margin-top: -12px;
+    border-left-color: #fff;
+  }
+}
+
+.c-balloon-type1-left {
+  @extend %ex-balloon-type1;
+  &:before {
+    left: -24px;
+    top: 50%;
+    margin-top: -13px;
+    border-right-color: $color-border;
+  }
+  &:after {
+    left: -21px;
+    top: 50%;
+    margin-top: -12px;
+    border-right-color: #fff;
+  }
+}
+
+.c-balloon-type1-bottom {
+  @extend %ex-balloon-type1;
+  &:before {
+    left: 50%;
+    bottom: -24px;
+    border-top-color: $color-border;
+  }
+  &:after {
+    left: 50%;
+    margin-left: 1px;
+    bottom: -21px;
+    border-top-color: #fff;
+  }
+}
+
+.c-balloon-type1-top {
+  @extend %ex-balloon-type1;
+  &:before {
+    left: 50%;
+    top: -24px;
+    border-bottom-color: $color-border;
+  }
+  &:after {
+    left: 50%;
+    margin-left: 1px;
+    top: -21px;
+    border-bottom-color: #fff;
+  }
+}
+
+/*
+---
+name: 吹き出し
+tag:
+  - balloon
+  - Blog
+---
+
+```jade
+.b-balloon-talk
+  .l-flex
+    .l-left
+      .w-icon
+        img(src='//placehold.jp/3d4070/ffffff/60x60.png?text=',alt='')
+    .l-right
+      .w-balloon
+        .c-balloon-type1
+          p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+```
+
+```jade
+.b-balloon-talk.op-reverse
+  .l-flex
+    .l-left
+      .w-icon
+        img(src='//placehold.jp/3d4070/ffffff/60x60.png?text=',alt='')
+    .l-right
+      .w-balloon
+        .c-balloon-type1
+          p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+```
+
+*/
+.b-balloon-talk {
+  &.op-reverse{
+    > .l-flex{
+       @include flx-row-reverse;
+      .l-left {
+        margin-right: 0;
+        margin-left: 8*2px;
+      }
+    }
+  }
+  > .l-flex {
+      @include flx-row;
+    .l-left {
+      margin-right: 8*2px;
+    }
+    .l-right {
+      @include flx-col;
+      width: 100%;
+    }
+  }
+  .w-icon {
+    img{
+      @include cnt-circle;
+
+    }
+  }
+  .w-balloon {
+
+  }
+}

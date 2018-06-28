@@ -1,0 +1,76 @@
+/*
+ * responsive Style
+*/
+
+%ex-responsive-iframe{
+  position: relative;
+  width: 100%;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/*
+---
+name: IFRAME
+tag:
+- responsive
+- iframe
+---
+
+```jade
+.c-responsive-iframe-rwd-4-3
+  iframe(src='//www.slideshare.net/slideshow/embed_code/key/16PbJSn3SxKWI7', width='595', height='485', frameborder='0', marginwidth='0', marginheight='0', scrolling='no', style='border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;', allowfullscreen='')
+```
+```jade
+.c-responsive-iframe-rwd-16-9
+  iframe(width="560" height="315" src="https://www.youtube.com/embed/jHf5KgOeaqY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
+```
+*/
+
+
+.c-responsive-iframe-rwd-4-3 {
+  @extend %ex-responsive-iframe;
+  padding: 75% 0 0 0;
+}
+
+.c-responsive-iframe-rwd-16-9 {
+  @extend %ex-responsive-iframe;
+  padding: 56.25% 0 0 0;
+}
+
+.c-responsive-pc-hide{
+  @include mq(pc){
+    display: none;
+  }
+}
+.c-responsive-sp-hide{
+  @include mq(){
+    display: none;
+  }
+}
+
+.c-responsive-pc-show{
+  @include mq(pc){
+    display: block;
+  }
+  &.op-inline{
+    @include mq(pc){
+      display: inline;
+    }
+  }
+}
+.c-responsive-sp-show{
+  @include mq(){
+    display: block;
+  }
+  &.op-inline{
+    @include mq(){
+      display: inline;
+    }
+  }
+}
