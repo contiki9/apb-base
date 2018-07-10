@@ -28,7 +28,7 @@ http://localhost:3000/
 
 ### 納品データの作成
 ```
-$ gulp output
+$ gulp build
 ```
 ### スタイルガイド作成
 
@@ -148,12 +148,12 @@ PHPなどがなくてもコードの共通化が可能になるので積極的�
 例)
 
 `.p-home` 通常ページ用
-`.p-home--category` 通常ページの1階層目用
-`.p-home--category-subcategory` 通常ページの2階層目用
+`.p-home--category` 通常ページカテゴリの1階層目共通用
+`.p-home-category--subcategory` 通常ページ特定のページ用
 
 `.p-blog` ブログページ用
 `.p-blog--search` ブログページの検索用
-`.p-blog--single-postname` 特定の記事用
+`.p-blog-single--postname` 特定の記事用
 
 ### .l-*
 
@@ -179,8 +179,8 @@ UIのパーツ群です。
 `.*-list-*`などモジュールの名前を必ず入れてください。
 そのモジュール名毎のscssで管理します。
 
-margenとpaddingの値は入れないでください。
-※margenとpaddingを使う場合は必ず`.w-*`に挟んで使ってください。
+margenの値は入れないでください。paddingはOKです。
+※margenを使う場合は必ず`.w-*`または別の`.b-*`に挟んで使ってください。
 
 
 

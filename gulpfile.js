@@ -186,7 +186,7 @@ gulp.task('uglify', function () {
 
 //開発環境のコンパイル
 gulp.task('copy', function () {
-    console.log('--------- output task ----------');
+    console.log('--------- copy task ----------');
     gulp.src(
         [develop.root + '**',
             '!' + develop.root + '**/*.pug',
@@ -385,6 +385,15 @@ gulp.task('heroku', function(callback) {
     );
 });
 
+
+//herokuへのコンパイル
+gulp.task('build', function(callback) {
+    return runSequence(
+        'copy',
+        ['pug', 'sass', 'image-min', 'uglify'],
+        callback
+    );
+});
 
 // gulpのデフォルト
 gulp.task('default', ['dist'], function () {
