@@ -141,14 +141,16 @@ SASS mixin
 
 //hover
 ///////////////////////////////////////////////
-@mixin cnt-hover($opacity:0.4,$speed:0.5s) {
+@mixin cnt-hover($opacity:1,$speed:0.5s) {
   &:hover {
     filter: brightness(1.3);
     transition: $speed;
+    opacity: $opacity;
   }
   &:active {
     filter: brightness(0.7);
     transition: $speed;
+    opacity:$opacity;
   }
 }
 
