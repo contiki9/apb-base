@@ -183,6 +183,13 @@ margenの値は入れないでください。paddingはOKです。
 ※margenを使う場合は必ず`.w-*`または別の`.b-*`に挟んで使ってください。
 
 
+## CSSのlint 
+
+SCSSのフォーマッターが走ります。
+
+`npm run format`
+
+
 
 
     

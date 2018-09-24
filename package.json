@@ -5,7 +5,8 @@
   "main": "gulp.js",
   "scripts": {
     "postinstall": "gulp copy-vendor",
-    "format": "prettier-stylelint --quiet --write ./src/assets/\"**/*.scss\""
+    "format": "prettier-stylelint --quiet --write {./src/assets/\"**/*.scss\",!./src/assets/scss/vendor/\"**/*.scss\"}"
+
   },
   "private": true,
   "author": "",
