@@ -16,15 +16,15 @@ tag:
 ```
 */
 
-.c-title{
+.c-title {
   @include cnt-font-size(24);
   text-align: center;
-  &:after{
-    height: 4px;
-    width: 240px;
+  &:after {
     display: block;
-    background: $color-accent;
-    margin-left: auto;
+    width: 240px;
+    height: 4px;
     margin-right: auto;
+    margin-left: auto;
+    background: $color-accent;
   }
 }

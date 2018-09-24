@@ -5,17 +5,16 @@
 /* mixIn
    ---------------------------------------------------------- */
 //@import "assets/vendor/dlex/dlex";
-@import "vendor/dlex/mixin";
-@import "vendor/mixin";
+@import 'vendor/dlex/mixin';
+@import 'vendor/mixin';
 
 //http://coliss.com/articles/build-websites/operation/css/collection-of-css-button.html
-@import "vendor/buttons/main";
+@import 'vendor/buttons/main';
 //@import "vendor/buttons/buttons/mu";
 
 /* Framework
    ---------------------------------------------------------- */
-@import "vendor/skeleton-scss/skeleton";//Normalize
-
+@import 'vendor/skeleton-scss/skeleton'; //Normalize
 
 /*---------------------------------------------------------------------
 # Base
@@ -24,19 +23,19 @@
 /* Setting
    ---------------------------------------------------------- */
 
-@import "config/variable";
-@import "config/mixin_theme";
-@import "config/extend";
+@import 'config/variable';
+@import 'config/mixin_theme';
+@import 'config/extend';
 
 /* Foundation
    ---------------------------------------------------------- */
 //@import "base/font";
 //@import "base/reset";
-@import "base/base";
+@import 'base/base';
 
 /* parts
    ---------------------------------------------------------- */
-@import "parts/**";
+@import 'parts/**';
 
 /* block
    ---------------------------------------------------------- */
@@ -44,7 +43,7 @@
 
 /* pages
    ---------------------------------------------------------- */
-@import "pages/**";
+@import 'pages/**';
 
 /*---------------------------------------------------------------------
 # other
@@ -52,11 +51,9 @@
 
 /* utility
    ---------------------------------------------------------- */
-@import "other/utility";
+@import 'other/utility';
 
 /*---------------------------------------------------------------------
 # Pulugin
 -----------------------------------------------------------------------*/
 //@import "vendor/*";
-
-

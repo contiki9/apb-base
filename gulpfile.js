@@ -130,6 +130,7 @@ gulp.task('sass', function () {
             autoprefixer: {"browsers": AUTOPREFIXER_BROWSERS},
             minifier: true,
         }))
+        .pipe(prettierStylelint())
         .pipe(gulp.dest(release.css));
 });
 

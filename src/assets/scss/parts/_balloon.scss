@@ -30,18 +30,19 @@ tag:
 */
 
 %ex-balloon-type1 {
-  padding: 8*2px;
-  background: #fff;
-  display: inline-block;
   position: relative;
+  display: inline-block;
   min-width: 120px;
+  padding: 8 * 2px;
+  background: #fff;
   border: 1px solid $color-border;
   @include cnt-radius($global-radius);
 
-  &:before, &:after {
-    content: "";
-    display: inline-block;
+  &:before,
+  &:after {
     position: absolute;
+    display: inline-block;
+    content: '';
   }
   &:before {
     border: 12px solid transparent;
@@ -58,7 +59,8 @@ tag:
 
 .c-balloon-type1 {
   @extend %ex-balloon-type1;
-  &:before, &:after {
+  &:before,
+  &:after {
     display: none;
   }
 }
@@ -66,14 +68,14 @@ tag:
 .c-balloon-type1-right {
   @extend %ex-balloon-type1;
   &:before {
-    right: -24px;
     top: 50%;
+    right: -24px;
     margin-top: -13px;
     border-left-color: $color-border;
   }
   &:after {
-    right: -21px;
     top: 50%;
+    right: -21px;
     margin-top: -12px;
     border-left-color: #fff;
   }
@@ -82,14 +84,14 @@ tag:
 .c-balloon-type1-left {
   @extend %ex-balloon-type1;
   &:before {
-    left: -24px;
     top: 50%;
+    left: -24px;
     margin-top: -13px;
     border-right-color: $color-border;
   }
   &:after {
-    left: -21px;
     top: 50%;
+    left: -21px;
     margin-top: -12px;
     border-right-color: #fff;
   }
@@ -98,14 +100,14 @@ tag:
 .c-balloon-type1-bottom {
   @extend %ex-balloon-type1;
   &:before {
-    left: 50%;
     bottom: -24px;
+    left: 50%;
     border-top-color: $color-border;
   }
   &:after {
+    bottom: -21px;
     left: 50%;
     margin-left: 1px;
-    bottom: -21px;
     border-top-color: #fff;
   }
 }
@@ -113,14 +115,14 @@ tag:
 .c-balloon-type1-top {
   @extend %ex-balloon-type1;
   &:before {
-    left: 50%;
     top: -24px;
+    left: 50%;
     border-bottom-color: $color-border;
   }
   &:after {
+    top: -21px;
     left: 50%;
     margin-left: 1px;
-    top: -21px;
     border-bottom-color: #fff;
   }
 }
@@ -159,19 +161,19 @@ tag:
 
 */
 .b-balloon-talk {
-  &.op-reverse{
-    > .l-flex{
-       @include flx-row-reverse;
+  &.op-reverse {
+    > .l-flex {
+      @include flx-row-reverse;
       .l-left {
         margin-right: 0;
-        margin-left: 8*2px;
+        margin-left: 8 * 2px;
       }
     }
   }
   > .l-flex {
-      @include flx-row;
+    @include flx-row;
     .l-left {
-      margin-right: 8*2px;
+      margin-right: 8 * 2px;
     }
     .l-right {
       @include flx-col;
@@ -179,12 +181,10 @@ tag:
     }
   }
   .w-icon {
-    img{
+    img {
       @include cnt-circle;
-
     }
   }
   .w-balloon {
-
   }
 }

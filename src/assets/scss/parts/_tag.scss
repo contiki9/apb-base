@@ -4,45 +4,45 @@
 %ex-tag {
   @include cnt-radius(2em);
   @include cnt-font-size(12);
-  background: $color-link;
-  border:1px solid $color-link;
   display: inline-block;
-  padding: .4em 1em;
-  line-height: 1;
-  letter-spacing: .1em;
-  color: #FFF;
+  padding: 0.4em 1em;
+  color: #fff;
   font-weight: normal;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  background: $color-link;
+  border: 1px solid $color-link;
   &.op-required {
-    border:1px solid $color-required;
     background: $color-required;
+    border: 1px solid $color-required;
   }
   &.op-disable {
-    border:1px solid $color-disable;
     background: $color-disable;
+    border: 1px solid $color-disable;
   }
   &.op-white {
-    border:1px solid #FFF;
-    background: #FFF;
     color: $color-text;
+    background: #fff;
+    border: 1px solid #fff;
   }
   &.op-alert {
-    border:1px solid $color-alert;
     background: $color-alert;
+    border: 1px solid $color-alert;
   }
   &.op-new {
     color: $color-alert;
-    background: #FFF;
-    border:1px solid #FFF;
+    background: #fff;
+    border: 1px solid #fff;
   }
   &.op-btn {
     @include cnt-font-size(16);
     @include cnt-hover;
-    padding: .5em 1em;
+    padding: 0.5em 1em;
     cursor: pointer;
   }
   &.op-square {
     @include cnt-radius(0);
-    padding: .4em .5em;
+    padding: 0.4em 0.5em;
   }
 }
 
@@ -70,10 +70,9 @@ ul.b-tag-loop
 ```
 */
 
-
-select.c-tag{
-  padding-left: 1em;
+select.c-tag {
   padding-right: 1em;
+  padding-left: 1em;
   border: none;
 }
 
@@ -88,9 +87,9 @@ select.c-tag{
 
 .b-tag-loop {
   @include flx-row;
-  margin-bottom:-15px;
+  margin-bottom: -15px;
   .list {
-    margin-bottom: 15px;
     margin-right: 10px;
+    margin-bottom: 15px;
   }
 }

@@ -2,7 +2,6 @@
 notification Style
 */
 
-
 /*
 ---
 name: 通知
@@ -20,22 +19,22 @@ tag:
 ```
 */
 
-.c-notification-status{
-  background: $color-alert;
-  padding:.5em ;
+.c-notification-status {
+  padding: 0.5em;
+  color: #fff;
   text-align: center;
-  color: #FFF;
+  background: $color-alert;
 }
-.c-notification-badge{
+.c-notification-badge {
   @include flx-row;
   @include flx-middle;
   @include flx-center;
   @include cnt-circle;
   @include cnt-font-size(12);
-  background: $color-alert;
   width: 30px;
   height: 30px;
-  text-align: center;
-  color: #FFF;
+  color: #fff;
   line-height: 1;
+  text-align: center;
+  background: $color-alert;
 }

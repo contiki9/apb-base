@@ -1,27 +1,28 @@
-﻿/*
+/*
  * Base Style
 */
-body, html {
+body,
+html {
   @extend %ex-font-family;
   @include cnt-font-size($font-nml, 16);
-  color: $color-text;
   min-height: 100vh;
+  color: $color-text;
 }
 
 body {
+  position: relative;
+  background-color: $color-bg;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
   font-kerning: normal;
-  background-color: $color-bg;
-  position: relative;
   a {
-    text-decoration: none;
     color: $color-link;
+    text-decoration: none;
     @include cnt-link($color-link);
     &:hover {
-      text-decoration: none;
-      transition: all .5s;
       color: darken($color-link, 30%);
+      text-decoration: none;
+      transition: all 0.5s;
     }
   }
 }
@@ -42,13 +43,18 @@ h5 見出しh5：新美南吉作『手袋を買いに』
 h6 見出しh6：芥川龍之介著『羅生門』
 ```
 */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @extend %ex-font-family;
   line-height: 1.5;
 }
 
 h1 {
-  font-size: 2.0rem;
+  font-size: 2rem;
 }
 
 h2 {
@@ -151,41 +157,49 @@ ol
 */
 
 p {
+  margin-bottom: 1rem;
   font-size: 1rem;
   line-height: 1.8;
-  margin-bottom: 1rem;
 }
 
-ul, ol, li, dl, dd, dt {
-  list-style: none;
-  padding-left: 0;
-  padding-right: 0;
+ul,
+ol,
+li,
+dl,
+dd,
+dt {
   margin-right: 0;
   margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
+  list-style: none;
 }
 
-ul, ol {
-  ul, ol {
+ul,
+ol {
+  ul,
+  ol {
     margin: 1rem 0 1.5rem 1.5rem;
     font-size: 90%;
   }
 }
 
 li {
-  > ul, > ol {
+  > ul,
+  > ol {
     margin-bottom: 0;
   }
 }
 
 dl {
   dt {
+    margin-bottom: 0.3rem;
     font-weight: bold;
-    margin-bottom: .3rem;
   }
   dd {
-    margin-left: 0;
     margin-bottom: 1.2rem;
-    &:last-child{
+    margin-left: 0;
+    &:last-child {
       margin-bottom: 0;
     }
   }
@@ -230,8 +244,8 @@ table
 table {
   width: 100%;
   th {
-    text-align: left;
     font-weight: bold;
+    text-align: left;
     @include mq(pc) {
       white-space: nowrap;
     }
@@ -245,7 +259,7 @@ img {
 }
 
 //日本語では斜体を使用しないためリセットします。
-[lang="ja"] {
+[lang='ja'] {
   i,
   cite,
   em,
@@ -260,12 +274,21 @@ pre {
   font-family: Consolas, Menlo, Courier, monospace;
 }
 
-h1, h2, h3, h4, h5, h6,
-ul, ol, dl,
-blockquote, address,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+blockquote,
+address,
 hr,
 table,
-fieldset, figure,
+fieldset,
+figure,
 pre {
   margin-top: 0;
   margin-bottom: 0;
@@ -275,14 +298,15 @@ label {
   font-weight: normal;
 }
 
-[src$=".svg"], [data$=".svg"] {
+[src$='.svg'],
+[data$='.svg'] {
   width: auto;
 }
 
 figure {
-  margin: 0;
   box-sizing: border-box;
   max-width: 100%;
+  margin: 0;
 }
 
 /*
@@ -304,11 +328,11 @@ blockquote
 */
 
 blockquote {
-  background-color: $color-bg-light;
-  padding: 1em 1em 1em 3em;
   position: relative;
   margin-top: 1.2rem;
   margin-bottom: 1.2rem;
+  padding: 1em 1em 1em 3em;
+  background-color: $color-bg-light;
   p {
     &:last-child {
       margin-bottom: 0;
@@ -317,14 +341,14 @@ blockquote {
 }
 
 blockquote:before {
-  content: "“";
-  font-size: 400%;
-  line-height: 1em;
-  font-family: "ＭＳ Ｐゴシック", sans-serif;
-  color: $gray;
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
+  color: $gray;
+  font-size: 400%;
+  font-family: 'ＭＳ Ｐゴシック', sans-serif;
+  line-height: 1em;
+  content: '“';
 }
 
 // Forms
@@ -346,36 +370,37 @@ button ボタン
 button {
   @extend %ex-font-family;
   display: inline-block;
-  padding: .5rem 30px;
-  color: $color-link;
-  text-align: center;
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: .1rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
-  background-color: #FFF;
-  border-radius: $global-radius;
-  border: 1px solid $color-border;
-  cursor: pointer;
   box-sizing: border-box;
   margin-bottom: 0;
+  padding: 0.5rem 30px;
+  color: $color-link;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.1rem;
+  white-space: nowrap;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid $color-border;
+  border-radius: $global-radius;
+  cursor: pointer;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: $gray-dark;
     border-color: lighten($gray-dark, 33.3%);
     outline: 0;
   }
 
-  &.button-primary:hover, &.button-primary:focus {
+  &.button-primary:hover,
+  &.button-primary:focus {
     color: #fff;
     background-color: $color-link;
     border-color: $color-link;
   }
 }
-
 
 /*
 ---
@@ -393,37 +418,37 @@ input(type='button' value='button')
 */
 
 input {
-  &[type="submit"],
-  &[type="reset"],
-  &[type="button"] {
+  &[type='submit'],
+  &[type='reset'],
+  &[type='button'] {
     @extend %ex-font-family;
     display: inline-block;
-    padding: .5rem 30px;
-    color: $color-link;
-    text-align: center;
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: .1rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    white-space: nowrap;
-    background-color: #FFF;
-    border-radius: $global-radius;
-    border: 1px solid $color-border;
-    cursor: pointer;
     box-sizing: border-box;
     margin-bottom: 0;
+    padding: 0.5rem 30px;
+    color: $color-link;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.2;
+    letter-spacing: 0.1rem;
+    white-space: nowrap;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid $color-border;
+    border-radius: $global-radius;
+    cursor: pointer;
   }
 }
 
 input {
-  &[type="submit"]:hover,
-  &[type="reset"]:hover,
-  &[type="button"]:hover,
-  &[type="submit"]:focus,
-  &[type="reset"]:focus,
-  &[type="button"]:focus {
+  &[type='submit']:hover,
+  &[type='reset']:hover,
+  &[type='button']:hover,
+  &[type='submit']:focus,
+  &[type='reset']:focus,
+  &[type='button']:focus {
     color: $gray-dark;
     border-color: lighten($gray-dark, 33.3%);
     outline: 0;
@@ -431,22 +456,22 @@ input {
 }
 
 input {
-  &[type="submit"].button-primary,
-  &[type="reset"].button-primary,
-  &[type="button"].button-primary {
+  &[type='submit'].button-primary,
+  &[type='reset'].button-primary,
+  &[type='button'].button-primary {
     color: #fff;
-    background-color: #FFF;
+    background-color: #fff;
     border-color: $color-border;
   }
 }
 
 input {
-  &[type="submit"].button-primary:hover,
-  &[type="reset"].button-primary:hover,
-  &[type="button"].button-primary:hover,
-  &[type="submit"].button-primary:focus,
-  &[type="reset"].button-primary:focus,
-  &[type="button"].button-primary:focus {
+  &[type='submit'].button-primary:hover,
+  &[type='reset'].button-primary:hover,
+  &[type='button'].button-primary:hover,
+  &[type='submit'].button-primary:focus,
+  &[type='reset'].button-primary:focus,
+  &[type='button'].button-primary:focus {
     color: #fff;
     background-color: $color-link;
     border-color: $color-link;
@@ -482,63 +507,61 @@ input(type='password' value='password')
 */
 
 input {
-  &[type="email"],
-  &[type="number"],
-  &[type="search"],
-  &[type="text"],
-  &[type="tel"],
-  &[type="url"],
-  &[type="date"],
-  &[type="password"] {
+  &[type='email'],
+  &[type='number'],
+  &[type='search'],
+  &[type='text'],
+  &[type='tel'],
+  &[type='url'],
+  &[type='date'],
+  &[type='password'] {
+    box-sizing: border-box;
+    width: 100%;
     height: 38px;
     padding: 6px 10px; // The 6px vertically centers text on FF, ignored by Webkit
+    font-weight: normal;
     background-color: #fff;
     border: 1px solid lighten($color-border, 8.8%);
+    border-color: $color-border;
     border-radius: $global-radius;
     box-shadow: none;
-    box-sizing: border-box;
-    border-color: $color-border;
-    font-weight: normal;
-    width: 100%;
   }
-  &[type="email"]:focus,
-  &[type="number"]:focus,
-  &[type="search"]:focus,
-  &[type="text"]:focus,
-  &[type="tel"]:focus,
-  &[type="url"]:focus,
-  &[type="date"]:focus,
-  &[type="password"]:focus {
+  &[type='email']:focus,
+  &[type='number']:focus,
+  &[type='search']:focus,
+  &[type='text']:focus,
+  &[type='tel']:focus,
+  &[type='url']:focus,
+  &[type='date']:focus,
+  &[type='password']:focus {
     border: 1px solid $color-link;
     outline: 0;
   }
 
   // Removes awkward default styles on some inputs for iOS
-  &[type="email"],
-  &[type="number"],
-  &[type="search"],
-  &[type="text"],
-  &[type="tel"],
-  &[type="url"],
-  &[type="date"],
-  &[type="password"] {
+  &[type='email'],
+  &[type='number'],
+  &[type='search'],
+  &[type='text'],
+  &[type='tel'],
+  &[type='url'],
+  &[type='date'],
+  &[type='password'] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
   }
-  &[type="checkbox"],
-  &[type="radio"] {
+  &[type='checkbox'],
+  &[type='radio'] {
     display: inline;
     margin-right: 8px;
-    margin-left: 8*2px;
     margin-bottom: 8px;
+    margin-left: 8 * 2px;
   }
-
-
 }
 
 //placeholder
-@include cnt-placeholder{
+@include cnt-placeholder {
   color: $color-placeholder;
 }
 
@@ -557,14 +580,14 @@ form {
 
 textarea,
 select {
+  box-sizing: border-box;
   height: 38px;
-  padding: 8*2px 8*2px;
+  padding: 8 * 2px 8 * 2px;
+  font-weight: normal;
   background-color: #fff;
   border: 1px solid lighten($color-border, 8.8%);
   border-radius: $global-radius;
   box-shadow: none;
-  box-sizing: border-box;
-  font-weight: normal;
   &:focus {
     border: 1px solid $color-link;
     outline: 0;
@@ -603,12 +626,11 @@ textarea(placeholder="テキストを入力してください")
 */
 
 textarea {
+  width: 100%;
+  min-height: 180px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  min-height: 180px;
-  width: 100%;
-
 }
 
 label,
@@ -622,4 +644,3 @@ fieldset {
   padding: 0;
   border-width: 0;
 }
-

@@ -1,92 +1,97 @@
 /*
  * Table Style
 */
-%ex-section-title{
+%ex-section-title {
   padding: 20px 35px;
   background: $color-main;
   .title {
     @include cnt-font-size(30);
+    color: #fff;
     font-weight: normal;
-    color: #FFF;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
   }
 }
-%ex-table{
-  margin-bottom: 0;
-  border:1px solid $color-border;
+%ex-table {
   width: 100%;
-  tr{
+  margin-bottom: 0;
+  border: 1px solid $color-border;
+  tr {
     border: none;
-    border-bottom:1px solid $color-border-light;
-    &:last-child{
+    border-bottom: 1px solid $color-border-light;
+    &:last-child {
       margin-bottom: 0;
     }
-    @include mq(){
+    @include mq() {
       border: none;
     }
   }
-  th,td{
-    line-height:1.8;
+  th,
+  td {
     padding: 8px 8px;
-    @include mq(){
-      width:100%;
+    line-height: 1.8;
+    @include mq() {
       display: block;
+      width: 100%;
     }
   }
-  th{
+  th {
     @extend %ex-ellipsis;
     @include cnt-font-size(14);
-    text-align: left;
-    font-weight: normal;
-    vertical-align: top;
-    font-weight: bold;
-    background: $color-table;
     color: $color-text-light-dark;
-  }
-  td{
-    @include cnt-font-size(14);
+    font-weight: normal;
+    font-weight: bold;
+    text-align: left;
     vertical-align: top;
-    width:100%;
-    background: #FFF;
+    background: $color-table;
   }
-  select,input,textarea,button{
+  td {
+    @include cnt-font-size(14);
+    width: 100%;
+    vertical-align: top;
+    background: #fff;
+  }
+  select,
+  input,
+  textarea,
+  button {
     margin-bottom: 0;
   }
-  textarea{
+  textarea {
+    width: 100%;
     min-height: 240px;
-    width:100%;
   }
 }
 
-%ex-table-none-border{
-  border: none;
+%ex-table-none-border {
   margin-bottom: 0;
-  tr{
+  border: none;
+  tr {
     border: none;
-    &:last-child{
+    &:last-child {
       margin-bottom: 0;
       border-bottom: none;
-      th{
+      th {
         margin-bottom: 0;
       }
     }
   }
-  th,td{
-    display:table-cell;
+  th,
+  td {
+    display: table-cell;
     margin-bottom: 0;
-    padding:8px;
+    padding: 8px;
     vertical-align: top;
-    background: #FFF;
+    background: #fff;
   }
-  th{
+  th {
     @extend %ex-ellipsis;
     @include cnt-font-size(14);
     font-weight: bold;
   }
-  td{
+  td {
     @extend %ex-break-word;
     @include cnt-font-size(14);
-    width:100%;
+    width: 100%;
   }
 }
 /*
@@ -118,16 +123,16 @@ table.b-table-none-border
 ```
 */
 
-.c-table{
+.c-table {
   @extend %ex-table;
 }
 
-table.b-table-none-border{
+table.b-table-none-border {
   @extend %ex-table-none-border;
-  &.op-th-accent{
-    th{
+  &.op-th-accent {
+    th {
+      color: #fff;
       background: $color-accent;
-      color: #FFF;
     }
   }
 }
@@ -158,18 +163,18 @@ tag:
 ```
 */
 
-.b-table-detail{
-  .w-table-detail-title{
-    .title{
+.b-table-detail {
+  .w-table-detail-title {
+    .title {
       @include cnt-font-size(24);
-      padding-left: 8px;
       margin-bottom: 8px;
+      padding-left: 8px;
     }
   }
-  .w-table-detail-table{
-    margin-bottom: 8*4px;
+  .w-table-detail-table {
+    margin-bottom: 8 * 4px;
   }
-  .w-table-detail-button{
+  .w-table-detail-button {
     text-align: center;
   }
 }

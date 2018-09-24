@@ -28,49 +28,49 @@ tag:
 
 ```
 */
-.b-window-modal{
+.b-window-modal {
   @include cnt-radius(4px);
-  background: #FFF;
-  padding:8*2px 8*2px;
-  > .w-pop-up-page-title{
+  padding: 8 * 2px 8 * 2px;
+  background: #fff;
+  > .w-pop-up-page-title {
     @extend %ex-section-title;
     margin-bottom: 40px;
-    .title{
+    .title {
       text-align: center;
     }
   }
-  .w-modal-sec{
-    .w-modal-sec-title{
-      margin-bottom:8*2px;
-      .title{
+  .w-modal-sec {
+    .w-modal-sec-title {
+      margin-bottom: 8 * 2px;
+      .title {
         @include cnt-font-size(20);
         text-align: center;
-        &.op-alert{
+        &.op-alert {
           color: $color-alert;
         }
       }
     }
-    .w-modal-sec-content{
-      .w-text-block{
-        margin-bottom: 8*2px;
+    .w-modal-sec-content {
+      .w-text-block {
+        margin-bottom: 8 * 2px;
       }
-      .l-flex{
-        .l-column-2{
-          margin-bottom:8*2px;
-          &:last-child{
+      .l-flex {
+        .l-column-2 {
+          margin-bottom: 8 * 2px;
+          &:last-child {
             margin-bottom: 0;
           }
         }
       }
     }
   }
-  .w-modal-button{
+  .w-modal-button {
+    margin-top: 8 * 2px;
+    padding-top: 8 * 2px;
     border-top: 1px solid $color-border;
-    margin-top: 8*2px;
-    padding-top: 8*2px;
-    a,button{
+    a,
+    button {
       margin-bottom: 0;
     }
   }
 }
-

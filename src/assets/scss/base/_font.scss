@@ -3,25 +3,23 @@
  */
 
 @font-face {
+  font-weight: 400;
   font-family: 'Noto Sans Japanese';
   font-style: normal;
-  font-weight: 400;
   src: url(../assets/fonts/NotoSansCJKjp-Regular.woff2) format('woff2'),
-  url(../assets/fonts/NotoSansCJKjp-Regular.woff) format('woff'),
-  url(../assets/fonts/NotoSansCJKjp-Regular.ttf) format('truetype');
+    url(../assets/fonts/NotoSansCJKjp-Regular.woff) format('woff'),
+    url(../assets/fonts/NotoSansCJKjp-Regular.ttf) format('truetype');
 }
 
 @font-face {
+  font-weight: 700;
   font-family: 'Noto Sans Japanese';
   font-style: normal;
-  font-weight: 700;
   src: url(../assets/fonts/NotoSansCJKjp-Bold.woff2) format('woff2'),
-  url(../assets/fonts/NotoSansCJKjp-Bold.woff) format('woff'),
-  url(../assets/fonts/NotoSansCJKjp-Bold.ttf) format('truetype');
+    url(../assets/fonts/NotoSansCJKjp-Bold.woff) format('woff'),
+    url(../assets/fonts/NotoSansCJKjp-Bold.ttf) format('truetype');
 }
-
 
 //roboto
 ///////////////////////////////////////
 @import 'https://fonts.googleapis.com/css?family=Roboto:400,700';
-

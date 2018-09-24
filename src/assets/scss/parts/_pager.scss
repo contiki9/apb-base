@@ -5,30 +5,35 @@
 .c-pager {
   @include cnt-radius(4px);
   @include cnt-font-size(14);
-  border: 1px solid $color-link;
-  background: #FFF;
-  color: $color-link;
   display: inline-block;
   min-width: 1.8em;
   padding: 4px;
-  a, span {
-    &:hover, &:active, &:focus {
-      text-decoration: none;
+  color: $color-link;
+  background: #fff;
+  border: 1px solid $color-link;
+  a,
+  span {
+    &:hover,
+    &:active,
+    &:focus {
       color: $color-link;
-      border: 1px solid #FFF;
+      text-decoration: none;
+      border: 1px solid #fff;
     }
   }
   &.op-current {
     background: $color-link;
-    a, span {
-      color: #FFF;
+    a,
+    span {
+      color: #fff;
       @include cnt-link;
-      &:hover, &:active, &:focus {
+      &:hover,
+      &:active,
+      &:focus {
         border: 1px solid $color-link;
         cursor: default;
       }
     }
-
   }
 }
 
@@ -55,22 +60,22 @@ tag:
 
 */
 .b-pager {
+  margin-bottom: 0;
   padding: 8px;
   background: $color-bg-light-dark;
-  margin-bottom: 0;
   .w-pager {
     @include flx-row;
     @include flx-center;
     @include flx-middle;
-    margin-bottom: -8*2px;
+    margin-bottom: -8 * 2px;
     .c-pager {
-      margin-right: 8*2px;
+      margin-right: 8 * 2px;
       &:last-child {
         margin-right: 0;
       }
     }
   }
   .c-pager {
-    margin-bottom: 8*2px;
+    margin-bottom: 8 * 2px;
   }
 }

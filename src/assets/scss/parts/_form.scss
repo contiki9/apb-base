@@ -3,8 +3,8 @@
 */
 %ex-input {
   &.input {
-    margin-bottom: 0;
     width: 100%;
+    margin-bottom: 0;
   }
 }
 
@@ -98,10 +98,11 @@ tag:
 .b-form-input-block {
   margin-bottom: -8px;
   overflow: hidden;
-  &.op-select-item { //ラジオボタンやチェックボックス用
+  &.op-select-item {
+    //ラジオボタンやチェックボックス用
     label {
       display: inline-block;
-      margin-right: 8*3px;
+      margin-right: 8 * 3px;
       font-weight: normal;
       &:last-child {
         margin-right: 0;
@@ -114,7 +115,7 @@ tag:
     width: calc(100% + 8 * 3px);
     .l-column2 {
       @include flx-col-6;
-      padding-right: 8*3px;
+      padding-right: 8 * 3px;
     }
   }
   .w-error-message {
@@ -123,25 +124,24 @@ tag:
   label {
     &.op-error {
       input {
-        border: 1px solid $color-alert;
         background: lighten($color-alert, 40%);
-        transition: .5s all;
+        border: 1px solid $color-alert;
+        transition: 0.5s all;
       }
       .w-error-message {
         @include cnt-font-size(14);
         display: block;
-        color: $color-alert;
         margin-top: 8px;
-
+        color: $color-alert;
       }
     }
   }
   .name {
     @include cnt-font-size(14);
     display: block;
-    margin-bottom: .8px;
-    text-align: left;
+    margin-bottom: 0.8px;
     font-weight: bold;
+    text-align: left;
     &.op-name-light {
       color: $color-text-light;
     }
@@ -152,29 +152,33 @@ tag:
   textarea {
     @extend %ex-textarea;
   }
-  input, textarea {
+  input,
+  textarea {
     @extend %ex-input;
     margin-bottom: 0;
   }
 
-  input[type=checkbox], input[type=radio] {
+  input[type='checkbox'],
+  input[type='radio'] {
     display: none;
-    &:checked + .form-item-check, &:checked + .form-item-radio {
+    &:checked + .form-item-check,
+    &:checked + .form-item-radio {
       color: $color-link;
     }
-    &:checked + .form-item-check::after, &:checked + .form-item-radio::after {
-      content: "";
-      display: block;
+    &:checked + .form-item-check::after,
+    &:checked + .form-item-radio::after {
       position: absolute;
+      display: block;
+      content: '';
     }
     &:checked + .form-item-check::after {
       top: 0;
       left: 5px;
       width: 7px;
       height: 14px;
-      transform: rotate(40deg);
-      border-bottom: 3px solid $color-link;
       border-right: 3px solid $color-link;
+      border-bottom: 3px solid $color-link;
+      transform: rotate(40deg);
     }
     &:checked + .form-item-radio::after {
       top: 8px;
@@ -186,19 +190,20 @@ tag:
     }
   }
 
-  .form-item-check, .form-item-radio {
+  .form-item-check,
+  .form-item-radio {
     @include flx-row;
     @include flx-middle;
     position: relative;
     padding-left: 20px;
     &::before {
-      content: "";
-      display: block;
       position: absolute;
       left: 0;
+      display: block;
       width: 15px;
       height: 15px;
       border: 1px solid #999;
+      content: '';
     }
   }
   .form-item-check {
@@ -212,16 +217,11 @@ tag:
     }
   }
 
-  input[type=submit], input[type=reset], input[type=button] {
+  input[type='submit'],
+  input[type='reset'],
+  input[type='button'] {
     &.c-form-button {
       min-width: 200px;
     }
   }
 }
-
-
-
-
-
-
-

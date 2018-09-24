@@ -2,26 +2,25 @@
  * Layout
 */
 
-.c-container{
+.c-container {
   max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
-  padding-left: 8*3px;
-  padding-right: 8*3px;
-  @include mq(){
-    padding-left: 8px;
+  padding-right: 8 * 3px;
+  padding-left: 8 * 3px;
+  @include mq() {
     padding-right: 8px;
+    padding-left: 8px;
   }
-  &.op-slim,&.op-single{
+  &.op-slim,
+  &.op-single {
     max-width: 800px;
   }
 }
 
-.c-container-slim{
-  max-width:800px;
+.c-container-slim {
+  max-width: 800px;
   margin-right: auto;
   margin-left: auto;
   padding: 20px 30px;
 }
-
-

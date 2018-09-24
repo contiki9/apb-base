@@ -19,19 +19,19 @@ tag:
 ```
 */
 
-.c-footer-icon-list{
-  padding: 8*2px;
+.c-footer-icon-list {
+  padding: 8 * 2px;
   background: $color-bg-light-dark;
-  ul.icon-list{
+  ul.icon-list {
     @include flx-row;
     @include flx-middle;
     @include flx-center;
-    .list{
-      margin-right: 8*2px;
-      &:last-child{
+    .list {
+      margin-right: 8 * 2px;
+      &:last-child {
         margin-right: 0;
       }
-      a{
+      a {
         @include cnt-hover;
       }
     }
@@ -52,13 +52,13 @@ tag:
 ```
 */
 
-.b-footer-copy{
+.b-footer-copy {
   .w-copy {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    color: #fff;
     text-align: center;
     background: $color-text-light;
-    padding-top: .2em;
-    padding-bottom: .2em;
-    color: #FFF;
   }
   .copy {
     @include cnt-font-size(10);

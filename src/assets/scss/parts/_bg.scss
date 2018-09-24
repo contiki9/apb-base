@@ -22,12 +22,12 @@ tag:
   position: fixed;
   top: 0;
   left: 0;
-  z-index:100;
+  z-index: 100;
   width: 100%;
   .w-modal-bg-block {
     width: 100vw;
     height: 100vh;
-    background: rgba(#000, .6);
+    background: rgba(#000, 0.6);
   }
   .l-center-middle {
     @include flx-row;

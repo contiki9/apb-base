@@ -20,25 +20,26 @@ ul.c-text-notes
 
 .c-text-notes {
   @include cnt-font-size(12);
+  margin-bottom: 0;
   color: $color-text-light;
   line-height: 1.2;
-  margin-bottom: 0;
-  p, li {
+  p,
+  li {
     @include cnt-font-size(12);
     padding-left: 1em;
-    text-indent: -.6em;
+    text-indent: -0.6em;
   }
   a {
     display: inline-block;
-    margin-right: .3em;
-    margin-left: .3em;
+    margin-right: 0.3em;
+    margin-left: 0.3em;
     font-weight: bold;
   }
   p {
+    margin-top: 0.5em;
+    margin-bottom: 0;
     color: $color-text-light;
     line-height: 1.5;
-    margin-top: .5em;
-    margin-bottom: 0;
   }
   li {
     margin-bottom: 8px;

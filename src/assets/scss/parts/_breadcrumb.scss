@@ -16,34 +16,34 @@ tag:
       li ぺージ名
 ```
 */
-.c-breadcrumb{
+.c-breadcrumb {
   margin-bottom: 0;
   padding-left: 0;
   @include cnt-font-size(12);
 
-  .w-breadcrumb &{
+  .w-breadcrumb & {
     @extend .c-container;
-    padding-top: 8*2px;
-    padding-bottom: 8*2px;
+    padding-top: 8 * 2px;
+    padding-bottom: 8 * 2px;
   }
-  li{
-    display:inline;
-    list-style: none;
+  li {
+    display: inline;
     margin-bottom: 0;
+    list-style: none;
     //font-weight: bold;
-    &:after{
-      font-family: FontAwesome;
-      content: '\f105';
+    &:after {
       padding: 0 8px;
       color: silver;
+      font-family: FontAwesome;
+      content: '\f105';
     }
-    &:last-child:after{
+    &:last-child:after {
       content: '';
     }
-    a{
-      text-decoration: none;
+    a {
       color: $color-link;
-      &:hover{
+      text-decoration: none;
+      &:hover {
         text-decoration: underline;
       }
     }
@@ -84,62 +84,63 @@ ol.b-breadcrumb-multi-steps
 ```
 */
 
-.b-breadcrumb-multi-steps{
+.b-breadcrumb-multi-steps {
   @include flx-row;
   @include flx-center;
   @include cnt-font-size(14);
-  > li{
-    padding-left: 8*2px;
+  > li {
     margin-bottom: 0;
-    &:first-child{
+    padding-left: 8 * 2px;
+    &:first-child {
       padding-left: 0;
     }
-    &.op-visited, &.op-current{
-      .step{
+    &.op-visited,
+    &.op-current {
+      .step {
         background: $color-main;
       }
     }
-    &.op-visited{
-      .stage{
+    &.op-visited {
+      .stage {
         color: $color-text;
       }
     }
-    &.op-current{
-      .stage{
+    &.op-current {
+      .stage {
         color: $color-main;
       }
     }
-    &:last-child{
-      .w-multi-steps-wrap{
-        &:after{
-          content: '';
+    &:last-child {
+      .w-multi-steps-wrap {
+        &:after {
           padding-left: 0;
+          content: '';
         }
       }
     }
   }
-  .w-multi-steps-wrap{
+  .w-multi-steps-wrap {
     @include flx-row;
     @include flx-middle;
-    &:after{
+    &:after {
       @extend %ex-font-aws;
-      content: '\f101';
-      padding-left: 8*2px;
       margin-right: 0;
-      @include cnt-font-size(20);
+      padding-left: 8 * 2px;
       color: $color-text-light;
+      content: '\f101';
+      @include cnt-font-size(20);
     }
   }
-  span.step{
+  span.step {
     @include cnt-circle;
-    background: $color-text-light;
-    color: #FFF;
-    padding:3px;
-    height:24px;
-    width:24px;
     display: inline-block;
+    width: 24px;
+    height: 24px;
+    padding: 3px;
+    color: #fff;
+    background: $color-text-light;
   }
-  span.stage{
+  span.stage {
     display: block;
     margin-top: 8px;
     color: $color-text-light;

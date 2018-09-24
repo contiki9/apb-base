@@ -28,15 +28,14 @@ ul.c-list-flex-btn.op-center
 ```
 */
 
-
 ul.c-list-flex-btn {
   @include flx-row;
-  &.op-center{
+  &.op-center {
     @include flx-center;
   }
   margin-bottom: -8px;
   > li {
-    margin-right: 8*2px;
+    margin-right: 8 * 2px;
     margin-bottom: 8px;
     &:last-child {
       margin-right: 0;
@@ -70,13 +69,13 @@ ul.c-list-icons {
   margin-bottom: 0;
   @include flx-row;
   @include flx-middle;
-  &.op-center{
+  &.op-center {
     @include flx-center;
   }
   > li.list {
-    margin-bottom: 0;
     margin-right: 8px;
-    &:last-child{
+    margin-bottom: 0;
+    &:last-child {
       margin-right: 0;
     }
   }

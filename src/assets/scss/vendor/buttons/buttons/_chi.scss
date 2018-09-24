@@ -6,13 +6,11 @@
   color: $color;
   border-color: $color;
 
-
   &:hover {
     color: $text-color;
   }
 
   &:active {
-
   }
 
   &:before {
@@ -22,18 +20,16 @@
   &:after {
     border-color: $color;
   }
-
 }
 
 .btn {
   $offset: 6px;
   @include btn-common($chi-v-spacing, $chi-h-spacing, $chi-border-radius, $chi-border-width);
   position: relative;
-  transition: color 0.4s, transform 0.4s $ease-in-out-cubic;
   box-sizing: border-box;
+  transition: color 0.4s, transform 0.4s $ease-in-out-cubic;
 
   &:hover {
-
     &:before {
       transform: scaleY(1);
     }
@@ -44,29 +40,30 @@
   }
 
   &:active {
-    transition-duration: 0.05s;
     transform: translate($offset, $offset);
+    transition-duration: 0.05s;
 
     &:after {
-      transition-duration: 0.05s;
       transform: translate(0, 0);
+      transition-duration: 0.05s;
     }
   }
 
-  &:before, &:after {
-    content: '';
+  &:before,
+  &:after {
     position: absolute;
-    display: block;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
     z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
   }
 
   &:before {
-    transform-origin: top center;
     transform: scaleY(0);
+    transform-origin: top center;
     transition: transform $ease-in-out-expo 0.4s;
   }
 
@@ -77,15 +74,30 @@
     border-style: solid;
     transition: transform $ease-in-out-cubic 0.4s;
   }
-
 }
 
-.btn-primary { @include btn-chi($color-primary); }
-.btn-secondary { @include btn-chi($color-secondary); }
-.btn-tertiary { @include btn-chi($color-tertiary); }
-.btn-tetrary { @include btn-chi($color-tetrary); }
+.btn-primary {
+  @include btn-chi($color-primary);
+}
+.btn-secondary {
+  @include btn-chi($color-secondary);
+}
+.btn-tertiary {
+  @include btn-chi($color-tertiary);
+}
+.btn-tetrary {
+  @include btn-chi($color-tetrary);
+}
 
-.btn-black { @include btn-chi($gray-darker); }
-.btn-dark { @include btn-chi($gray-dark); }
-.btn-gray { @include btn-chi($gray); }
-.btn-light { @include btn-chi($gray-lighter, darken($gray-lighter, 45%)); }
+.btn-black {
+  @include btn-chi($gray-darker);
+}
+.btn-dark {
+  @include btn-chi($gray-dark);
+}
+.btn-gray {
+  @include btn-chi($gray);
+}
+.btn-light {
+  @include btn-chi($gray-lighter, darken($gray-lighter, 45%));
+}

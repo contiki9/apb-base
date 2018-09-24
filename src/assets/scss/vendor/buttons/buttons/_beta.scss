@@ -3,21 +3,21 @@
 
 // Mixin
 @mixin btn-beta($color, $text-color: check-background($color)) {
+  color: $text-color;
+  text-shadow: 0 1px 1px darken($color, 20%);
   background-color: $color;
   background-image: linear-gradient(0deg, darken($color, 10%), lighten($color, 10%));
-  color: $text-color;
   border-color: darken($color, 10%);
-  text-shadow: 0 1px 1px darken($color, 20%);
 
   &:hover {
     background-image: linear-gradient(0deg, darken($color, 10%), $color);
   }
 
   &:active {
-    background-color: darken($color, 5%);
-    background-image: linear-gradient(180deg, darken($color, 12%), darken($color, 10%));
     color: darken($color, 25%);
     text-shadow: 0 1px 1px lighten($color, 10%);
+    background-color: darken($color, 5%);
+    background-image: linear-gradient(180deg, darken($color, 12%), darken($color, 10%));
     transition: 0s;
   }
 
@@ -31,13 +31,28 @@
   border-style: solid;
 }
 
+.btn-primary {
+  @include btn-beta($color-primary);
+}
+.btn-secondary {
+  @include btn-beta($color-secondary);
+}
+.btn-tertiary {
+  @include btn-beta($color-tertiary);
+}
+.btn-tetrary {
+  @include btn-beta($color-tetrary);
+}
 
-.btn-primary { @include btn-beta($color-primary); }
-.btn-secondary { @include btn-beta($color-secondary); }
-.btn-tertiary { @include btn-beta($color-tertiary); }
-.btn-tetrary { @include btn-beta($color-tetrary); }
-
-.btn-black { @include btn-beta($gray-darker); }
-.btn-dark { @include btn-beta($gray-dark); }
-.btn-gray { @include btn-beta($gray); }
-.btn-light { @include btn-beta($gray-lighter); }
+.btn-black {
+  @include btn-beta($gray-darker);
+}
+.btn-dark {
+  @include btn-beta($gray-dark);
+}
+.btn-gray {
+  @include btn-beta($gray);
+}
+.btn-light {
+  @include btn-beta($gray-lighter);
+}

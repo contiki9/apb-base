@@ -3,10 +3,9 @@
 
 // Miomicronn
 @mixin btn-omicron($color, $text-color: rgba(darken($color, 25%), 0.8)) {
-
-  background-image: radial-gradient(ellipse at bottom center, lighten(saturate($color, 30%), 5%), $color);
-  background-color: $color;
   color: $text-color;
+  background-color: $color;
+  background-image: radial-gradient(ellipse at bottom center, lighten(saturate($color, 30%), 5%), $color);
   border-color: darken($color, 10%);
 
   &:hover {
@@ -20,32 +19,49 @@
 
 .btn {
   @include btn-common($omicron-v-spacing, $omicron-h-spacing, $omicron-border-radius, $omicron-border-width);
+
+  box-shadow: 0 0 1em 0 rgba(255, 255, 255, 0.1) inset,
+    // large inner shadow
+      02.2em0 -1em rgba(255, 255, 255, 0.2) inset,
+    //
+      01.5em1em -1em rgba(255, 255, 255, 0.3) inset,
+    //
+      004px 1px rgba(0, 0, 0, 0.2) inset;
   transition: box-shadow 0.15s, background-color 0.15s;
 
-  box-shadow:
-    0 0 1em 0 rgba(255,255,255,0.1) inset, // large inner shadow
-    0 2.2em 0 -1em rgba(255,255,255,0.2) inset, // 
-    0 1.5em 1em -1em rgba(255,255,255,0.3) inset, // 
-    0 0 4px 1px rgba(0,0,0,0.2) inset
-    ;
-
   &:active {
-
-    box-shadow:
-      0 0 1em 0 rgba(0, 0, 0, 0.1) inset, // large inner shadow
-      0 2.2em 1em -1em rgba(255,255,255,0.05) inset, // 
-      0 1.5em 1em -1em rgba(255,255,255,0.0) inset, //  
-      0 0 4px 1px rgba(0,0,0,0.2) inset
-      ;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.1) inset,
+      // large inner shadow
+        02.2em1em -1em rgba(255, 255, 255, 0.05) inset,
+      //
+        01.5em1em -1em rgba(255, 255, 255, 0) inset,
+      //
+        004px 1px rgba(0, 0, 0, 0.2) inset;
   }
 }
 
-.btn-primary { @include btn-omicron($color-primary); }
-.btn-secondary { @include btn-omicron($color-secondary); }
-.btn-tertiary { @include btn-omicron($color-tertiary); }
-.btn-tetrary { @include btn-omicron($color-tetrary); }
+.btn-primary {
+  @include btn-omicron($color-primary);
+}
+.btn-secondary {
+  @include btn-omicron($color-secondary);
+}
+.btn-tertiary {
+  @include btn-omicron($color-tertiary);
+}
+.btn-tetrary {
+  @include btn-omicron($color-tetrary);
+}
 
-.btn-black { @include btn-omicron($gray-darker); }
-.btn-dark { @include btn-omicron($gray-dark); }
-.btn-gray { @include btn-omicron($gray); }
-.btn-light { @include btn-omicron($gray-lighter, darken($gray-lighter, 45%)); }
+.btn-black {
+  @include btn-omicron($gray-darker);
+}
+.btn-dark {
+  @include btn-omicron($gray-dark);
+}
+.btn-gray {
+  @include btn-omicron($gray);
+}
+.btn-light {
+  @include btn-omicron($gray-lighter, darken($gray-lighter, 45%));
+}

@@ -2,7 +2,7 @@
  * responsive Style
 */
 
-%ex-responsive-iframe{
+%ex-responsive-iframe {
   position: relative;
   width: 100%;
   iframe {
@@ -32,7 +32,6 @@ tag:
 ```
 */
 
-
 .c-responsive-iframe-rwd-4-3 {
   @extend %ex-responsive-iframe;
   padding: 75% 0 0 0;
@@ -43,33 +42,33 @@ tag:
   padding: 56.25% 0 0 0;
 }
 
-.c-responsive-pc-hide{
-  @include mq(pc){
+.c-responsive-pc-hide {
+  @include mq(pc) {
     display: none;
   }
 }
-.c-responsive-sp-hide{
-  @include mq(){
+.c-responsive-sp-hide {
+  @include mq() {
     display: none;
   }
 }
 
-.c-responsive-pc-show{
-  @include mq(pc){
+.c-responsive-pc-show {
+  @include mq(pc) {
     display: block;
   }
-  &.op-inline{
-    @include mq(pc){
+  &.op-inline {
+    @include mq(pc) {
       display: inline;
     }
   }
 }
-.c-responsive-sp-show{
-  @include mq(){
+.c-responsive-sp-show {
+  @include mq() {
     display: block;
   }
-  &.op-inline{
-    @include mq(){
+  &.op-inline {
+    @include mq() {
       display: inline;
     }
   }

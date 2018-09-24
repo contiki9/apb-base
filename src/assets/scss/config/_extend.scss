@@ -1,13 +1,11 @@
-﻿
-
 /* module
    ---------------------------------------------------------- */
-%ex-pos-center{
+%ex-pos-center {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   margin: auto;
 }
 %ex-clearfix {
@@ -15,46 +13,48 @@
   *zoom: 1;
   &:after {
     display: block;
-    visibility: hidden;
-    font-size: 0;
-    height: 0;
     clear: both;
-    content: "";
+    height: 0;
+    font-size: 0;
+    visibility: hidden;
+    content: '';
   }
 }
-%ex-ellipsis {//改行させない
+%ex-ellipsis {
+  //改行させない
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-%ex-break-word{ //改行させる
-  word-break : break-all;
-  word-wrap: break-word;
-  white-space: normal;
+%ex-break-word {
   display: block;
+  white-space: normal;
+  word-wrap: break-word;
+  //改行させる
+  word-break: break-all;
 }
-%ex-notes{
+%ex-notes {
   @include cnt-font-size($font-xsml);
   line-height: 1.3em;
-  > li{
-    text-indent: 1rem;
+  > li {
     padding-left: -1rem;
+    text-indent: 1rem;
   }
 }
 
 %ex-hover:hover,
 %ex-hover:hover img {
-  filter:alpha(opacity=80);
   -moz-opacity: 0.8;
   opacity: 0.8;
+  filter: alpha(opacity=80);
   transition: 0.5s;
 }
 
-@include mq(){
-  .ex-sp-hidden{
+@include mq() {
+  .ex-sp-hidden {
     display: none;
   }
-  .ex-sp-visible{
+  .ex-sp-visible {
     display: block;
   }
 }
@@ -69,94 +69,98 @@
 }
 
 //Base Font
-%ex-font-family{
-   font-family: 'Robot','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3','Noto Sans Japanese', sans-serif;
+%ex-font-family {
+  font-family: 'Robot', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Noto Sans Japanese', sans-serif;
 }
-%ex-font-aws{
-   font-family: FontAwesome;
-   display: inline-block;
-   margin-right:.5em;
+%ex-font-aws {
+  display: inline-block;
+  margin-right: 0.5em;
+  font-family: FontAwesome;
 }
 
 //コンテンツの余白
-%ex-side-space{
-  padding-left: 8px;
+%ex-side-space {
   padding-right: 8px;
+  padding-left: 8px;
 }
 %ex-height-space {
-  padding-top:8*2px;
-  padding-bottom:8*2px;
+  padding-top: 8 * 2px;
+  padding-bottom: 8 * 2px;
 }
 
 %ex-transition-base {
   transition: all 0.6s ease-in-out;
 }
-%ex-p-bottom{
-  p{
-    &:last-child{
+%ex-p-bottom {
+  p {
+    &:last-child {
       margin-bottom: 0;
     }
   }
 }
 
-
 /* FONTS
    ---------------------------------------------------------- */
-%ex-font-xxlrg{
-  @include cnt-font-size($font-xlrg*1.5);
+%ex-font-xxlrg {
+  @include cnt-font-size($font-xlrg * 1.5);
 }
-%ex-font-xlrg{
+%ex-font-xlrg {
   @include cnt-font-size($font-xlrg);
 }
-%ex-font-lrg{
+%ex-font-lrg {
   @include cnt-font-size($font-lrg);
 }
-%ex-font-nml{
+%ex-font-nml {
   @include cnt-font-size($font-nml);
 }
-%ex-font-sml{
+%ex-font-sml {
   @include cnt-font-size($font-sml);
 }
-%ex-font-xsml{
+%ex-font-xsml {
   @include cnt-font-size($font-xsml);
 }
-%ex-font-xxsml{
-  @include cnt-font-size($font-xsml*.5);
+%ex-font-xxsml {
+  @include cnt-font-size($font-xsml * 0.5);
 }
-%ex-web-font{font-family: 'Inika', serif;}
+%ex-web-font {
+  font-family: 'Inika', serif;
+}
 
 /* PARTS
    ---------------------------------------------------------- */
-%ex-textarea{
-  border-color: $color-border;
+%ex-textarea {
   min-height: 110px;
   margin-bottom: 0;
+  border-color: $color-border;
 }
-%ex-button-push{
-  box-shadow: 0 4px 0 darken($color-link,20%);
-  transition: .2s;
+%ex-button-push {
+  box-shadow: 0 4px 0 darken($color-link, 20%);
+  transition: 0.2s;
 }
-%ex-button-push-active{
-  box-shadow: 0 0 0 darken($color-link,20%);
+%ex-button-push-active {
+  box-shadow: 0 0 0 darken($color-link, 20%);
   transform: translateY(4px);
-  opacity:1;
+  opacity: 1;
 }
-%ex-button-status{
-  &.op-active{
+%ex-button-status {
+  &.op-active {
     @extend %ex-button-push-active;
-    opacity:.5;
-    border: 1px solid $color-text;
     color: $color-text;
-    &:hover,&:active,&:focus{
+    border: 1px solid $color-text;
+    opacity: 0.5;
+    &:hover,
+    &:active,
+    &:focus {
       opacity: 1;
     }
   }
-  &.op-disable{
-    &:hover,&:active,&:focus {
+  &.op-disable {
+    &:hover,
+    &:active,
+    &:focus {
       @extend .c-button-push-line.op-active;
-      opacity:.5;
       cursor: default;
+      opacity: 0.5;
     }
   }
 }
-

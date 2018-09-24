@@ -41,9 +41,9 @@ tag:
 
 .c-section-title-border-bottom {
   @include cnt-font-size(30);
-  text-align: center;
-  color: $color-main;
   padding-bottom: 15px;
+  color: $color-main;
+  text-align: center;
   border-bottom: 2px solid $color-main;
 }
 
@@ -51,10 +51,10 @@ tag:
   @include flx-row;
   @include flx-middle;
   .icon {
-    margin-right: .5em;
-    @include mq(){
-      img{
-        width:30px;
+    margin-right: 0.5em;
+    @include mq() {
+      img {
+        width: 30px;
       }
     }
   }
@@ -62,7 +62,7 @@ tag:
     @include flx-col;
     @include cnt-font-size(30);
     color: $color-main;
-    @include mq(){
+    @include mq() {
       @include cnt-font-size(25);
     }
   }
@@ -70,8 +70,8 @@ tag:
 
 .c-section-title-icon-top {
   .icon {
-    text-align: center;
     margin-bottom: 10px;
+    text-align: center;
   }
   .title {
     @include cnt-font-size(30);
@@ -84,9 +84,9 @@ tag:
   padding-top: 30px;
   padding-bottom: 30px;
   .w-section-head-block {
-    margin-bottom: 8*4px;
-    @include mq(){
-      margin-bottom: 8*2px;
+    margin-bottom: 8 * 4px;
+    @include mq() {
+      margin-bottom: 8 * 2px;
     }
   }
   .w-section-content-block {
@@ -98,7 +98,7 @@ tag:
     }
   }
   .w-bottom-button {
-    margin-top: 8*4px;
+    margin-top: 8 * 4px;
     text-align: center;
   }
 }

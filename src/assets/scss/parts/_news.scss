@@ -23,33 +23,32 @@ ul.c-news
 ```
 */
 
-%ex-news{
+%ex-news {
   margin-bottom: 0;
-  li{
+  li {
     @include cnt-font-size(14);
-    border-bottom:1px solid $color-border;
-    padding-bottom: 8*2px;
-    margin-bottom: 8*2px;
-    &:last-child{
+    margin-bottom: 8 * 2px;
+    padding-bottom: 8 * 2px;
+    border-bottom: 1px solid $color-border;
+    &:last-child {
       margin-bottom: 0;
     }
-    a{
+    a {
       @include cnt-link($color-link);
       @include cnt-hover;
     }
   }
 }
 
-.c-news{
+.c-news {
   @extend %ex-news;
-  li{
+  li {
     @include flx-row;
   }
-  .day{
-    margin-right: .5em;
+  .day {
+    margin-right: 0.5em;
   }
-  .text{
-
+  .text {
   }
 }
 
@@ -68,23 +67,17 @@ ul.c-news-line
 ```
 */
 
-.c-news-line{
+.c-news-line {
   @extend %ex-news;
-  li{
-
+  li {
   }
-  .day{
-
+  .day {
   }
-  .text{
-    a{
+  .text {
+    a {
       @include cnt-font-size(16);
       display: block;
       line-height: 1.5;
     }
   }
 }
-
-
-
-

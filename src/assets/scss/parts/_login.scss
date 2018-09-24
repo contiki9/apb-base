@@ -37,50 +37,48 @@ tag:
 */
 .b-login-box {
   @include cnt-radius(8px);
-  border: 2px solid $color-border;
-  background: #FFF;
-  padding-top: 8*3px;
   min-width: 450px;
+  padding-top: 8 * 3px;
+  background: #fff;
+  border: 2px solid $color-border;
   > .w-head-block {
-    margin-bottom: 8*3px;
+    margin-bottom: 8 * 3px;
     text-align: center;
     .logo-block {
-      margin-bottom: 8*3px;
+      margin-bottom: 8 * 3px;
     }
-    .name-block{
+    .name-block {
       @include cnt-font-size(14);
       color: $color-text-light;
     }
   }
   > .w-content-block {
-    margin-bottom: 8*4px;
-    padding-left: 8*10px;
-    padding-right: 8*10px;
-    .b-form-input-block{
-      margin-bottom: 8*2px;
-      &:last-child{
+    margin-bottom: 8 * 4px;
+    padding-right: 8 * 10px;
+    padding-left: 8 * 10px;
+    .b-form-input-block {
+      margin-bottom: 8 * 2px;
+      &:last-child {
         margin-bottom: 0;
       }
     }
   }
   .w-footer {
     .link-block {
-      border-top: 1px solid $color-border;
       padding-top: 10px;
       padding-bottom: 10px;
       text-align: center;
+      border-top: 1px solid $color-border;
       > a {
         @include cnt-font-size(12);
         display: inline-block;
+        margin-right: 8 * 2px;
         color: $color-link;
         text-decoration: underline;
-        margin-right: 8*2px;
-        &:last-child{
+        &:last-child {
           margin-right: 0;
         }
       }
     }
   }
 }
-
-
