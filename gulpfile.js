@@ -29,6 +29,10 @@ var aigis = require('gulp-aigis');
 //htmlCheck
 var htmlhint = require("gulp-htmlhint");
 
+//lint
+var gulpStylelint = require('gulp-stylelint');
+var myStylelintFormatter = require('stylelint-checkstyle-formatter');
+
 // Utility
 var notify = require("gulp-notify");
 var watch = require("gulp-watch");
@@ -130,7 +134,6 @@ gulp.task('sass', function () {
             autoprefixer: {"browsers": AUTOPREFIXER_BROWSERS},
             minifier: true,
         }))
-        .pipe(prettierStylelint())
         .pipe(gulp.dest(release.css));
 });
 
@@ -341,6 +344,23 @@ gulp.task('check-html', function () {
         .pipe(htmlhint.reporter());
 });
 
+
+
+gulp.task('lint-css', function lintCssTask() {
+    return gulp
+        .src(develop.assets + 'scss/**/*.scss')
+        .pipe(gulpStylelint({
+            failAfterError: true,
+            fix: true,
+            reporters: [
+                {formatter: 'verbose', console: true},
+                {formatter: 'json', save: 'report.json'},
+                //{formatter: myStylelintFormatter, save: 'my-custom-report.txt'}
+            ],
+        }))
+        .pipe(gulp.dest(develop.assets + 'scss'));
+});
+
 ///////////////////////////////////////////////
 //その他
 ////////////////////////////////////////////////
@@ -372,7 +392,8 @@ gulp.task('dist', function (callback) {
         'copy',
         ['pug', 'sass', 'image-min', 'uglify'],
         'check-html',
-        'bs-reload',
+        'lint-css',
+        //'bs-reload',
         callback
     );
 });

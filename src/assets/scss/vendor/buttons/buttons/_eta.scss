@@ -3,8 +3,8 @@
 
 // Mixin
 @mixin btn-eta($color, $text-color: check-background($color)) {
-  background-color: $color;
   color: $text-color;
+  background-color: $color;
   border-color: darken($color, 8%);
   border-bottom-color: darken($color, 16%);
 
@@ -25,6 +25,9 @@
   }
 
   &:active {
+    color: darken($color, 18%);
+
+    background-color: darken($color, 4%);
 
     box-shadow:
       0 -1px 1px -1px rgba(255,255,255,0.4) inset, // top light accent
@@ -37,9 +40,6 @@
       -7px 7px 8px -4px rgba(0,0,0,0.05), // bottom left drop shadow
       0 -4px 12px 2px rgba(lighten($color, 5%), 0.1) // outer glow
       ;
-
-    background-color: darken($color, 4%);
-    color: darken($color, 18%);
   }
 }
 
@@ -51,8 +51,8 @@
   transition: box-shadow 0.4s $ease-out-quint;
 
   &:active {
-  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-  transition-duration: 0.2s;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    transition-duration: 0.2s;
 
     &:after {
       background-image: linear-gradient(-90deg, rgba(255,255,255,0.02) 20%, rgba(255,255,255,0.0));
@@ -60,16 +60,16 @@
   }
 
   &:after {
-    content: '';
-    display: block;
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    display: block;
     width: 100%;
+    height: 100%;
+    background-image: linear-gradient(-90deg, rgba(255,255,255,0.12) 20%, rgba(255,255,255,0.0));
     transform: rotate(-19deg) translateY(-1.3em) scale(1.05);
     filter: blur(1px);
-    background-image: linear-gradient(-90deg, rgba(255,255,255,0.12) 20%, rgba(255,255,255,0.0));
+    content: '';
   }
 }
 

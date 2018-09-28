@@ -113,15 +113,14 @@ tag:
     text-align: center;
   }
   .thumbnail {
+    margin-top: 8 * 2px;
     margin-bottom: 8 * 2px;
-    margintop: 8 * 2px;
     img {
       width: 100%;
     }
   }
   .text {
     line-height: 1.5;
-    @extend %ex-p-bottom;
   }
 }
 
@@ -148,6 +147,7 @@ tag:
         }
       }
     }
+    
   }
 }
 

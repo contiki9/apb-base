@@ -7,8 +7,7 @@
     background-color: darken($gray-light, 5%);
     background-image: linear-gradient(0deg, $gray-light, darken($gray-lighter, 5%));
 
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 4px rgba(0, 0, 0, 0.1), 0 2px 7px rgba(0, 0, 0, 0.2),
-      0 2px 4px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),0 1px 4px rgba(0, 0, 0, 0.1),0 2px 7px rgba(0, 0, 0, 0.2),0 2px 4px rgba(0, 0, 0, 0.1) inset;
   }
 
   &:before {
